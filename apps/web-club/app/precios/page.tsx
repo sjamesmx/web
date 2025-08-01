@@ -590,6 +590,6 @@ export default function PreciosPage() {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
