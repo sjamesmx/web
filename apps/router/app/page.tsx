@@ -70,15 +70,18 @@ export default function RouterPage() {
         {/* Cards Container */}
         <div className="grid md:grid-cols-2 gap-8">
           {/* Players Card */}
-          <button
-            onClick={() => handleSelection('player')}
-            className={`group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-green-500/50 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full text-left ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} 
+          <div
+            className={`group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-green-500/50 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} 
             style={{transitionDelay: '200ms'}}>
             {/* Icon */}
-            <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
+            <div className="w-20 h-20 bg-gradient-to-br from-lime-500 to-lime-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
+              <Image 
+                src="/Padelyzer-Isotipo-Blanco.png" 
+                alt="Padelyzer" 
+                width={50}
+                height={50}
+                className="w-12 h-12"
+              />
             </div>
 
             <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">
@@ -116,26 +119,34 @@ export default function RouterPage() {
               </li>
             </ul>
 
-            <div className="flex items-center justify-between">
-              <span className="text-green-400 font-semibold text-lg group-hover:underline">
-                Ir a la app →
-              </span>
+            <div className="flex-grow"></div>
+
+            <div className="flex items-center justify-between mt-6">
+              <button
+                onClick={() => handleSelection('player')}
+                className="bg-lime-500 hover:bg-lime-600 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-lime-500/50"
+              >
+                Ir a la app
+              </button>
               <div className="text-sm text-gray-400">
                 +50,000 jugadores activos
               </div>
             </div>
-          </button>
+          </div>
 
           {/* Clubs Card */}
-          <button
-            onClick={() => handleSelection('club')}
-            className={`group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full text-left ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} 
+          <div
+            className={`group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} 
             style={{transitionDelay: '400ms'}}>
             {/* Icon */}
             <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-              </svg>
+              <Image 
+                src="/Padelyzer-Isotipo-Blanco.png" 
+                alt="Padelyzer" 
+                width={50}
+                height={50}
+                className="w-12 h-12"
+              />
             </div>
 
             <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
@@ -173,15 +184,20 @@ export default function RouterPage() {
               </li>
             </ul>
 
-            <div className="flex items-center justify-between">
-              <span className="text-blue-400 font-semibold text-lg group-hover:underline">
-                Ver soluciones →
-              </span>
+            <div className="flex-grow"></div>
+
+            <div className="flex items-center justify-between mt-6">
+              <button
+                onClick={() => handleSelection('club')}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/50"
+              >
+                Ver soluciones
+              </button>
               <div className="text-sm text-gray-400">
                 Garantía ROI 25%
               </div>
             </div>
-          </button>
+          </div>
         </div>
 
         {/* Footer */}
