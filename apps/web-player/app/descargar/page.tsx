@@ -40,47 +40,58 @@ export default function DescargarPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - Beta Exclusivo */}
       <section className="pt-24 pb-16 bg-player-bg-primary">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-player-accent/20 text-player-accent px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <span>📱</span>
-              <span>DESCARGA GRATUITA</span>
+            <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-8 animate-pulse">
+              🚀 ACCESO BETA EXCLUSIVO - SOLO 27 LUGARES DISPONIBLES
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Descarga <span className="text-player-accent">Padelyzer</span>
+              Solicita acceso al <span className="text-player-accent">beta exclusivo</span>
             </h1>
-            <p className="text-xl text-player-text-secondary mb-12 max-w-2xl mx-auto">
-              La app gratuita que revoluciona tu pádel. Disponible para iOS y Android.
+            <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
+              Únete a los <strong className="text-white">73 beta testers</strong> que ya tienen superpoderes en la cancha. 
+              <strong className="text-player-accent">Solo quedan 27 lugares</strong> para el acceso gratuito.
             </p>
+            
+            {/* Beta urgency indicator */}
+            <div className="bg-player-bg-secondary border-2 border-player-accent rounded-xl p-6 mb-12 max-w-lg mx-auto">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-left">
+                  <h3 className="text-white font-bold text-lg">🎯 Acceso Beta Limitado</h3>
+                  <p className="text-player-text-secondary text-sm">Solo primeros 100 jugadores</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-5xl font-bold text-player-accent">27</p>
+                  <p className="text-player-text-secondary text-sm">lugares restantes</p>
+                </div>
+              </div>
+              
+              <div className="bg-player-bg-primary rounded-full h-4 overflow-hidden mb-2">
+                <div className="bg-gradient-to-r from-red-500 to-player-accent h-full rounded-full transition-all duration-1000" style="width: 73%"></div>
+              </div>
+              <div className="flex justify-between text-xs text-player-text-secondary">
+                <span>73 confirmados</span>
+                <span>27 disponibles</span>
+              </div>
+            </div>
 
-            {/* Download buttons */}
+            {/* Beta Access buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              {/* App Store */}
-              <a 
-                href="#"
-                className="group bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 flex items-center gap-4 min-w-[200px]"
-              >
-                <div className="text-3xl">🍎</div>
-                <div className="text-left">
-                  <div className="text-xs opacity-80">Descargar en</div>
-                  <div className="text-lg font-bold">App Store</div>
-                </div>
-              </a>
-
-              {/* Google Play */}
-              <a 
-                href="#"
-                className="group bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 flex items-center gap-4 min-w-[200px]"
-              >
-                <div className="text-3xl">🤖</div>
-                <div className="text-left">
-                  <div className="text-xs opacity-80">Conseguir en</div>
-                  <div className="text-lg font-bold">Google Play</div>
-                </div>
-              </a>
+              {/* Beta Access CTA */}
+              <PlayerButton size="lg" className="text-lg px-8 py-4 relative animate-pulse min-w-[300px]">
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                  BETA
+                </span>
+                🚀 Solicitar acceso beta AHORA
+              </PlayerButton>
+              
+              {/* Demo button */}
+              <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4 min-w-[250px]">
+                ▶️ Ver demo del beta
+              </PlayerButton>
             </div>
 
             {/* QR Codes */}
@@ -103,19 +114,19 @@ export default function DescargarPage() {
               </div>
             </div>
 
-            {/* Stats */}
+            {/* Beta Stats */}
             <div className="flex flex-wrap justify-center gap-8 text-sm text-player-text-secondary">
               <div className="text-center">
-                <div className="text-2xl font-bold text-player-accent mb-1">4.8⭐</div>
-                <div>Rating promedio</div>
+                <div className="text-2xl font-bold text-player-accent mb-1">73</div>
+                <div>Beta testers activos</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-player-accent mb-1">100K+</div>
-                <div>Descargas</div>
+                <div className="text-2xl font-bold text-player-accent mb-1">89%</div>
+                <div>Mejoran en 2 semanas</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-player-accent mb-1">60K+</div>
-                <div>Usuarios activos</div>
+                <div className="text-2xl font-bold text-player-accent mb-1">27</div>
+                <div>Lugares disponibles</div>
               </div>
             </div>
           </div>
@@ -362,44 +373,34 @@ export default function DescargarPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Final CTA - Beta Focus */}
       <section className="py-20 bg-gradient-to-b from-player-bg-primary to-player-bg-secondary">
         <div className="container text-center">
+          <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
+            ⚡ ÚLTIMAS HORAS - BETA LIMITADO
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            ¿Listo para <span className="text-player-accent">revolucionar</span> tu pádel?
+            ¿Listo para tener los <span className="text-player-accent">superpoderes</span> antes que nadie?
           </h2>
           <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
-            Descarga Padelyzer gratis y comienza a analizar tu juego hoy mismo.
+            Solo 27 lugares restantes para acceso beta <strong className="text-white">completamente gratuito</strong>. 
+            Una vez llenos, lista de espera hasta 2025.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-            {/* App Store */}
-            <a 
-              href="#"
-              className="group bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 flex items-center gap-4 min-w-[200px]"
-            >
-              <div className="text-3xl">🍎</div>
-              <div className="text-left">
-                <div className="text-xs opacity-80">Descargar en</div>
-                <div className="text-lg font-bold">App Store</div>
-              </div>
-            </a>
-
-            {/* Google Play */}
-            <a 
-              href="#"
-              className="group bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 flex items-center gap-4 min-w-[200px]"
-            >
-              <div className="text-3xl">🤖</div>
-              <div className="text-left">
-                <div className="text-xs opacity-80">Conseguir en</div>
-                <div className="text-lg font-bold">Google Play</div>
-              </div>
-            </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <PlayerButton size="lg" className="text-lg px-8 py-4 relative animate-pulse">
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                BETA
+              </span>
+              🚀 Solicitar acceso beta AHORA
+            </PlayerButton>
+            <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
+              ▶️ Ver demo del beta
+            </PlayerButton>
           </div>
 
           <p className="text-player-text-secondary text-sm">
-            Gratis para descargar • 14 días de premium gratis • Sin tarjeta de crédito
+            Acceso inmediato • Gratis durante beta • Feedback directo con creadores
           </p>
         </div>
       </section>

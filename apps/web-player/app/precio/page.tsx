@@ -40,21 +40,43 @@ export default function PrecioPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - Beta Exclusivo */}
       <section className="min-h-screen bg-player-bg-primary pt-16 flex items-center">
         <div className="container py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-player-accent/20 text-player-accent px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <span>💰</span>
-              <span>PRICING SIMPLE Y TRANSPARENTE</span>
+            <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-8 animate-pulse">
+              🚀 BETA EXCLUSIVO - ACCESO GRATIS PARA PRIMEROS 100
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Un precio. <span className="text-player-accent">Todo incluido.</span>
+              Acceso <span className="text-player-accent">gratuito</span> durante el beta.
             </h1>
-            <p className="text-xl text-player-text-secondary mb-12 max-w-2xl mx-auto">
-              Sin sorpresas. Sin planes confusos. Sin letras pequeñas. Solo resultados garantizados.
+            <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
+              Los primeros 100 jugadores obtienen acceso completo <strong className="text-white">sin costo</strong> mientras estamos en beta. 
+              Solo quedan <span className="text-player-accent font-bold">27 lugares</span>.
             </p>
+            
+            {/* Beta urgency box */}
+            <div className="bg-player-bg-secondary border-2 border-player-accent rounded-xl p-6 mb-12 max-w-lg mx-auto">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-left">
+                  <h3 className="text-white font-bold text-lg">🎯 Acceso Beta Gratuito</h3>
+                  <p className="text-player-text-secondary text-sm">Solo primeros 100 jugadores</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-5xl font-bold text-player-accent">27</p>
+                  <p className="text-player-text-secondary text-sm">lugares restantes</p>
+                </div>
+              </div>
+              
+              <div className="bg-player-bg-primary rounded-full h-4 overflow-hidden mb-2">
+                <div className="bg-gradient-to-r from-red-500 to-player-accent h-full rounded-full transition-all duration-1000" style="width: 73%"></div>
+              </div>
+              <div className="flex justify-between text-xs text-player-text-secondary">
+                <span>73 confirmados</span>
+                <span>27 disponibles</span>
+              </div>
+            </div>
 
             {/* Main Pricing Card */}
             <div className="max-w-lg mx-auto bg-gradient-to-br from-player-bg-secondary to-player-bg-primary border-2 border-player-accent rounded-3xl p-8 md:p-12 relative shadow-2xl">
@@ -105,12 +127,15 @@ export default function PrecioPage() {
                 ))}
               </div>
 
-              {/* CTA */}
-              <PlayerButton size="lg" className="w-full text-lg mb-4 bg-player-accent hover:bg-player-accent/90 text-black font-bold">
-                🚀 Empezar prueba de 14 días GRATIS
+              {/* CTA Beta */}
+              <PlayerButton size="lg" className="w-full text-lg mb-4 bg-player-accent hover:bg-player-accent/90 text-black font-bold relative animate-pulse">
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                  BETA
+                </span>
+                🚀 Solicitar acceso beta GRATUITO
               </PlayerButton>
               <p className="text-center text-player-text-secondary text-sm">
-                Sin tarjeta de crédito • Cancela cuando quieras
+                Acceso inmediato • Gratis durante beta • Feedback directo con creadores
               </p>
             </div>
 
@@ -343,28 +368,34 @@ export default function PrecioPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Final CTA - Beta Focus */}
       <section className="py-20 bg-gradient-to-b from-player-bg-primary to-player-bg-secondary">
         <div className="container text-center">
+          <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
+            ⚡ ÚLTIMAS HORAS - BETA LIMITADO
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            ¿Listo para invertir en <span className="text-player-accent">tu juego</span>?
+            ¿Listo para tener los <span className="text-player-accent">superpoderes</span> antes que nadie?
           </h2>
           <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
-            $199 pesos al mes pueden transformar completamente tu pádel. 
-            La pregunta es: ¿cuánto vale tu mejora?
+            Solo 27 lugares restantes para acceso beta <strong className="text-white">completamente gratuito</strong>. 
+            Una vez llenos, lista de espera hasta 2025.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <PlayerButton size="lg" className="text-lg px-8 py-4">
-              💳 Empezar ahora - 14 días gratis
+            <PlayerButton size="lg" className="text-lg px-8 py-4 relative animate-pulse">
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                BETA
+              </span>
+              🚀 Solicitar acceso beta AHORA
             </PlayerButton>
             <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
-              📱 Descargar app gratis
+              ▶️ Ver demo del beta
             </PlayerButton>
           </div>
 
           <p className="text-player-text-secondary text-sm">
-            Más de 60,000 jugadores ya invirtieron en su mejora • <span className="text-player-accent">87% mejoran en 30 días</span>
+            73 beta testers activos • <span className="text-player-accent">89% mejoran en 2 semanas</span> • 27 lugares disponibles
           </p>
         </div>
       </section>

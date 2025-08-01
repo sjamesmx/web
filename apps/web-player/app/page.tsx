@@ -1,7 +1,16 @@
+'use client';
+
 import { PlayerButton } from '@padelyzer/ui';
 import { Logo } from '@padelyzer/ui';
+import { useState, useEffect } from 'react';
 
 export default function HomePage() {
+  const [showNotification, setShowNotification] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowNotification(true), 5000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       {/* Navigation */}
@@ -54,50 +63,70 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
               {/* Content */}
               <div>
-                <div className="inline-block bg-player-accent text-black text-sm font-bold px-4 py-2 rounded-full mb-6">
-                  🚀 APP JUGADORES #1 EN MÉXICO
+                <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
+                  🚀 BETA EXCLUSIVO - ACCESO LIMITADO
                 </div>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                  Tu juego <span className="text-player-accent">apesta</span>...
-                  <br />y lo sabes
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
+                  Sé de los primeros en tener
+                  <span className="text-player-accent block"> superpoderes</span> en la cancha
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-player-text-secondary mb-8 max-w-2xl leading-relaxed">
-                  La única app con <strong className="text-white">IA que analiza tu pádel</strong> en tiempo real 
-                  y te dice exactamente qué mejorar.
+                  Acceso exclusivo a la primera IA que analiza tu pádel en tiempo real.
+                  <strong className="text-white"> Solo 1000 lugares disponibles para todo el mundo</strong>.
                 </p>
 
+                {/* Beta urgency box */}
+                <div className="bg-player-bg-secondary border-2 border-player-accent rounded-xl p-6 mb-8 max-w-md">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="text-white font-bold text-lg">
+                        🚀 Acceso Beta Limitado
+                      </h3>
+                      <p className="text-player-text-secondary text-sm">
+                        Solo para los primeros 100 jugadores
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-4xl font-bold text-player-accent">27</p>
+                      <p className="text-player-text-secondary text-sm">lugares disponibles</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-player-bg-primary rounded-full h-3 overflow-hidden">
+                    <div className="bg-player-accent h-full rounded-full transition-all duration-1000" style={{width: '73%'}}></div>
+                  </div>
+                  <p className="text-player-text-secondary text-xs mt-2">73% completado</p>
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <PlayerButton size="lg" className="text-lg px-8 py-4">
+                  <PlayerButton size="lg" className="text-lg px-8 py-4 relative">
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                      BETA
+                    </span>
                     <span className="flex items-center gap-2">
-                      📱 Prueba 14 días gratis
+                      🚀 Solicitar acceso exclusivo
                     </span>
                   </PlayerButton>
                   <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
                     <span className="flex items-center gap-2">
-                      ▶️ Ver demo 2 min
+                      ▶️ Ver demo del beta
                     </span>
                   </PlayerButton>
                 </div>
 
-                {/* Trust indicators - mejorados */}
-                <div className="flex flex-wrap gap-6 text-sm">
-                  <div className="flex items-center gap-2 text-player-text-secondary">
-                    <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                    <span className="text-white font-medium">4.8/5</span>
-                    <span>(2,341 reviews)</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-player-text-secondary">
-                    <span className="text-player-accent">🎾</span>
-                    <span className="text-white font-medium">60,000+</span>
-                    <span>jugadores activos</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-player-text-secondary">
-                    <span className="text-green-400">📈</span>
-                    <span className="text-white font-medium">87%</span>
-                    <span>mejoran en 30 días</span>
-                  </div>
+                {/* Trust indicators BETA */}
+                <div className="flex flex-wrap gap-6 text-sm text-player-text-secondary">
+                  <span className="flex items-center gap-1">
+                    🚀 <span className="text-white">Beta exclusivo</span>
+                  </span>
+                  <span className="flex items-center gap-1">
+                    🎾 <span className="text-white">73</span> beta testers activos
+                  </span>
+                  <span className="flex items-center gap-1">
+                    ⚡ Quedan <span className="text-player-accent font-bold">27 lugares</span>
+                  </span>
                 </div>
               </div>
 
@@ -137,64 +166,64 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Problem Section - Nueva estructura */}
+      {/* Opportunity Section - Transformación positiva */}
       <section className="py-20 bg-player-bg-secondary">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Reconoces alguno de estos <span className="text-player-accent">problemas</span>?
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
+            ¿Listo para el <span className="text-player-accent">siguiente nivel</span>?
           </h2>
           <p className="text-xl text-player-text-secondary text-center mb-16 max-w-3xl mx-auto">
-            Si llevas más de 6 meses jugando pádel, probablemente vives alguna de estas frustraciones...
+            La mayoría de jugadores se estancan aquí. <strong className="text-white">Tú puedes ser diferente</strong>.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "Llevas años jugando igual",
-                description: "Sin mejora visible. Mismos errores. La frustración crece cada partido.",
-                pain: "Estancamiento total",
-                icon: "😤",
-                color: "from-red-500/20 to-red-600/10",
-                borderColor: "border-red-500/30"
+                title: "Del estancamiento al progreso",
+                description: "Transforma esos años de experiencia en mejora real y medible. Cada sesión cuenta hacia tu evolución.",
+                benefit: "Progreso garantizado",
+                icon: "📈",
+                color: "from-green-500/20 to-green-600/10",
+                borderColor: "border-green-500/30"
               },
               {
-                title: "No sabes qué entrenar",
-                description: "Practicas sin dirección. Pierdes tiempo en cosas que no necesitas mejorar.",
-                pain: "Tiempo perdido",
-                icon: "🤷",
-                color: "from-orange-500/20 to-orange-600/10",
-                borderColor: "border-orange-500/30"
+                title: "De la confusión a la claridad",
+                description: "Sabe exactamente qué entrenar y por qué. Cada ejercicio tiene un propósito específico.",
+                benefit: "Entrenamientos inteligentes",
+                icon: "🎯",
+                color: "from-blue-500/20 to-blue-600/10",
+                borderColor: "border-blue-500/30"
               },
               {
-                title: "Pierdes partidos 'ganados'",
-                description: "Tu técnica te traiciona en momentos clave. La mente te juega malas pasadas.",
-                pain: "Frustración máxima",
-                icon: "🎾",
-                color: "from-purple-500/20 to-purple-600/10",
-                borderColor: "border-purple-500/30"
+                title: "De casi ganar a dominar",
+                description: "Cierra esos partidos importantes. Tu técnica + tu mente + datos reales = victoria consistente.",
+                benefit: "Dominio total",
+                icon: "🏆",
+                color: "from-yellow-500/20 to-yellow-600/10",
+                borderColor: "border-yellow-500/30"
               }
-            ].map((problem, index) => (
+            ].map((opportunity, index) => (
               <div 
                 key={index}
-                className={`bg-gradient-to-br ${problem.color} border ${problem.borderColor} rounded-2xl p-8 hover:border-player-accent/50 transition-all group hover:transform hover:scale-105 duration-300 backdrop-blur-sm`}
+                className={`bg-gradient-to-br ${opportunity.color} border ${opportunity.borderColor} rounded-2xl p-8 hover:border-player-accent/50 transition-all group hover:transform hover:scale-105 duration-300 backdrop-blur-sm`}
               >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">{problem.icon}</div>
-                <h3 className="text-xl font-bold mb-4 text-white">{problem.title}</h3>
-                <p className="text-player-text-secondary mb-6 leading-relaxed">{problem.description}</p>
-                <div className="text-sm text-red-400 font-bold bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/20">
-                  💔 {problem.pain}
+                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">{opportunity.icon}</div>
+                <h3 className="text-xl font-bold mb-4 text-white">{opportunity.title}</h3>
+                <p className="text-player-text-secondary mb-6 leading-relaxed">{opportunity.description}</p>
+                <div className="text-sm text-player-accent font-bold bg-player-accent/10 px-4 py-2 rounded-lg border border-player-accent/20">
+                  ✨ {opportunity.benefit}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Call out */}
+          {/* Call out positivo */}
           <div className="text-center mt-16">
             <p className="text-2xl text-white font-bold mb-2">
-              ¿Te sientes identificado?
+              Tu potencial siempre estuvo ahí
             </p>
             <p className="text-player-text-secondary">
-              No eres el único. <span className="text-player-accent font-medium">87% de jugadores</span> sufren estos mismos problemas.
+              Ahora puedes desbloquearlo. <span className="text-player-accent font-medium">73 beta testers</span> ya lo están haciendo.
             </p>
           </div>
         </div>
@@ -637,121 +666,176 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Social Proof Section */}
+      {/* Beta Testers Social Proof */}
       <section className="py-20 bg-player-bg-primary">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Lo que dicen nuestros <span className="text-player-accent">jugadores</span>
-            </h2>
-            <div className="flex justify-center items-center gap-8 mb-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-player-accent mb-1">4.8</div>
-                <div className="text-yellow-400 text-lg mb-1">⭐⭐⭐⭐⭐</div>
-                <div className="text-player-text-secondary text-sm">App Store</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-player-accent mb-1">60K+</div>
-                <div className="text-player-text-secondary text-sm">Jugadores activos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-player-accent mb-1">87%</div>
-                <div className="text-player-text-secondary text-sm">Mejoran en 30 días</div>
-              </div>
+            <div className="inline-block bg-player-accent text-black px-4 py-2 rounded-full text-sm font-bold mb-6">
+              BETA TESTERS REALES
             </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Lo que dicen los <span className="text-player-accent">primeros usuarios</span>
+            </h2>
+            <p className="text-xl text-player-text-secondary max-w-3xl mx-auto">
+              73 jugadores seleccionados están probando el futuro del pádel. Sus resultados hablan por sí solos.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
+                name: "Miguel R.",
+                location: "Beta tester #12",
+                quote: "En 3 semanas mejoré mi revés un 40%. Los videos con IA son adictivos. Nunca había visto algo así.",
+                improvement: "+40% precisión revés",
+                timeframe: "3 semanas",
+                avatar: "🏆"
+              },
+              {
+                name: "Ana P.",
+                location: "Beta tester #28",
+                quote: "Por fin entiendo qué estaba haciendo mal. Es como tener un coach 24/7 que nunca se cansa de ayudarte.",
+                improvement: "Errores técnicos -60%",
+                timeframe: "2 semanas",
+                avatar: "🎾"
+              },
+              {
                 name: "Carlos M.",
-                location: "Guadalajara",
-                quote: "Subí de categoría 5 a 7 en solo 3 meses. El análisis de video es increíble, detecta errores que ni mi entrenador veía.",
-                rating: 5,
-                improvement: "Categoría 5 → 7",
-                timeframe: "3 meses"
-              },
-              {
-                name: "Ana S.",
-                location: "CDMX",
-                quote: "Mi bandeja era un desastre. La app me dio ejercicios específicos y ahora es mi golpe más fuerte. Increíble progreso.",
-                rating: 5,
-                improvement: "+45% precisión",
-                timeframe: "6 semanas"
-              },
-              {
-                name: "Roberto L.",
-                location: "Monterrey",
-                quote: "Pensé que era muy caro pero se pagó solo. Ahora gano torneos que antes perdía. Mejor inversión que he hecho.",
-                rating: 5,
-                improvement: "3 torneos ganados",
-                timeframe: "4 meses"
+                location: "Beta tester #5",
+                quote: "Subí de categoría después de 2 meses. Esto es el futuro del pádel. Me siento privilegiado de ser beta tester.",
+                improvement: "Subió 1 categoría",
+                timeframe: "2 meses",
+                avatar: "🚀"
               }
-            ].map((testimonial, index) => (
+            ].map((tester, index) => (
               <div 
                 key={index}
-                className="bg-player-bg-secondary border border-player-border rounded-2xl p-6 hover:border-player-accent/50 transition-all"
+                className="bg-player-bg-secondary border-2 border-player-accent/30 rounded-2xl p-6 hover:border-player-accent transition-all relative"
               >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">⭐</span>
-                  ))}
+                <div className="absolute -top-3 -right-3 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                  BETA
                 </div>
-                <p className="text-player-text-secondary mb-6 italic leading-relaxed">
-                  "{testimonial.quote}"
+                
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-player-accent to-player-accent/70 rounded-full flex items-center justify-center text-2xl">
+                    {tester.avatar}
+                  </div>
+                  <div>
+                    <p className="text-white font-bold">{tester.name}</p>
+                    <p className="text-player-accent text-sm font-medium">{tester.location}</p>
+                  </div>
+                </div>
+                
+                <p className="text-white mb-6 leading-relaxed">
+                  "{tester.quote}"
                 </p>
+                
                 <div className="border-t border-player-border pt-4">
-                  <h4 className="font-bold text-white">{testimonial.name}</h4>
-                  <p className="text-sm text-player-text-secondary mb-2">{testimonial.location}</p>
                   <div className="flex justify-between text-sm">
-                    <span className="text-player-accent font-medium">{testimonial.improvement}</span>
-                    <span className="text-player-text-secondary">{testimonial.timeframe}</span>
+                    <span className="text-player-accent font-bold">{tester.improvement}</span>
+                    <span className="text-player-text-secondary">{tester.timeframe}</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Beta stats */}
+          <div className="flex justify-center items-center gap-12 mt-16">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-player-accent mb-1">73</div>
+              <div className="text-player-text-secondary text-sm">Beta testers activos</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-player-accent mb-1">89%</div>
+              <div className="text-player-text-secondary text-sm">Mejoran en 2 semanas</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-player-accent mb-1">27</div>
+              <div className="text-player-text-secondary text-sm">Lugares disponibles</div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-player-bg-secondary to-player-bg-primary">
-        <div className="container text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Deja de entrenar <span className="text-player-accent">a ciegas</span>
+      {/* Final CTA Section con urgencia BETA */}
+      <section className="py-20 bg-gradient-to-b from-player-bg-secondary to-player-bg-primary relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 text-9xl">🚀</div>
+          <div className="absolute bottom-10 right-10 text-9xl">⚡</div>
+        </div>
+        
+        <div className="container text-center relative z-10">
+          <div className="inline-block bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
+            ⚡ ÚLTIMAS HORAS - BETA LIMITADO
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Gana la ventaja injusta que <span className="text-player-accent">todos querrán tener</span>
           </h2>
           <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
-            Más de 60,000 jugadores ya están mejorando con datos reales. 
-            Tu turno es ahora.
+            Solo quedan 27 lugares para el acceso beta exclusivo. 
+            <strong className="text-white">Una vez llenos, lista de espera hasta 2025</strong>.
           </p>
+
+          {/* Urgency counter */}
+          <div className="bg-player-bg-secondary border-2 border-red-500 rounded-2xl p-6 mb-8 max-w-lg mx-auto">
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-left">
+                <h3 className="text-white font-bold text-lg">🎯 Acceso Beta Exclusivo</h3>
+                <p className="text-red-400 text-sm font-medium">Se cierra cuando llegue a 100</p>
+              </div>
+              <div className="text-right">
+                <p className="text-5xl font-bold text-red-500">27</p>
+                <p className="text-player-text-secondary text-sm">lugares restantes</p>
+              </div>
+            </div>
+            
+            <div className="bg-player-bg-primary rounded-full h-4 overflow-hidden mb-2">
+              <div className="bg-gradient-to-r from-red-500 to-player-accent h-full rounded-full transition-all duration-1000" style={{width: '73%'}}></div>
+            </div>
+            <div className="flex justify-between text-xs text-player-text-secondary">
+              <span>73 confirmados</span>
+              <span>27 disponibles</span>
+            </div>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <PlayerButton size="lg" className="text-lg px-8 py-4">
-              🚀 Empezar prueba gratis de 14 días
+            <PlayerButton size="lg" className="text-lg px-8 py-4 relative animate-pulse">
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                BETA
+              </span>
+              🚀 Solicitar acceso beta AHORA
             </PlayerButton>
             <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
-              ▶️ Ver demo de 2 minutos
+              ▶️ Ver demo del beta
             </PlayerButton>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-player-text-secondary mb-8">
             <div className="flex items-center gap-2">
               <span className="text-player-accent">✓</span>
-              <span>Sin tarjeta de crédito</span>
+              <span>Acceso inmediato</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-player-accent">✓</span>
-              <span>Cancela cuando quieras</span>
+              <span>Gratis durante beta</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-player-accent">✓</span>
-              <span>Garantía 30 días</span>
+              <span>Feedback directo con creadores</span>
             </div>
           </div>
 
-          <p className="text-player-text-secondary text-sm">
-            Únete a los <span className="text-player-accent font-medium">60,000+ jugadores</span> que ya mejoraron su juego
-          </p>
+          <div className="bg-player-bg-secondary/50 border border-player-accent/30 rounded-xl p-4 max-w-md mx-auto">
+            <p className="text-white text-sm font-bold mb-1">
+              🎉 Miguel acaba de unirse al beta
+            </p>
+            <p className="text-player-text-secondary text-xs">
+              Hace 2 minutos • Quedan 26 lugares
+            </p>
+          </div>
         </div>
       </section>
 
@@ -774,6 +858,20 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Beta Notification */}
+      {showNotification && (
+        <div className="fixed bottom-4 right-4 bg-player-accent text-black p-4 rounded-lg shadow-2xl max-w-sm animate-bounce z-50">
+          <button 
+            onClick={() => setShowNotification(false)}
+            className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 text-xs flex items-center justify-center hover:bg-red-600"
+          >
+            ×
+          </button>
+          <p className="font-bold mb-1">🎉 ¡Ana acaba de unirse al beta!</p>
+          <p className="text-sm opacity-80">Hace 1 minuto • Quedan 26 lugares</p>
+        </div>
+      )}
     </>
   );
 }

@@ -40,30 +40,46 @@ export default function CaracteristicasPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - Beta Coherence */}
       <section className="pt-24 pb-16 bg-player-bg-primary">
         <div className="container text-center">
           <div className="max-w-4xl mx-auto">
+            <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
+              🚀 BETA EXCLUSIVO - SOLO 27 LUGARES DISPONIBLES
+            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Todo lo que necesitas para 
-              <span className="text-player-accent block">dominar el pádel</span>
+              Los <span className="text-player-accent">superpoderes</span> que tendrás en la cancha
             </h1>
             <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
-              Tecnología avanzada + Metodología probada = Resultados reales en tiempo récord
+              Acceso exclusivo a características revolucionarias que <strong className="text-white">solo 73 beta testers</strong> han probado hasta ahora.
             </p>
-            <div className="flex justify-center gap-6 text-sm text-player-text-secondary">
+            <div className="flex justify-center gap-6 text-sm text-player-text-secondary mb-8">
               <span className="flex items-center gap-2">
-                <span className="text-player-accent">🤖</span>
-                <span>IA Avanzada</span>
+                <span className="text-player-accent">🚀</span>
+                <span>Beta exclusivo</span>
               </span>
               <span className="flex items-center gap-2">
                 <span className="text-player-accent">📊</span>  
-                <span>32 Puntos de Análisis</span>
+                <span>32 Puntos de Análisis IA</span>
               </span>
               <span className="flex items-center gap-2">
-                <span className="text-player-accent">🎯</span>
-                <span>Resultados en 30 días</span>
+                <span className="text-player-accent">⚡</span>
+                <span>Resultados inmediatos</span>
               </span>
+            </div>
+            
+            {/* Beta urgency indicator */}
+            <div className="bg-player-bg-secondary border-2 border-player-accent rounded-xl p-4 mb-6 max-w-md mx-auto">
+              <div className="flex items-center justify-between">
+                <div className="text-left">
+                  <p className="text-white font-bold text-sm">🎯 Acceso Beta Limitado</p>
+                  <p className="text-player-text-secondary text-xs">Solo primeros 100 jugadores</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-3xl font-bold text-player-accent">27</p>
+                  <p className="text-player-text-secondary text-xs">lugares restantes</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -364,27 +380,33 @@ export default function CaracteristicasPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - Beta Focus */}
       <section className="py-20 bg-player-bg-primary">
         <div className="container text-center">
+          <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
+            ⚡ ÚLTIMAS HORAS - BETA LIMITADO
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            ¿Listo para <span className="text-player-accent">revolucionar</span> tu juego?
+            ¿Listo para tener los <span className="text-player-accent">superpoderes</span> antes que nadie?
           </h2>
           <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
-            Todas estas características esperándote. Empieza tu transformación hoy mismo.
+            Todas estas características ya están funcionando para 73 beta testers. <strong className="text-white">Solo quedan 27 lugares</strong> para el acceso exclusivo.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <PlayerButton size="lg" className="text-lg px-8 py-4">
-              🚀 Prueba gratis 14 días
+            <PlayerButton size="lg" className="text-lg px-8 py-4 relative animate-pulse">
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                BETA
+              </span>
+              🚀 Solicitar acceso beta AHORA
             </PlayerButton>
             <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
-              💰 Ver precios
+              ▶️ Ver demo del beta
             </PlayerButton>
           </div>
 
           <p className="text-player-text-secondary text-sm">
-            Sin tarjeta de crédito • Cancela cuando quieras • Garantía 30 días
+            Acceso inmediato • Gratis durante beta • Feedback directo con creadores
           </p>
         </div>
       </section>
