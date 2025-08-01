@@ -70,7 +70,7 @@ export default function DescargarPage() {
               </div>
               
               <div className="bg-player-bg-primary rounded-full h-4 overflow-hidden mb-2">
-                <div className="bg-gradient-to-r from-red-500 to-player-accent h-full rounded-full transition-all duration-1000" style="width: 73%"></div>
+                <div className="bg-gradient-to-r from-red-500 to-player-accent h-full rounded-full transition-all duration-1000" style={{ width: '73%' }}></div>
               </div>
               <div className="flex justify-between text-xs text-player-text-secondary">
                 <span>73 confirmados</span>
