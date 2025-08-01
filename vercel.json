@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run build:player",
+  "buildCommand": "turbo run build --filter=@padelyzer/web-player",
   "installCommand": "npm install",
   "outputDirectory": "apps/web-player/.next",
   "build": {
