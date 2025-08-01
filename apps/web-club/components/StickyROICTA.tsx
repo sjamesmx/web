@@ -44,7 +44,8 @@ export default function StickyROICTA() {
             <a href="/recursos">
               <ClubButton 
                 size="sm" 
-                className="bg-white text-club-accent hover:bg-blue-50 shadow-subtle"
+                className="bg-white text-club-accent hover:bg-blue-50 shadow-subtle font-semibold"
+                style={{ color: '#3B82F6' }}
               >
                 Calcular ROI
                 <ArrowRightIcon className="w-4 h-4 ml-2" />

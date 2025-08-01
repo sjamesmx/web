@@ -48,6 +48,7 @@ module.exports = {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
+        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
         'rotate-slow': 'rotateSlow 20s linear infinite',
       },
@@ -73,8 +74,18 @@ module.exports = {
           '50%': { transform: 'translateY(-10px)' },
         },
         rotateSlow: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
+          '0%': { transform: 'rotateY(0deg)' },
+          '100%': { transform: 'rotateY(360deg)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { 
+            opacity: '0.8',
+            filter: 'brightness(1)',
+          },
+          '50%': { 
+            opacity: '1',
+            filter: 'brightness(1.2)',
+          },
         },
       },
       boxShadow: {

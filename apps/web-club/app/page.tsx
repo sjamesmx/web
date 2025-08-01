@@ -1,7 +1,7 @@
 import { ClubButton } from '../components/ui/ClubButton';
 import { Logo } from '../components/ui/Logo';
 import MobileMenu from '../components/MobileMenu';
-import BackgroundAnimation from '../components/BackgroundAnimation';
+import PadelCourt3D from '../components/PadelCourt3D';
 import { 
   CalendarIcon, 
   DocumentIcon, 
@@ -27,8 +27,8 @@ import {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-club-bg-primary text-club-text-primary">
-      {/* Background Animation */}
-      <BackgroundAnimation />
+      {/* 3D Padel Court Animation */}
+      <PadelCourt3D />
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-club-bg-primary/90 backdrop-blur-md border-b border-club-border">
@@ -81,9 +81,9 @@ export default function HomePage() {
             </div>
 
             <h1 className="text-6xl md:text-7xl font-bold text-club-text-primary mb-8 leading-tight animate-slide-up">
-              Tu Club de Pádel <br />
+              Digitaliza tu club de pádel<br />
               <span className="text-club-accent">
-                Negocio Profesional
+                con una herramienta que trabaja para ti
               </span>
             </h1>
             
