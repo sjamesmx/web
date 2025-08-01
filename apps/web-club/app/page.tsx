@@ -31,28 +31,28 @@ export default function HomePage() {
       <BackgroundAnimation />
       
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-club-glass-medium backdrop-blur-xl border-b border-club-border shadow-glass">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-club-bg-primary/90 backdrop-blur-md border-b border-club-border">
         <div className="container">
           <div className="flex items-center justify-between h-16">
             <Logo variant="club" />
             
             <div className="hidden md:flex items-center gap-8">
-              <a href="/soluciones" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
+              <a href="/soluciones" className="text-club-text-secondary hover:text-club-accent transition-colors">
                 Soluciones
               </a>
-              <a href="/precios" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
+              <a href="/precios" className="text-club-text-secondary hover:text-club-accent transition-colors">
                 Precios
               </a>
-              <a href="/prelanzamiento" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
+              <a href="/prelanzamiento" className="text-club-text-secondary hover:text-club-accent transition-colors">
                 Prelanzamiento
               </a>
             </div>
 
             <div className="flex items-center gap-4">
-              <ClubButton variant="ghost" size="sm" className="hidden md:block hover:shadow-glow">
+              <ClubButton variant="ghost" size="sm" className="hidden md:block">
                 Iniciar Sesión
               </ClubButton>
-              <ClubButton size="sm" className="hidden md:block shadow-glow hover:shadow-glow-lg animate-pulse-glow">
+              <ClubButton size="sm" className="hidden md:block">
                 Agenda Demo
               </ClubButton>
               <MobileMenu />

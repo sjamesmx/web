@@ -21,28 +21,28 @@ export default function SolucionesPage() {
       {/* Background Animation */}
       <BackgroundAnimation />
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-club-glass-medium backdrop-blur-xl border-b border-club-border shadow-glass">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-club-bg-primary/90 backdrop-blur-md border-b border-club-border">
         <div className="container">
           <div className="flex items-center justify-between h-16">
             <Logo variant="club" />
             
             <div className="hidden md:flex items-center gap-8">
-              <a href="/" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
+              <a href="/" className="text-club-text-secondary hover:text-club-accent transition-colors">
                 Inicio
               </a>
-              <a href="/soluciones" className="text-club-accent font-medium animate-pulse-glow">
+              <a href="/soluciones" className="text-club-accent font-medium">
                 Soluciones
               </a>
-              <a href="/precios" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
+              <a href="/precios" className="text-club-text-secondary hover:text-club-accent transition-colors">
                 Precios
               </a>
             </div>
 
             <div className="flex items-center gap-4">
-              <ClubButton variant="ghost" size="sm" className="hidden md:block hover:shadow-glow">
+              <ClubButton variant="ghost" size="sm" className="hidden md:block">
                 Iniciar Sesión
               </ClubButton>
-              <ClubButton size="sm" className="hidden md:block shadow-glow hover:shadow-glow-lg animate-pulse-glow">
+              <ClubButton size="sm" className="hidden md:block">
                 Agenda Demo
               </ClubButton>
               <MobileMenu />
@@ -264,41 +264,41 @@ export default function SolucionesPage() {
       </section>
 
       {/* Módulo 2: Reservas */}
-      <section className="py-20">
-        <div className="container">
+      <section className="py-20 relative">
+        <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <div className="order-2 lg:order-1 animate-slide-up">
+              <div className="bg-club-glass-medium backdrop-blur-xl rounded-2xl p-6 shadow-glass hover:shadow-glow transition-all duration-300 border border-club-border">
                 <div className="mb-4">
                   <h4 className="font-bold text-club-text-primary mb-2">Sistema de Reservas</h4>
                   <div className="text-sm text-club-text-secondary">Reservas individuales y grupales</div>
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="bg-club-bg-secondary rounded-lg p-4">
+                  <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-4 border border-club-border">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium">Liga Corporativa Pemex</span>
-                      <span className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Confirmada</span>
+                      <span className="font-medium text-club-text-primary">Liga Corporativa Pemex</span>
+                      <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded backdrop-blur-sm">Confirmada</span>
                     </div>
                     <div className="text-sm text-club-text-secondary">
                       8 jugadores • Canchas 1-2 • 18:00-20:00
                     </div>
                   </div>
                   
-                  <div className="bg-club-bg-secondary rounded-lg p-4">
+                  <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-4 border border-club-border">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium">Torneo Weekend</span>
-                      <span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">En curso</span>
+                      <span className="font-medium text-club-text-primary">Torneo Weekend</span>
+                      <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded backdrop-blur-sm">En curso</span>
                     </div>
                     <div className="text-sm text-club-text-secondary">
                       32 jugadores • Todas las canchas • 09:00-18:00
                     </div>
                   </div>
                   
-                  <div className="bg-club-bg-secondary rounded-lg p-4">
+                  <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-4 border border-club-border">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium">Clase grupal principiantes</span>
-                      <span className="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded">Recurrente</span>
+                      <span className="font-medium text-club-text-primary">Clase grupal principiantes</span>
+                      <span className="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded backdrop-blur-sm">Recurrente</span>
                     </div>
                     <div className="text-sm text-club-text-secondary">
                       12 alumnos • Cancha 3 • Martes y Jueves 19:00
@@ -308,14 +308,14 @@ export default function SolucionesPage() {
               </div>
             </div>
             
-            <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 bg-green-500/20 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="order-1 lg:order-2 animate-slide-up">
+              <div className="inline-flex items-center gap-2 bg-green-500/20 backdrop-blur-sm text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-glow animate-pulse-glow">
                 <CalendarIcon className="w-4 h-4" />
                 MÓDULO 2
               </div>
               
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary">
-                Reservas <span className="text-club-accent">Individuales y Grupales</span>
+                Reservas <span className="text-transparent bg-clip-text bg-gradient-to-r from-club-accent via-club-accent-glow to-club-accent-light animate-pulse-glow">Individuales y Grupales</span>
               </h2>
               
               <p className="text-xl text-club-text-secondary mb-8">
@@ -367,8 +367,8 @@ export default function SolucionesPage() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Ligas */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-club-border">
-              <div className="inline-flex items-center gap-2 bg-purple-500/20 text-purple-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="bg-club-glass-medium backdrop-blur-xl rounded-2xl p-8 border border-club-border hover:border-club-accent-glow/60 hover:shadow-glow transition-all duration-300 animate-slide-up">
+              <div className="inline-flex items-center gap-2 bg-purple-500/20 backdrop-blur-sm text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-glow animate-pulse-glow">
                 <UsersIcon className="w-4 h-4" />
                 MÓDULO 3
               </div>
@@ -379,28 +379,28 @@ export default function SolucionesPage() {
               </p>
               
               <div className="space-y-4 mb-6">
-                <div className="flex items-center gap-3 p-3 bg-club-bg-secondary rounded-lg">
-                  <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold">500+</div>
+                <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
+                  <div className="w-8 h-8 bg-purple-500/80 backdrop-blur-sm text-white rounded-full flex items-center justify-center text-sm font-bold shadow-glow">500+</div>
                   <span className="text-club-text-primary font-medium">Participantes por liga</span>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-club-bg-secondary rounded-lg">
-                  <ClockIcon className="w-5 h-5 text-purple-500" />
+                <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
+                  <ClockIcon className="w-5 h-5 text-purple-400" />
                   <span className="text-club-text-primary font-medium">Fixtures automáticos</span>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-club-bg-secondary rounded-lg">
-                  <TrendingUpIcon className="w-5 h-5 text-purple-500" />
+                <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
+                  <TrendingUpIcon className="w-5 h-5 text-purple-400" />
                   <span className="text-club-text-primary font-medium">Rankings en vivo</span>
                 </div>
               </div>
               
-              <ClubButton variant="secondary" className="w-full">
+              <ClubButton variant="secondary" className="w-full bg-club-glass-light border-club-border-glow hover:shadow-glow">
                 Ver demo de ligas
               </ClubButton>
             </div>
 
             {/* Torneos */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-club-border">
-              <div className="inline-flex items-center gap-2 bg-orange-500/20 text-orange-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="bg-club-glass-medium backdrop-blur-xl rounded-2xl p-8 border border-club-border hover:border-club-accent-glow/60 hover:shadow-glow transition-all duration-300 animate-slide-up" style={{animationDelay: '0.1s'}}>
+              <div className="inline-flex items-center gap-2 bg-orange-500/20 backdrop-blur-sm text-orange-400 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-glow animate-pulse-glow">
                 <TargetIcon className="w-4 h-4" />
                 MÓDULO 4
               </div>
@@ -411,21 +411,21 @@ export default function SolucionesPage() {
               </p>
               
               <div className="space-y-4 mb-6">
-                <div className="flex items-center gap-3 p-3 bg-club-bg-secondary rounded-lg">
-                  <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">500+</div>
+                <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
+                  <div className="w-8 h-8 bg-orange-500/80 backdrop-blur-sm text-white rounded-full flex items-center justify-center text-sm font-bold shadow-glow">500+</div>
                   <span className="text-club-text-primary font-medium">Participantes por torneo</span>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-club-bg-secondary rounded-lg">
-                  <TargetIcon className="w-5 h-5 text-orange-500" />
+                <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
+                  <TargetIcon className="w-5 h-5 text-orange-400" />
                   <span className="text-club-text-primary font-medium">Bracket automático</span>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-club-bg-secondary rounded-lg">
-                  <GlobeIcon className="w-5 h-5 text-orange-500" />
+                <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
+                  <GlobeIcon className="w-5 h-5 text-orange-400" />
                   <span className="text-club-text-primary font-medium">Streaming integrado</span>
                 </div>
               </div>
               
-              <ClubButton variant="secondary" className="w-full">
+              <ClubButton variant="secondary" className="w-full bg-club-glass-light border-club-border-glow hover:shadow-glow">
                 Ver demo de torneos
               </ClubButton>
             </div>
@@ -434,17 +434,17 @@ export default function SolucionesPage() {
       </section>
 
       {/* Módulos 5 y 6: Finanzas y BI */}
-      <section className="py-20">
-        <div className="container">
+      <section className="py-20 relative">
+        <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="animate-slide-up">
+              <div className="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm text-emerald-400 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-glow animate-pulse-glow">
                 <DollarIcon className="w-4 h-4" />
                 MÓDULOS 5 & 6
               </div>
               
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary">
-                <span className="text-club-accent">Finanzas</span> y Business Intelligence
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-club-accent via-club-accent-glow to-club-accent-light animate-pulse-glow">Finanzas</span> y Business Intelligence
               </h2>
               
               <p className="text-xl text-club-text-secondary mb-8">
@@ -454,7 +454,7 @@ export default function SolucionesPage() {
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <h4 className="font-bold text-emerald-600 mb-3">MÓDULO FINANZAS</h4>
+                  <h4 className="font-bold text-emerald-400 mb-3">MÓDULO FINANZAS</h4>
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckIcon className="w-4 h-4 text-club-success" />
@@ -476,7 +476,7 @@ export default function SolucionesPage() {
                 </div>
                 
                 <div className="space-y-4">
-                  <h4 className="font-bold text-cyan-600 mb-3">MÓDULO BI</h4>
+                  <h4 className="font-bold text-cyan-400 mb-3">MÓDULO BI</h4>
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckIcon className="w-4 h-4 text-club-success" />
@@ -499,36 +499,36 @@ export default function SolucionesPage() {
               </div>
             </div>
             
-            <div className="relative">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <div className="relative animate-slide-up">
+              <div className="bg-club-glass-medium backdrop-blur-xl rounded-2xl p-6 shadow-glass hover:shadow-glow transition-all duration-300 border border-club-border">
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-emerald-50 rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-emerald-600">$128,450</div>
-                    <div className="text-sm text-emerald-600">Ingresos mes</div>
+                  <div className="bg-emerald-500/20 backdrop-blur-sm rounded-lg p-4 text-center border border-emerald-500/30">
+                    <div className="text-2xl font-bold text-emerald-400 animate-pulse-glow">$128,450</div>
+                    <div className="text-sm text-emerald-400">Ingresos mes</div>
                   </div>
-                  <div className="bg-red-50 rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-red-600">$45,200</div>
-                    <div className="text-sm text-red-600">Gastos mes</div>
+                  <div className="bg-red-500/20 backdrop-blur-sm rounded-lg p-4 text-center border border-red-500/30">
+                    <div className="text-2xl font-bold text-red-400 animate-pulse-glow">$45,200</div>
+                    <div className="text-sm text-red-400">Gastos mes</div>
                   </div>
                 </div>
                 
                 <div className="mb-6">
                   <h4 className="font-bold text-club-text-primary mb-3">Insights IA</h4>
                   <div className="space-y-2">
-                    <div className="bg-blue-50 border-l-4 border-blue-400 p-3 rounded">
-                      <p className="text-sm text-blue-700">
+                    <div className="bg-blue-500/20 backdrop-blur-sm border-l-4 border-blue-400 p-3 rounded">
+                      <p className="text-sm text-blue-300">
                         <strong>Predicción:</strong> Incremento del 23% en reservas para el próximo fin de semana
                       </p>
                     </div>
-                    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded">
-                      <p className="text-sm text-yellow-700">
+                    <div className="bg-yellow-500/20 backdrop-blur-sm border-l-4 border-yellow-400 p-3 rounded">
+                      <p className="text-sm text-yellow-300">
                         <strong>Oportunidad:</strong> Promociona horarios valle de 14:00-16:00
                       </p>
                     </div>
                   </div>
                 </div>
                 
-                <ClubButton size="sm" className="w-full">
+                <ClubButton size="sm" className="w-full shadow-glow hover:shadow-glow-lg">
                   Ver reporte completo
                 </ClubButton>
               </div>
