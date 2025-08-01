@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ClubButton } from '@padelyzer/ui';
+import { ClubButton } from './ui/ClubButton';
 import { MenuIcon, XIcon, HeadphonesIcon } from './icons';
 
 export default function MobileMenu() {

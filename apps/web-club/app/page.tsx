@@ -1,5 +1,5 @@
-import { ClubButton } from '@padelyzer/ui';
-import { Logo } from '@padelyzer/ui';
+import { ClubButton } from '../components/ui/ClubButton';
+import { Logo } from '../components/ui/Logo';
 import MobileMenu from '../components/MobileMenu';
 import { 
   CalendarIcon, 
