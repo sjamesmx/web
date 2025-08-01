@@ -19,7 +19,8 @@ import {
   CreditCardIcon,
   GlobeIcon,
   ClockIcon,
-  TargetIcon
+  TargetIcon,
+  RocketIcon
 } from '../components/icons';
 
 export default function HomePage() {
@@ -38,8 +39,8 @@ export default function HomePage() {
               <a href="/precios" className="text-club-text-secondary hover:text-club-accent transition-colors">
                 Precios
               </a>
-              <a href="/casos-de-exito" className="text-club-text-secondary hover:text-club-accent transition-colors">
-                Casos de Éxito
+              <a href="/prelanzamiento" className="text-club-text-secondary hover:text-club-accent transition-colors">
+                Prelanzamiento
               </a>
             </div>
 
@@ -273,66 +274,98 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Success Stories Section */}
+      {/* Pre-launch Section */}
       <section className="py-20 bg-club-bg-secondary">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary">
-              Casos de <span className="text-club-success">éxito reales</span>
+              <span className="text-club-accent">Prelanzamiento</span> exclusivo
             </h2>
             <p className="text-xl text-club-text-secondary max-w-3xl mx-auto">
-              Más de 400 clubes ya están generando más ingresos con menos trabajo
+              Únete a los primeros 50 clubes en probar la plataforma más avanzada para gestión de clubes de pádel
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                club: "Padel Club Satelite",
-                location: "Naucalpan, México",
-                quote: "En 3 meses pasamos de $180,000 a $240,000 pesos mensuales. El sistema se paga solo y nos da más tiempo libre.",
-                improvement: "+33% ingresos en 90 días",
-                owner: "Carlos Ruiz, Propietario",
-                rating: 5
-              },
-              {
-                club: "Champions Padel",
-                location: "Guadalajara, México", 
-                quote: "Lo mejor es que ya no tengo que estar pendiente del teléfono. Los jugadores reservan solos y el dinero llega automáticamente.",
-                improvement: "40 horas/mes ahorradas",
-                owner: "Ana López, Directora",
-                rating: 5
-              },
-              {
-                club: "Elite Padel Center",
-                location: "Monterrey, México",
-                quote: "Pensé que era muy caro, pero se pagó en el primer mes. Ahora manejo 3 clubes con el mismo esfuerzo que antes uno.",
-                improvement: "Expandió su negocio 3x",
-                owner: "Roberto Hernández, CEO",
-                rating: 5
-              }
-            ].map((story, index) => (
-              <div 
-                key={index}
-                className="bg-white/90 backdrop-blur-sm border border-club-border rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(story.rating)].map((_, i) => (
-                    <StarIcon key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
+            <div className="bg-white/90 backdrop-blur-sm border border-club-border rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-club-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <RocketIcon className="w-8 h-8 text-club-accent" />
+              </div>
+              <h3 className="text-xl font-bold text-club-text-primary mb-4">Acceso Prioritario</h3>
+              <p className="text-club-text-secondary mb-6">
+                Sé uno de los primeros 50 clubes en usar el sistema completo antes del lanzamiento oficial.
+              </p>
+              <div className="bg-club-accent/10 rounded-lg p-4">
+                <div className="text-2xl font-bold text-club-accent mb-1">2 meses</div>
+                <div className="text-sm text-club-text-secondary">gratis para beta testers</div>
+              </div>
+            </div>
+
+            <div className="bg-white/90 backdrop-blur-sm border border-club-border rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-club-success/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <UsersIcon className="w-8 h-8 text-club-success" />
+              </div>
+              <h3 className="text-xl font-bold text-club-text-primary mb-4">Feedback Directo</h3>
+              <p className="text-club-text-secondary mb-6">
+                Tu opinión ayudará a moldear el producto final. Acceso directo al equipo de desarrollo.
+              </p>
+              <div className="bg-club-success/10 rounded-lg p-4">
+                <div className="text-2xl font-bold text-club-success mb-1">1 on 1</div>
+                <div className="text-sm text-club-text-secondary">sesiones con fundadores</div>
+              </div>
+            </div>
+
+            <div className="bg-white/90 backdrop-blur-sm border border-club-border rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <ShieldIcon className="w-8 h-8 text-purple-500" />
+              </div>
+              <h3 className="text-xl font-bold text-club-text-primary mb-4">Precio Fundador</h3>
+              <p className="text-club-text-secondary mb-6">
+                Precio especial de lanzamiento que mantienes para siempre. Nunca pagarás el precio regular.
+              </p>
+              <div className="bg-purple-500/10 rounded-lg p-4">
+                <div className="text-2xl font-bold text-purple-500 mb-1">50% OFF</div>
+                <div className="text-sm text-club-text-secondary">precio de por vida</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="bg-gradient-to-r from-club-accent/10 to-club-success/10 border border-club-accent/30 rounded-2xl p-8 max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold text-club-text-primary mb-4">
+                ¿Por qué elegir el prelanzamiento?
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6 text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Setup personalizado y prioritario</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Capacitación 1-on-1 con fundadores</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Funcionalidades custom según tus necesidades</span>
+                  </div>
                 </div>
-                <p className="text-club-text-secondary mb-6 italic">"{story.quote}"</p>
-                <div className="border-t border-club-border pt-4">
-                  <h4 className="font-bold text-club-text-primary">{story.club}</h4>
-                  <p className="text-sm text-club-text-secondary">{story.location}</p>
-                  <p className="text-sm text-club-text-secondary mt-1">{story.owner}</p>
-                  <div className="text-sm text-club-success font-bold mt-2 flex items-center gap-2">
-                    <TargetIcon className="w-4 h-4" />
-                    {story.improvement}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Soporte premium sin costo adicional</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Acceso anticipado a nuevas funcionalidades</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Garantía extendida de 6 meses</span>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -550,7 +583,7 @@ export default function HomePage() {
               Agendar demo gratuita de 20 min
             </ClubButton>
             <ClubButton variant="secondary" size="lg" className="text-lg">
-              Ver caso de éxito en video
+              Ver video demo de 5 min
             </ClubButton>
           </div>
 

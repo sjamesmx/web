@@ -72,11 +72,11 @@ export default function MobileMenu() {
               Precios
             </a>
             <a 
-              href="/casos-de-exito" 
+              href="/prelanzamiento" 
               className="block py-3 px-4 text-club-text-secondary hover:bg-club-bg-secondary hover:text-club-text-primary rounded-lg transition-colors"
               onClick={toggleMenu}
             >
-              Casos de Éxito
+              Prelanzamiento
             </a>
           </nav>
 
