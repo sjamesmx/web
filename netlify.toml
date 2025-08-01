@@ -1,0 +1,10 @@
+[build]
+  command = "npm install && npm run build:player"
+  publish = "apps/web-player/.next"
+  base = "/"
+
+[build.environment]
+  VERCEL_APP_TYPE = "JUGADORES"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
