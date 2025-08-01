@@ -1,6 +1,7 @@
 import { ClubButton } from '../../components/ui/ClubButton';
 import { Logo } from '../../components/ui/Logo';
 import MobileMenu from '../../components/MobileMenu';
+import BackgroundAnimation from '../../components/BackgroundAnimation';
 import { 
   CheckIcon, 
   DollarIcon, 
@@ -16,9 +17,11 @@ import {
 
 export default function PreciosPage() {
   return (
-    <>
+    <div className="min-h-screen bg-club-bg-primary text-club-text-primary">
+      {/* Background Animation */}
+      <BackgroundAnimation />
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-club-border shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-club-bg-primary/90 backdrop-blur-md border-b border-club-border">
         <div className="container">
           <div className="flex items-center justify-between h-16">
             <Logo variant="club" />
@@ -49,28 +52,28 @@ export default function PreciosPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-b from-club-bg-secondary to-white">
-        <div className="container text-center">
+      <section className="pt-24 pb-16 bg-gradient-to-b from-club-bg-secondary to-club-bg-primary relative">
+        <div className="container text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-green-500/20 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-green-500/20 backdrop-blur-sm text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-glow animate-pulse-glow">
               <DollarIcon className="w-4 h-4" />
               PRECIOS TRANSPARENTES
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-club-text-primary">
-              Planes que se <span className="text-club-success">pagan solos</span>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-club-text-primary animate-slide-up">
+              Planes que se <span className="text-transparent bg-clip-text bg-gradient-to-r from-club-success to-emerald-400 animate-pulse-glow">pagan solos</span>
             </h1>
             
-            <p className="text-xl text-club-text-secondary mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-club-text-secondary mb-8 max-w-3xl mx-auto animate-slide-up">
               3 planes diseñados para clubes de cualquier tamaño. Todos incluyen los 6 módulos completos 
               y garantía de ROI del 25% en 90 días.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <ClubButton size="lg" className="text-lg">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up">
+              <ClubButton size="lg" className="text-lg shadow-glow hover:shadow-glow-lg animate-pulse-glow">
                 Calcular mi ROI
               </ClubButton>
-              <ClubButton variant="secondary" size="lg" className="text-lg">
+              <ClubButton variant="secondary" size="lg" className="text-lg bg-club-glass-medium border-club-border-glow hover:shadow-glow">
                 Comparar planes
               </ClubButton>
             </div>
@@ -79,11 +82,11 @@ export default function PreciosPage() {
       </section>
 
       {/* Pricing Plans */}
-      <section className="py-20">
-        <div className="container">
+      <section className="py-20 relative">
+        <div className="container relative z-10">
           <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* Starter Plan */}
-            <div className="bg-white/90 backdrop-blur-sm border-2 border-club-border rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+            <div className="bg-club-glass-medium backdrop-blur-xl border-2 border-club-border hover:border-club-accent-glow/60 rounded-3xl p-8 hover:shadow-glow transition-all duration-300 animate-slide-up">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-club-text-primary mb-2">Starter</h3>
                 <div className="mb-4">
@@ -147,7 +150,7 @@ export default function PreciosPage() {
                 </div>
               </div>
 
-              <ClubButton className="w-full text-lg mb-4">
+              <ClubButton className="w-full text-lg mb-4 shadow-glow hover:shadow-glow-lg">
                 Empezar ahora
               </ClubButton>
               <p className="text-center text-club-text-secondary text-sm">
@@ -156,9 +159,9 @@ export default function PreciosPage() {
             </div>
 
             {/* Professional Plan - DESTACADO */}
-            <div className="bg-gradient-to-br from-club-accent/5 to-club-accent/10 border-2 border-club-accent rounded-3xl p-8 md:p-12 relative shadow-2xl transform scale-105">
+            <div className="bg-gradient-to-br from-club-accent/20 to-club-accent/10 backdrop-blur-xl border-2 border-club-accent-glow rounded-3xl p-8 md:p-12 relative shadow-glow hover:shadow-glow-lg transform scale-105 animate-slide-up" style={{animationDelay: '0.1s'}}>
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="bg-club-success text-white px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap">
+                <div className="bg-club-success text-white px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap shadow-glow animate-pulse-glow">
                   MÁS POPULAR
                 </div>
               </div>
@@ -220,7 +223,7 @@ export default function PreciosPage() {
                 </div>
               </div>
 
-              <ClubButton size="lg" className="w-full text-lg mb-4 bg-club-accent hover:bg-club-accent/90">
+              <ClubButton size="lg" className="w-full text-lg mb-4 bg-club-accent hover:bg-club-accent-hover shadow-glow-lg hover:shadow-glow animate-pulse-glow">
                 Agendar demo
               </ClubButton>
               <p className="text-center text-club-text-secondary text-sm">
@@ -229,7 +232,7 @@ export default function PreciosPage() {
             </div>
 
             {/* Enterprise Plan */}
-            <div className="bg-white/90 backdrop-blur-sm border-2 border-club-border rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+            <div className="bg-club-glass-medium backdrop-blur-xl border-2 border-club-border hover:border-club-accent-glow/60 rounded-3xl p-8 hover:shadow-glow transition-all duration-300 animate-slide-up" style={{animationDelay: '0.2s'}}>
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-club-text-primary mb-2">Enterprise</h3>
                 <div className="mb-4">
@@ -274,7 +277,7 @@ export default function PreciosPage() {
                 </div>
               </div>
 
-              <ClubButton variant="secondary" className="w-full text-lg mb-4">
+              <ClubButton variant="secondary" className="w-full text-lg mb-4 bg-club-glass-light border-club-border-glow hover:shadow-glow">
                 Contactar ventas
               </ClubButton>
               <p className="text-center text-club-text-secondary text-sm">

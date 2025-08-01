@@ -43,8 +43,11 @@ export default function HomePage() {
               <a href="/precios" className="text-club-text-secondary hover:text-club-accent transition-colors">
                 Precios
               </a>
-              <a href="/prelanzamiento" className="text-club-text-secondary hover:text-club-accent transition-colors">
-                Prelanzamiento
+              <a href="/vs-playtomic" className="text-club-text-secondary hover:text-club-accent transition-colors">
+                vs Playtomic
+              </a>
+              <a href="/recursos" className="text-club-text-secondary hover:text-club-accent transition-colors">
+                Recursos
               </a>
             </div>
 
@@ -52,9 +55,11 @@ export default function HomePage() {
               <ClubButton variant="ghost" size="sm" className="hidden md:block">
                 Iniciar Sesión
               </ClubButton>
-              <ClubButton size="sm" className="hidden md:block">
-                Agenda Demo
-              </ClubButton>
+              <a href="/demo">
+                <ClubButton size="sm" className="hidden md:block">
+                  Agenda Demo
+                </ClubButton>
+              </a>
               <MobileMenu />
             </div>
           </div>
@@ -66,18 +71,18 @@ export default function HomePage() {
         <div className="container py-20 relative z-10">
           <div className="max-w-5xl">
             <div className="flex items-center gap-2 text-sm mb-6 animate-slide-up">
-              <span className="bg-club-accent/90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-medium shadow-glow animate-pulse-glow">
-                APP CLUBES
+              <span className="bg-club-accent text-white px-4 py-2 rounded-full font-medium">
+                SOFTWARE GESTIÓN CLUBES
               </span>
-              <span className="bg-club-success/90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-medium shadow-glow animate-float">
-                ACTUALIZADO
+              <span className="bg-club-success text-white px-4 py-2 rounded-full font-medium">
+                ROI GARANTIZADO
               </span>
               <span className="text-club-text-secondary">Primeros 50 clubes: 2 meses gratis</span>
             </div>
 
             <h1 className="text-6xl md:text-7xl font-bold text-club-text-primary mb-8 leading-tight animate-slide-up">
               Tu Club de Pádel <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-club-accent via-club-accent-glow to-club-accent-light animate-pulse-glow">
+              <span className="text-club-accent">
                 Negocio Profesional
               </span>
             </h1>
@@ -88,29 +93,33 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 mb-12 animate-slide-up" style={{animationDelay: '0.4s'}}>
-              <ClubButton size="lg" className="text-lg px-8 py-4 shadow-glow-lg hover:shadow-glow animate-pulse-glow">
-                <span className="flex items-center gap-2">
-                  <RocketIcon className="w-5 h-5" />
-                  Agenda Demo de 20 min
-                </span>
-              </ClubButton>
-              <ClubButton variant="secondary" size="lg" className="text-lg px-8 py-4 bg-club-glass-medium border-club-border-glow hover:shadow-glow">
-                Ver video demo de 5 min
-              </ClubButton>
+              <a href="/recursos">
+                <ClubButton size="lg" className="text-lg px-8 py-4 shadow-subtle hover:shadow-professional">
+                  <span className="flex items-center gap-2">
+                    <CalendarIcon className="w-5 h-5" />
+                    Calcular mi ROI ahora
+                  </span>
+                </ClubButton>
+              </a>
+              <a href="/demo">
+                <ClubButton variant="secondary" size="lg" className="text-lg px-8 py-4 bg-club-glass-medium border-club-border hover:shadow-subtle">
+                  Agendar demo personalizada
+                </ClubButton>
+              </a>
             </div>
 
             <div className="flex flex-wrap gap-8 text-sm animate-slide-up" style={{animationDelay: '0.6s'}}>
-              <div className="flex items-center gap-3 bg-club-glass-light backdrop-blur-sm px-4 py-2 rounded-full border border-club-border hover:shadow-glow transition-all duration-300">
-                <CheckIcon className="w-4 h-4 text-club-success animate-pulse-glow" />
-                <span className="text-club-text-secondary font-medium">400+ clubes activos</span>
+              <div className="flex items-center gap-3 bg-club-glass-light backdrop-blur-sm px-4 py-2 rounded-full border border-club-border">
+                <CheckIcon className="w-4 h-4 text-club-success" />
+                <span className="text-club-text-secondary font-medium">ROI promedio 312%</span>
               </div>
-              <div className="flex items-center gap-3 bg-club-glass-light backdrop-blur-sm px-4 py-2 rounded-full border border-club-border hover:shadow-glow transition-all duration-300">
-                <CheckIcon className="w-4 h-4 text-club-success animate-pulse-glow" />
-                <span className="text-club-text-secondary font-medium">60,000+ jugadores</span>
+              <div className="flex items-center gap-3 bg-club-glass-light backdrop-blur-sm px-4 py-2 rounded-full border border-club-border">
+                <CheckIcon className="w-4 h-4 text-club-success" />
+                <span className="text-club-text-secondary font-medium">Sin comisiones ocultas</span>
               </div>
-              <div className="flex items-center gap-3 bg-club-glass-light backdrop-blur-sm px-4 py-2 rounded-full border border-club-border hover:shadow-glow transition-all duration-300">
-                <CheckIcon className="w-4 h-4 text-club-success animate-pulse-glow" />
-                <span className="text-club-text-secondary font-medium">#1 en México</span>
+              <div className="flex items-center gap-3 bg-club-glass-light backdrop-blur-sm px-4 py-2 rounded-full border border-club-border">
+                <CheckIcon className="w-4 h-4 text-club-success" />
+                <span className="text-club-text-secondary font-medium">Setup en 24 horas</span>
               </div>
             </div>
           </div>

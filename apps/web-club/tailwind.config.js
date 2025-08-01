@@ -47,10 +47,8 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
-        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
-        'glow-pulse': 'glowPulse 3s ease-in-out infinite alternate',
-        'border-glow': 'borderGlow 2s ease-in-out infinite alternate',
         'rotate-slow': 'rotateSlow 20s linear infinite',
       },
       keyframes: {
@@ -62,27 +60,17 @@ module.exports = {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
-        pulseGlow: {
+        pulseSubtle: {
           '0%, 100%': { 
-            transform: 'scale(1)',
-            filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))'
+            opacity: '1',
           },
           '50%': { 
-            transform: 'scale(1.05)',
-            filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.8))'
+            opacity: '0.8',
           },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
-        },
-        glowPulse: {
-          '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)' },
-        },
-        borderGlow: {
-          '0%': { borderColor: 'rgba(59, 130, 246, 0.3)' },
-          '100%': { borderColor: 'rgba(59, 130, 246, 0.8)' },
         },
         rotateSlow: {
           '0%': { transform: 'rotate(0deg)' },
@@ -90,8 +78,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(59, 130, 246, 0.5)',
-        'glow-lg': '0 0 40px rgba(59, 130, 246, 0.6)',
+        'subtle': '0 4px 12px rgba(59, 130, 246, 0.15)',
+        'professional': '0 10px 25px rgba(0, 0, 0, 0.2)',
         'glass': '0 8px 32px rgba(0, 0, 0, 0.12)',
         'glass-lg': '0 16px 64px rgba(0, 0, 0, 0.16)',
       },
