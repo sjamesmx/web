@@ -12,7 +12,8 @@ import {
   DollarIcon,
   ChartBarIcon,
   ArrowRightIcon,
-  CheckIcon
+  CheckIcon,
+  ClockIcon
 } from '../../components/icons';
 import type { Metadata } from 'next';
 
