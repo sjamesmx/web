@@ -150,7 +150,7 @@ export default function PreciosPage() {
                 </div>
               </div>
 
-              <ClubButton className="w-full text-lg mb-4 shadow-glow hover:shadow-glow-lg">
+              <ClubButton className="w-full text-lg mb-4 shadow-subtle hover:shadow-professional text-white">
                 Empezar ahora
               </ClubButton>
               <p className="text-center text-club-text-secondary text-sm">
@@ -223,7 +223,7 @@ export default function PreciosPage() {
                 </div>
               </div>
 
-              <ClubButton size="lg" className="w-full text-lg mb-4 bg-club-accent hover:bg-club-accent-hover shadow-glow-lg hover:shadow-glow animate-pulse-glow">
+              <ClubButton size="lg" className="w-full text-lg mb-4 bg-club-accent hover:bg-club-accent-hover shadow-professional hover:shadow-glass text-white">
                 Agendar demo
               </ClubButton>
               <p className="text-center text-club-text-secondary text-sm">
@@ -277,7 +277,7 @@ export default function PreciosPage() {
                 </div>
               </div>
 
-              <ClubButton variant="secondary" className="w-full text-lg mb-4 bg-club-glass-light border-club-border-glow hover:shadow-glow">
+              <ClubButton variant="secondary" className="w-full text-lg mb-4 bg-club-glass-light border-club-border hover:shadow-subtle text-white">
                 Contactar ventas
               </ClubButton>
               <p className="text-center text-club-text-secondary text-sm">
@@ -301,15 +301,15 @@ export default function PreciosPage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <div className="bg-club-glass-medium backdrop-blur-xl rounded-2xl p-8 shadow-glass border border-club-border">
               <h3 className="text-2xl font-bold mb-6 text-club-text-primary">Calculadora ROI</h3>
               
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-club-text-primary mb-2">
+                  <label className="block text-sm font-medium text-club-text-secondary mb-2">
                     Número de canchas
                   </label>
-                  <select className="w-full p-3 border border-club-border rounded-lg focus:ring-2 focus:ring-club-accent focus:border-transparent">
+                  <select className="w-full p-3 bg-club-glass-light backdrop-blur-sm border border-club-border rounded-lg focus:ring-2 focus:ring-club-accent focus:border-transparent text-club-text-primary">
                     <option>2-4 canchas</option>
                     <option>5-8 canchas</option>
                     <option>9+ canchas</option>
@@ -317,10 +317,10 @@ export default function PreciosPage() {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-club-text-primary mb-2">
+                  <label className="block text-sm font-medium text-club-text-secondary mb-2">
                     Ingresos mensuales actuales
                   </label>
-                  <select className="w-full p-3 border border-club-border rounded-lg focus:ring-2 focus:ring-club-accent focus:border-transparent">
+                  <select className="w-full p-3 bg-club-glass-light backdrop-blur-sm border border-club-border rounded-lg focus:ring-2 focus:ring-club-accent focus:border-transparent text-club-text-primary">
                     <option>$50,000 - $100,000</option>
                     <option>$100,000 - $200,000</option>
                     <option>$200,000 - $500,000</option>
@@ -329,57 +329,57 @@ export default function PreciosPage() {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-club-text-primary mb-2">
+                  <label className="block text-sm font-medium text-club-text-secondary mb-2">
                     Ocupación promedio actual
                   </label>
-                  <select className="w-full p-3 border border-club-border rounded-lg focus:ring-2 focus:ring-club-accent focus:border-transparent">
+                  <select className="w-full p-3 bg-club-glass-light backdrop-blur-sm border border-club-border rounded-lg focus:ring-2 focus:ring-club-accent focus:border-transparent text-club-text-primary">
                     <option>40-60%</option>
                     <option>60-80%</option>
                     <option>80%+</option>
                   </select>
                 </div>
                 
-                <ClubButton className="w-full">
+                <ClubButton className="w-full text-white">
                   Calcular mi ROI
                 </ClubButton>
               </div>
             </div>
             
             <div>
-              <div className="bg-gradient-to-br from-club-success/10 to-club-success/20 rounded-2xl p-8 border border-club-success/30">
+              <div className="bg-gradient-to-br from-club-success/20 to-club-success/10 backdrop-blur-xl rounded-2xl p-8 border border-club-success/30">
                 <h4 className="text-2xl font-bold text-club-success mb-6">Ejemplo: Club medio (6 canchas)</h4>
                 
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/80 rounded-lg p-4 text-center">
+                    <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-4 text-center border border-club-border">
                       <div className="text-2xl font-bold text-club-text-primary">$150,000</div>
                       <div className="text-sm text-club-text-secondary">Ingresos actuales/mes</div>
                     </div>
-                    <div className="bg-white/80 rounded-lg p-4 text-center">
+                    <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-4 text-center border border-club-success/50">
                       <div className="text-2xl font-bold text-club-success">$195,000</div>
                       <div className="text-sm text-club-text-secondary">Con Padelyzer/mes</div>
                     </div>
                   </div>
                   
-                  <div className="bg-white/80 rounded-lg p-6">
+                  <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-6 border border-club-border">
                     <h5 className="font-bold text-club-text-primary mb-4">Incremento anual:</h5>
                     <div className="text-3xl font-bold text-club-success mb-2">+$540,000</div>
                     <div className="text-lg text-club-success">+30% más ingresos</div>
                   </div>
                   
-                  <div className="bg-white/80 rounded-lg p-6">
+                  <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-6 border border-club-border">
                     <h5 className="font-bold text-club-text-primary mb-4">Inversión vs Retorno:</h5>
                     <div className="flex justify-between items-center mb-2">
-                      <span>Inversión anual:</span>
-                      <span className="font-bold">$155,988</span>
+                      <span className="text-club-text-secondary">Inversión anual:</span>
+                      <span className="font-bold text-club-text-primary">$155,988</span>
                     </div>
                     <div className="flex justify-between items-center mb-4">
-                      <span>Retorno adicional:</span>
+                      <span className="text-club-text-secondary">Retorno adicional:</span>
                       <span className="font-bold text-club-success">$540,000</span>
                     </div>
-                    <div className="border-t pt-4">
+                    <div className="border-t border-club-border pt-4">
                       <div className="flex justify-between items-center">
-                        <span className="font-bold">ROI:</span>
+                        <span className="font-bold text-club-text-primary">ROI:</span>
                         <span className="text-2xl font-bold text-club-success">346%</span>
                       </div>
                     </div>

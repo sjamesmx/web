@@ -20,9 +20,9 @@ export const ClubButton = forwardRef<HTMLButtonElement, ClubButtonProps>(
           
           // Variants
           {
-            'bg-club-accent text-white hover:bg-club-accent/90 focus-visible:ring-club-accent': variant === 'primary',
-            'bg-club-bg-secondary text-club-text-primary border border-club-border hover:bg-club-bg-primary focus-visible:ring-club-accent': variant === 'secondary',
-            'text-club-text-secondary hover:text-club-text-primary hover:bg-club-bg-secondary focus-visible:ring-club-accent': variant === 'ghost',
+            'bg-club-accent text-white hover:bg-club-accent-hover focus-visible:ring-club-accent': variant === 'primary',
+            'bg-club-glass-medium backdrop-blur-sm text-white border border-club-border hover:bg-club-glass-light hover:border-club-accent focus-visible:ring-club-accent': variant === 'secondary',
+            'text-club-text-secondary hover:text-club-text-primary hover:bg-club-glass-light focus-visible:ring-club-accent': variant === 'ghost',
           },
           
           // Sizes
