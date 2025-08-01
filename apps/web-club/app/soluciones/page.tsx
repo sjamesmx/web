@@ -1,6 +1,7 @@
 import { ClubButton } from '../../components/ui/ClubButton';
 import { Logo } from '../../components/ui/Logo';
 import MobileMenu from '../../components/MobileMenu';
+import BackgroundAnimation from '../../components/BackgroundAnimation';
 import { 
   ChartBarIcon, 
   CalendarIcon, 
@@ -16,30 +17,32 @@ import {
 
 export default function SolucionesPage() {
   return (
-    <>
+    <div className="min-h-screen bg-club-bg-primary text-club-text-primary">
+      {/* Background Animation */}
+      <BackgroundAnimation />
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-club-border shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-club-glass-medium backdrop-blur-xl border-b border-club-border shadow-glass">
         <div className="container">
           <div className="flex items-center justify-between h-16">
             <Logo variant="club" />
             
             <div className="hidden md:flex items-center gap-8">
-              <a href="/" className="text-club-text-secondary hover:text-club-accent transition-colors">
+              <a href="/" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
                 Inicio
               </a>
-              <a href="/soluciones" className="text-club-accent font-medium">
+              <a href="/soluciones" className="text-club-accent font-medium animate-pulse-glow">
                 Soluciones
               </a>
-              <a href="/precios" className="text-club-text-secondary hover:text-club-accent transition-colors">
+              <a href="/precios" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
                 Precios
               </a>
             </div>
 
             <div className="flex items-center gap-4">
-              <ClubButton variant="ghost" size="sm" className="hidden md:block">
+              <ClubButton variant="ghost" size="sm" className="hidden md:block hover:shadow-glow">
                 Iniciar Sesión
               </ClubButton>
-              <ClubButton size="sm" className="hidden md:block">
+              <ClubButton size="sm" className="hidden md:block shadow-glow hover:shadow-glow-lg animate-pulse-glow">
                 Agenda Demo
               </ClubButton>
               <MobileMenu />
@@ -49,28 +52,28 @@ export default function SolucionesPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-b from-club-bg-secondary to-white">
-        <div className="container text-center">
+      <section className="pt-24 pb-16 bg-gradient-to-b from-club-bg-secondary to-club-bg-primary relative">
+        <div className="container text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-club-accent/10 text-club-accent px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-club-accent/20 backdrop-blur-sm text-club-accent-light px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-glow animate-pulse-glow">
               <GlobeIcon className="w-4 h-4" />
               SOLUCIONES COMPLETAS
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-club-text-primary">
-              Todo lo que necesitas para <span className="text-club-accent">gestionar tu club</span>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-club-text-primary animate-slide-up">
+              Todo lo que necesitas para <span className="text-transparent bg-clip-text bg-gradient-to-r from-club-accent via-club-accent-glow to-club-accent-light animate-pulse-glow">gestionar tu club</span>
             </h1>
             
-            <p className="text-xl text-club-text-secondary mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-club-text-secondary mb-8 max-w-3xl mx-auto animate-slide-up">
               6 módulos integrados que automatizan cada aspecto de tu negocio. 
               Desde reservas hasta finanzas, todo en una sola plataforma.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <ClubButton size="lg" className="text-lg">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up">
+              <ClubButton size="lg" className="text-lg shadow-glow hover:shadow-glow-lg animate-pulse-glow">
                 Ver demo en vivo
               </ClubButton>
-              <ClubButton variant="secondary" size="lg" className="text-lg">
+              <ClubButton variant="secondary" size="lg" className="text-lg bg-club-glass-medium border-club-border-glow hover:shadow-glow">
                 Agendar presentación
               </ClubButton>
             </div>
@@ -79,13 +82,13 @@ export default function SolucionesPage() {
       </section>
 
       {/* Módulos Overview */}
-      <section className="py-20">
-        <div className="container">
+      <section className="py-20 relative">
+        <div className="container relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary">
-              <span className="text-club-accent">6 módulos</span> que revolucionan tu operación
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary animate-slide-up">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-club-accent via-club-accent-glow to-club-accent-light animate-pulse-glow">6 módulos</span> que revolucionan tu operación
             </h2>
-            <p className="text-xl text-club-text-secondary max-w-3xl mx-auto">
+            <p className="text-xl text-club-text-secondary max-w-3xl mx-auto animate-slide-up">
               Cada módulo diseñado específicamente para resolver los desafíos únicos de los clubes de pádel
             </p>
           </div>
@@ -143,9 +146,10 @@ export default function SolucionesPage() {
             ].map((module, index) => (
               <div 
                 key={index}
-                className={`bg-gradient-to-br ${module.color} border ${module.border} rounded-2xl p-8 hover:border-club-accent/50 transition-all duration-300 group hover:shadow-xl transform hover:-translate-y-2`}
+                className={`bg-club-glass-medium backdrop-blur-xl border ${module.border} rounded-2xl p-8 hover:border-club-accent-glow/60 transition-all duration-300 group hover:shadow-glow transform hover:-translate-y-2 animate-slide-up`}
+                style={{animationDelay: `${index * 0.1}s`}}
               >
-                <module.Icon className="w-12 h-12 mb-6 text-club-accent group-hover:scale-110 transition-transform" />
+                <module.Icon className="w-12 h-12 mb-6 text-club-accent group-hover:text-club-accent-light group-hover:scale-110 group-hover:animate-pulse-glow transition-all" />
                 <h3 className="text-xl font-bold mb-4 text-club-text-primary">{module.title}</h3>
                 <p className="text-club-text-secondary mb-6">{module.description}</p>
                 
@@ -158,7 +162,7 @@ export default function SolucionesPage() {
                   ))}
                 </ul>
                 
-                <ClubButton variant="secondary" size="sm" className="w-full group-hover:border-club-accent">
+                <ClubButton variant="secondary" size="sm" className="w-full bg-club-glass-light border-club-border-glow group-hover:shadow-glow">
                   Ver detalles
                   <ArrowRightIcon className="w-4 h-4 ml-2" />
                 </ClubButton>
@@ -207,8 +211,8 @@ export default function SolucionesPage() {
               </div>
             </div>
             
-            <div className="relative">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <div className="relative animate-slide-up">
+              <div className="bg-club-glass-medium backdrop-blur-xl rounded-2xl p-6 shadow-glass hover:shadow-glow transition-all duration-300 border border-club-border">
                 <div className="mb-4">
                   <h4 className="font-bold text-club-text-primary mb-2">Dashboard - Hoy</h4>
                   <div className="flex items-center gap-4 text-sm text-club-text-secondary">
@@ -221,20 +225,20 @@ export default function SolucionesPage() {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-club-bg-secondary rounded-lg p-4">
-                    <div className="text-2xl font-bold text-club-accent">85%</div>
+                  <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-4 border border-club-border">
+                    <div className="text-2xl font-bold text-club-accent animate-pulse-glow">85%</div>
                     <div className="text-sm text-club-text-secondary">Ocupación</div>
                   </div>
-                  <div className="bg-club-bg-secondary rounded-lg p-4">
-                    <div className="text-2xl font-bold text-club-success">$45,280</div>
+                  <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-4 border border-club-border">
+                    <div className="text-2xl font-bold text-club-success animate-pulse-glow">$45,280</div>
                     <div className="text-sm text-club-text-secondary">Ingresos hoy</div>
                   </div>
-                  <div className="bg-club-bg-secondary rounded-lg p-4">
-                    <div className="text-2xl font-bold text-blue-500">127</div>
+                  <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-4 border border-club-border">
+                    <div className="text-2xl font-bold text-blue-400 animate-pulse-glow">127</div>
                     <div className="text-sm text-club-text-secondary">Reservas</div>
                   </div>
-                  <div className="bg-club-bg-secondary rounded-lg p-4">
-                    <div className="text-2xl font-bold text-purple-500">23</div>
+                  <div className="bg-club-glass-light backdrop-blur-sm rounded-lg p-4 border border-club-border">
+                    <div className="text-2xl font-bold text-purple-400 animate-pulse-glow">23</div>
                     <div className="text-sm text-club-text-secondary">Nuevos clientes</div>
                   </div>
                 </div>
@@ -534,35 +538,35 @@ export default function SolucionesPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-b from-club-bg-secondary to-white">
-        <div className="container text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary">
-            ¿Listo para <span className="text-club-accent">automatizar tu club</span>?
+      <section className="py-20 bg-gradient-to-b from-club-bg-secondary to-club-bg-primary relative">
+        <div className="container text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary animate-slide-up">
+            ¿Listo para <span className="text-transparent bg-clip-text bg-gradient-to-r from-club-accent via-club-accent-glow to-club-accent-light animate-pulse-glow">automatizar tu club</span>?
           </h2>
-          <p className="text-xl text-club-text-secondary mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-club-text-secondary mb-8 max-w-2xl mx-auto animate-slide-up">
             6 módulos integrados que trabajan juntos para maximizar tus ingresos y minimizar tu trabajo.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <ClubButton size="lg" className="text-lg">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-slide-up">
+            <ClubButton size="lg" className="text-lg shadow-glow hover:shadow-glow-lg animate-pulse-glow">
               Ver demo completa de 20 min
             </ClubButton>
-            <ClubButton variant="secondary" size="lg" className="text-lg">
+            <ClubButton variant="secondary" size="lg" className="text-lg bg-club-glass-medium border-club-border-glow hover:shadow-glow">
               Descargar brochure técnico
             </ClubButton>
           </div>
 
-          <div className="flex items-center justify-center gap-8 text-sm text-club-text-secondary">
+          <div className="flex items-center justify-center gap-8 text-sm text-club-text-secondary animate-slide-up">
             <div className="flex items-center gap-2">
-              <CheckIcon className="w-4 h-4 text-club-success" />
+              <CheckIcon className="w-4 h-4 text-club-success animate-pulse-glow" />
               <span>Setup en 24 horas</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckIcon className="w-4 h-4 text-club-success" />
+              <CheckIcon className="w-4 h-4 text-club-success animate-pulse-glow" />
               <span>Soporte 24/7</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckIcon className="w-4 h-4 text-club-success" />
+              <CheckIcon className="w-4 h-4 text-club-success animate-pulse-glow" />
               <span>Garantía de ROI</span>
             </div>
           </div>
@@ -570,24 +574,24 @@ export default function SolucionesPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-club-border">
-        <div className="container">
+      <footer className="py-12 border-t border-club-border bg-club-bg-primary relative">
+        <div className="container relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <Logo variant="club" />
             <div className="flex gap-6 text-sm">
-              <a href="/privacidad" className="text-club-text-secondary hover:text-club-accent">
+              <a href="/privacidad" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
                 Privacidad
               </a>
-              <a href="/terminos" className="text-club-text-secondary hover:text-club-accent">
+              <a href="/terminos" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
                 Términos
               </a>
-              <a href="https://padelyzer.com" className="text-club-text-secondary hover:text-club-accent">
+              <a href="https://padelyzer.com" className="text-club-text-secondary hover:text-club-accent hover:shadow-glow transition-all duration-300">
                 App para jugadores
               </a>
             </div>
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }

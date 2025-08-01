@@ -41,7 +41,7 @@ export default function BackgroundAnimation() {
         this.speed = 0.2 + Math.random() * 0.8;
         this.opacity = 0.05 + Math.random() * 0.1;
         this.shape = ['circle', 'square', 'triangle'][Math.floor(Math.random() * 3)] as 'circle' | 'square' | 'triangle';
-        this.color = ['#0EA5E9', '#10B981', '#64748B'][Math.floor(Math.random() * 3)]; // Club colors
+        this.color = ['#3B82F6', '#60A5FA', '#93C5FD'][Math.floor(Math.random() * 3)]; // Blue spectrum
         this.rotationSpeed = (Math.random() - 0.5) * 0.02;
         this.reset();
       }
