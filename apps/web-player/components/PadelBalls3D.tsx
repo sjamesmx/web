@@ -30,15 +30,19 @@ export default function PadelBalls3D() {
       vz: number = 0;
       radius: number;
       color: string = '#B8FF00';
+      canvasWidth: number;
+      canvasHeight: number;
 
-      constructor() {
+      constructor(width: number, height: number) {
+        this.canvasWidth = width;
+        this.canvasHeight = height;
         this.radius = 15 + Math.random() * 10;
         this.reset();
       }
 
       reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * this.canvasWidth;
+        this.y = Math.random() * this.canvasHeight;
         this.z = Math.random() * 100;
         this.vx = (Math.random() - 0.5) * 2;
         this.vy = (Math.random() - 0.5) * 2;
@@ -52,13 +56,13 @@ export default function PadelBalls3D() {
         this.z += this.vz;
 
         // Bounce off walls
-        if (this.x - this.radius < 0 || this.x + this.radius > canvas.width) {
+        if (this.x - this.radius < 0 || this.x + this.radius > this.canvasWidth) {
           this.vx *= -0.9;
-          this.x = Math.max(this.radius, Math.min(canvas.width - this.radius, this.x));
+          this.x = Math.max(this.radius, Math.min(this.canvasWidth - this.radius, this.x));
         }
-        if (this.y - this.radius < 0 || this.y + this.radius > canvas.height) {
+        if (this.y - this.radius < 0 || this.y + this.radius > this.canvasHeight) {
           this.vy *= -0.9;
-          this.y = Math.max(this.radius, Math.min(canvas.height - this.radius, this.y));
+          this.y = Math.max(this.radius, Math.min(this.canvasHeight - this.radius, this.y));
         }
         if (this.z < 0 || this.z > 100) {
           this.vz *= -0.9;
@@ -120,13 +124,21 @@ export default function PadelBalls3D() {
     // Create balls
     const balls: Ball[] = [];
     for (let i = 0; i < 5; i++) {
-      balls.push(new Ball());
+      balls.push(new Ball(canvas.width, canvas.height));
     }
 
     // Animation loop
     let animationId: number;
     const animate = () => {
+      if (!canvas || !ctx) return;
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Update canvas dimensions for balls
+      balls.forEach(ball => {
+        ball.canvasWidth = canvas.width;
+        ball.canvasHeight = canvas.height;
+      });
 
       // Sort balls by z-index (back to front)
       balls.sort((a, b) => a.z - b.z);
