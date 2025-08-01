@@ -1,11 +1,41 @@
+'use client';
+
 import { PlayerButton } from '@padelyzer/ui';
 import { Logo } from '@padelyzer/ui';
+import { useState, useEffect } from 'react';
+import PadelBallsGrid3D from '../components/PadelBallsGrid3D';
+import MobileMenu from '../components/MobileMenu';
+import { 
+  AnalyticsIcon, 
+  AIBrainIcon, 
+  TargetIcon, 
+  VideoIcon, 
+  ChartIcon, 
+  TrainingIcon, 
+  ProgressIcon, 
+  RivalIcon, 
+  CommunityIcon,
+  RocketIcon,
+  CheckIcon,
+  StarIcon,
+  EmailIcon,
+  PhoneIcon,
+  ClipboardIcon,
+  TrendIcon,
+  ShieldIcon
+} from '../components/icons';
 
 export default function HomePage() {
+  const [showNotification, setShowNotification] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowNotification(true), 5000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-player-bg-primary/80 backdrop-blur-md border-b border-player-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-player-bg-primary/90 backdrop-blur-md border-b border-player-border">
         <div className="container">
           <div className="flex items-center justify-between h-16">
             <Logo variant="player" />
@@ -17,159 +47,334 @@ export default function HomePage() {
               <a href="/precio" className="text-player-text-secondary hover:text-player-accent transition-colors">
                 Precio
               </a>
-              <a href="/blog" className="text-player-text-secondary hover:text-player-accent transition-colors">
-                Blog
+              <a href="/descargar" className="text-player-text-secondary hover:text-player-accent transition-colors">
+                Descargar
+              </a>
+              <a href="/torneos" className="text-player-text-secondary hover:text-player-accent transition-colors">
+                Torneos
               </a>
             </div>
 
             <div className="flex items-center gap-4">
-              <PlayerButton variant="ghost" size="sm">
-                Iniciar Sesión
+              <PlayerButton size="sm" className="hidden md:block">
+                Descargar App
               </PlayerButton>
-              <PlayerButton size="sm">
-                Descargar
-              </PlayerButton>
+              <MobileMenu />
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="min-h-screen pt-16 flex items-center">
-        <div className="container py-20">
-          <div className="max-w-5xl">
-            <div className="inline-block bg-player-accent text-black text-sm font-bold px-3 py-1 rounded-full mb-4">
-              APP JUGADORES
-            </div>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-              Tu juego <span className="text-player-accent">apesta</span>...
-              <br />y lo sabes
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-player-text-secondary mb-8 max-w-3xl">
-              La IA que analiza tu pádel y te dice exactamente qué mejorar. 
-              Mejora tu ranking en 30 días o te devolvemos tu dinero.
-            </p>
+      {/* Hero Section - Nueva estructura optimizada */}
+      <section className="min-h-screen bg-player-bg-primary relative overflow-hidden">
+        {/* Background gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-player-bg-primary via-player-bg-primary to-player-bg-secondary"></div>
+        
+        {/* 3D Padel Balls Background Animation */}
+        <PadelBallsGrid3D />
+        
+        {/* Floating elements */}
+        <div className="absolute top-20 right-10 w-20 h-20 bg-player-accent/10 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-32 left-10 w-32 h-32 bg-player-accent/5 rounded-full animate-pulse delay-300"></div>
+        
+        <div className="relative z-10 container pt-24 pb-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+              {/* Content - Simplified */}
+              <div className="max-w-2xl">
+                <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-8 animate-pulse">
+                  <RocketIcon className="w-4 h-4 inline mr-2" />
+                  BETA EXCLUSIVO - ACCESO LIMITADO
+                </div>
+                
+                <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+                  Tu mejor versión en el pádel
+                  <span className="text-[#B8FF00]"> está a un clic</span>
+                </h1>
+                
+                <p className="text-xl text-[#94A3B8] mb-12 leading-relaxed">
+                  La tecnología que los pros usan, ahora en tu bolsillo.
+                  Únete al beta exclusivo antes que nadie.
+                </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <PlayerButton size="lg" className="text-lg">
-                Prueba 14 días gratis
-              </PlayerButton>
-              <PlayerButton variant="secondary" size="lg" className="text-lg">
-                Ver demo 2 min
-              </PlayerButton>
-            </div>
+                {/* Simplified Beta indicator */}
+                <div className="bg-player-bg-secondary/30 backdrop-blur-md border border-player-accent/20 rounded-2xl p-6 mb-12 max-w-md">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="text-white font-bold text-base flex items-center gap-2">
+                        <TargetIcon className="w-5 h-5 text-player-accent" />
+                        Acceso Beta Limitado
+                      </h3>
+                      <p className="text-player-text-secondary text-sm">
+                        Solo para los primeros 1000 jugadores
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-3xl font-bold text-player-accent">927</p>
+                      <p className="text-player-text-secondary text-xs">disponibles</p>
+                    </div>
+                  </div>
+                  
+                  {/* Corrected progress bar: 73 of 1000 = 7.3% */}
+                  <div className="bg-player-bg-primary/50 rounded-full h-2 overflow-hidden mb-2">
+                    <div className="bg-gradient-to-r from-player-accent to-green-400 h-full rounded-full transition-all duration-1000" style={{width: '7.3%'}}></div>
+                  </div>
+                  <div className="flex justify-between text-xs text-player-text-secondary">
+                    <span>73 confirmados</span>
+                    <span>927 disponibles</span>
+                  </div>
+                </div>
 
-            <div className="flex items-center gap-6 text-sm text-player-text-secondary">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-player-accent rounded-full animate-pulse"></div>
-                <span>+15,000 jugadores activos</span>
+                {/* Minimal trust indicators */}
+                <div className="flex flex-wrap gap-8 text-sm text-player-text-secondary">
+                  <span className="flex items-center gap-2">
+                    <CommunityIcon className="w-4 h-4 text-player-accent" /> 
+                    <span className="text-white">73</span> beta testers activos
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <TrendIcon className="w-4 h-4 text-player-accent" /> 
+                    <span className="text-white">89%</span> mejoran en 2 semanas
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-player-accent rounded-full animate-pulse"></div>
-                <span>4.8/5 rating</span>
+
+              {/* Visual Focus - Simplified */}
+              <div className="relative lg:justify-self-end">
+                <div className="relative w-full h-[500px] mx-auto flex items-center justify-center">
+                  
+                  {/* Central AI focus - more minimal */}
+                  <div className="w-72 h-72 rounded-full border border-player-accent/20 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-7xl font-bold text-player-accent mb-3">AI</div>
+                      <div className="text-white text-xl font-light">Powered</div>
+                      <div className="text-player-text-secondary text-sm mt-2">Análisis en tiempo real</div>
+                    </div>
+                  </div>
+                  
+                  {/* Minimal floating stats - only 2 key ones */}
+                  <div className="absolute top-16 left-16 bg-player-bg-primary/60 backdrop-blur-md border border-player-accent/20 px-4 py-3 rounded-xl shadow-lg animate-float">
+                    <div className="flex items-center gap-3">
+                      <ChartIcon className="w-4 h-4 text-player-accent" />
+                      <div>
+                        <p className="text-xs text-player-text-secondary">Precisión</p>
+                        <p className="text-base font-bold text-white">+32%</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute bottom-16 right-16 bg-player-bg-primary/60 backdrop-blur-md border border-player-accent/20 px-4 py-3 rounded-xl shadow-lg animate-float-delayed">
+                    <div className="flex items-center gap-3">
+                      <AIBrainIcon className="w-4 h-4 text-player-accent" />
+                      <div>
+                        <p className="text-xs text-player-text-secondary">IQ Score</p>
+                        <p className="text-base font-bold text-white">84.7</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="py-20">
+      {/* Opportunity Section - Transformación positiva */}
+      <section className="py-20 bg-player-bg-secondary">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            ¿Te suena familiar?
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
+            ¿Listo para el <span className="text-player-accent">siguiente nivel</span>?
           </h2>
           <p className="text-xl text-player-text-secondary text-center mb-16 max-w-3xl mx-auto">
-            Si juegas pádel hace más de 6 meses, probablemente te identificas con estos problemas...
+            La mayoría de jugadores se estancan aquí. <strong className="text-white">Tú puedes ser diferente</strong>.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "Llevas 2 años jugando igual",
-                description: "Sigues cometiendo los mismos errores una y otra vez sin saber cuáles son.",
-                pain: "No mejoras aunque entrenes",
-                icon: "📊"
+                title: "Del estancamiento al progreso",
+                description: "Transforma esos años de experiencia en mejora real y medible. Cada sesión cuenta hacia tu evolución.",
+                benefit: "Progreso garantizado",
+                Icon: ProgressIcon,
+                color: "from-green-500/20 to-green-600/10",
+                borderColor: "border-green-500/30"
               },
               {
-                title: "No sabes qué entrenar",
-                description: "Practicas sin dirección, perdiendo tiempo en cosas que no necesitas mejorar.",
-                pain: "Entrenas sin plan específico",
-                icon: "🎯"
+                title: "De la confusión a la claridad",
+                description: "Sabe exactamente qué entrenar y por qué. Cada ejercicio tiene un propósito específico.",
+                benefit: "Entrenamientos inteligentes",
+                Icon: TargetIcon,
+                color: "from-blue-500/20 to-blue-600/10",
+                borderColor: "border-blue-500/30"
               },
               {
-                title: "Pierdes contra jugadores 'peores'",
-                description: "Te ganan rivales que juegan peor técnicamente pero son más consistentes.",
-                pain: "Frustrante y desmoralizante",
-                icon: "😤"
+                title: "De casi ganar a dominar",
+                description: "Cierra esos partidos importantes. Tu técnica + tu mente + datos reales = victoria consistente.",
+                benefit: "Dominio total",
+                Icon: AIBrainIcon,
+                color: "from-yellow-500/20 to-yellow-600/10",
+                borderColor: "border-yellow-500/30"
               }
-            ].map((problem, index) => (
+            ].map((opportunity, index) => (
               <div 
                 key={index}
-                className="bg-player-bg-secondary border border-player-border rounded-2xl p-8 hover:border-player-accent/50 transition-all group"
+                className={`relative bg-gradient-to-br ${opportunity.color} border ${opportunity.borderColor} rounded-2xl p-8 hover:border-player-accent/50 transition-all group hover:transform hover:scale-105 duration-300 backdrop-blur-md overflow-hidden`}
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{problem.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-player-accent">{problem.title}</h3>
-                <p className="text-player-text-secondary mb-4">{problem.description}</p>
-                <div className="text-sm text-red-400 font-medium bg-red-400/10 px-3 py-1 rounded-full">
-                  {problem.pain}
+                <div className="absolute inset-0 bg-gradient-to-br from-player-bg-primary/50 to-transparent" />
+                <div className="relative z-10">
+                  <div className="mb-6 group-hover:scale-110 transition-transform">
+                    <opportunity.Icon className="w-12 h-12 text-player-accent" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-white">{opportunity.title}</h3>
+                  <p className="text-player-text-secondary mb-6 leading-relaxed">{opportunity.description}</p>
+                  <div className="text-sm text-player-accent font-bold bg-player-accent/10 px-4 py-2 rounded-lg border border-player-accent/20 backdrop-blur-sm">
+                    <CheckIcon className="w-4 h-4 inline mr-2" />
+                    {opportunity.benefit}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Call out positivo */}
+          <div className="text-center mt-16">
+            <p className="text-2xl text-white font-bold mb-2">
+              Tu potencial siempre estuvo ahí
+            </p>
+            <p className="text-player-text-secondary">
+              Ahora puedes desbloquearlo. <span className="text-player-accent font-medium">73 beta testers</span> ya lo están haciendo.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-20 bg-player-bg-secondary">
+      {/* Solution Section - Nueva estructura revolucionaria */}
+      <section className="py-20 bg-player-bg-primary">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              La IA que <span className="text-player-accent">analiza tu juego</span> en tiempo real
-            </h2>
-            <p className="text-xl text-player-text-secondary max-w-3xl mx-auto">
-              No más entrenar a ciegas. Nuestra inteligencia artificial ve lo que tú no ves y te dice exactamente qué mejorar.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+            {/* Content */}
             <div>
-              <div className="bg-player-bg-primary border border-player-border rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-4 text-player-accent">¿Cómo funciona?</h3>
-                <div className="space-y-4">
-                  {[
-                    { step: "1", title: "Grabas tu partido", desc: "Con tu celular desde cualquier ángulo" },
-                    { step: "2", title: "IA analiza cada jugada", desc: "Identifica errores técnicos y tácticos" },
-                    { step: "3", title: "Recibes tu reporte", desc: "Plan personalizado de mejora" },
-                    { step: "4", title: "Mejoras específicamente", desc: "Entrenas solo lo que necesitas" }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="bg-player-accent text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm flex-shrink-0">
-                        {item.step}
-                      </div>
-                      <div>
-                        <h4 className="font-bold mb-1">{item.title}</h4>
-                        <p className="text-player-text-secondary text-sm">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">
+                La IA que revoluciona
+                <span className="text-player-accent block">tu pádel</span>
+              </h2>
+              
+              <div className="space-y-8">
+                <div className="flex gap-6 group">
+                  <div className="group-hover:scale-110 transition-transform">
+                    <AnalyticsIcon className="w-12 h-12 text-player-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3">
+                      Análisis Biomecánico en Tiempo Real
+                    </h3>
+                    <p className="text-player-text-secondary leading-relaxed">
+                      Graba tu juego y recibe feedback instantáneo sobre tu técnica, 
+                      postura y movimientos. <span className="text-player-accent font-medium">32 puntos corporales analizados</span> frame por frame.
+                    </p>
+                  </div>
                 </div>
+                
+                <div className="flex gap-6 group">
+                  <div className="group-hover:scale-110 transition-transform">
+                    <AIBrainIcon className="w-12 h-12 text-player-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3">
+                      Padel IQ Personalizado
+                    </h3>
+                    <p className="text-player-text-secondary leading-relaxed">
+                      Un score único que mide tu nivel real y evoluciona contigo partido a partido. 
+                      <span className="text-player-accent font-medium">7 dimensiones evaluadas</span> para un análisis completo.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-6 group">
+                  <div className="group-hover:scale-110 transition-transform">
+                    <TargetIcon className="w-12 h-12 text-player-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3">
+                      Plan de Mejora Específico
+                    </h3>
+                    <p className="text-player-text-secondary leading-relaxed">
+                      Ejercicios personalizados basados en tus puntos débiles. 
+                      No más entrenar a ciegas. <span className="text-player-accent font-medium">Resultados en 30 días</span> o tu dinero de vuelta.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-10">
+                <PlayerButton size="lg" className="text-lg px-8 py-4">
+                  Ver todas las características →
+                </PlayerButton>
               </div>
             </div>
             
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-player-accent/20 to-transparent border border-player-accent/30 rounded-2xl p-6">
-                <h4 className="text-xl font-bold mb-2 text-player-accent">Análisis técnico</h4>
-                <p className="text-player-text-secondary">Posicionamiento, timing, técnica de golpe, movimiento de pies</p>
-              </div>
-              <div className="bg-gradient-to-r from-player-accent/20 to-transparent border border-player-accent/30 rounded-2xl p-6">
-                <h4 className="text-xl font-bold mb-2 text-player-accent">Análisis táctico</h4>
-                <p className="text-player-text-secondary">Decisiones, colocación, estrategia, puntos débiles del rival</p>
-              </div>
-              <div className="bg-gradient-to-r from-player-accent/20 to-transparent border border-player-accent/30 rounded-2xl p-6">
-                <h4 className="text-xl font-bold mb-2 text-player-accent">Plan personalizado</h4>
-                <p className="text-player-text-secondary">Ejercicios específicos, prioridades, métricas de progreso</p>
+            {/* Visual/Mockup mejorado */}
+            <div className="relative">
+              <div className="relative w-full max-w-md mx-auto">
+                {/* Main phone mockup */}
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-[2.5rem] p-4 shadow-2xl">
+                  <div className="bg-player-bg-primary rounded-[2rem] border border-player-border overflow-hidden">
+                    {/* Status bar */}
+                    <div className="flex justify-between items-center px-6 py-3 bg-player-bg-secondary/50">
+                      <span className="text-white text-sm font-medium">Padelyzer</span>
+                      <div className="flex gap-1">
+                        <div className="w-1 h-1 bg-player-accent rounded-full"></div>
+                        <div className="w-1 h-1 bg-player-accent rounded-full"></div>
+                        <div className="w-1 h-1 bg-player-accent rounded-full"></div>
+                      </div>
+                    </div>
+                    
+                    {/* App content */}
+                    <div className="p-6">
+                      <div className="text-center mb-6">
+                        <div className="mb-4">
+                          <ChartIcon className="w-16 h-16 mx-auto text-player-accent" />
+                        </div>
+                        <div className="text-player-accent font-bold text-2xl mb-1">Padel IQ: 84.7</div>
+                        <div className="text-sm text-player-text-secondary">Nivel: Avanzado</div>
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <div className="bg-player-bg-secondary rounded-lg p-3">
+                          <div className="flex justify-between items-center">
+                            <span className="text-white text-sm">Precisión Bandeja</span>
+                            <span className="text-player-accent font-bold">+12%</span>
+                          </div>
+                          <div className="w-full bg-player-border rounded-full h-2 mt-2">
+                            <div className="bg-player-accent h-2 rounded-full w-3/4"></div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-player-bg-secondary rounded-lg p-3">
+                          <div className="flex justify-between items-center">
+                            <span className="text-white text-sm">Posicionamiento</span>
+                            <span className="text-player-accent font-bold">+8%</span>
+                          </div>
+                          <div className="w-full bg-player-border rounded-full h-2 mt-2">
+                            <div className="bg-player-accent h-2 rounded-full w-2/3"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Floating elements */}
+                <div className="absolute -top-8 -left-8 bg-player-accent text-black px-4 py-2 rounded-xl font-bold text-sm shadow-lg animate-pulse flex items-center gap-2">
+                  <TargetIcon className="w-4 h-4" />
+                  Análisis IA
+                </div>
+                <div className="absolute -bottom-6 -right-8 bg-green-500 text-white px-4 py-2 rounded-xl font-bold text-sm shadow-lg animate-pulse delay-500 flex items-center gap-2">
+                  <CheckIcon className="w-4 h-4" />
+                  Mejora detectada
+                </div>
+                <div className="absolute top-1/2 -left-12 bg-blue-500 text-white px-3 py-1 rounded-lg text-xs font-medium shadow-lg animate-bounce delay-1000">
+                  32 puntos
+                </div>
               </div>
             </div>
           </div>
@@ -193,37 +398,37 @@ export default function HomePage() {
               {
                 title: "Análisis de video con IA",
                 description: "Sube tu video y recibe análisis detallado en menos de 5 minutos",
-                icon: "🎥",
+                Icon: VideoIcon,
                 highlight: "Más preciso que un entrenador humano"
               },
               {
                 title: "Métricas de rendimiento",
                 description: "Velocidad de pelota, precisión de golpes, eficiencia de movimiento",
-                icon: "📈",
+                Icon: TrendIcon,
                 highlight: "Datos que nunca habías visto"
               },
               {
                 title: "Plan de entrenamiento",
                 description: "Rutinas personalizadas basadas en tus debilidades específicas",
-                icon: "📋",
+                Icon: ClipboardIcon,
                 highlight: "Entrena inteligente, no más"
               },
               {
                 title: "Seguimiento de progreso",
                 description: "Ve tu mejora mes a mes con gráficos y estadísticas detalladas",
-                icon: "📊",
+                Icon: ChartIcon,
                 highlight: "Motivación basada en datos"
               },
               {
                 title: "Análisis de rivales",
                 description: "Identifica patrones y debilidades de tus oponentes habituales",
-                icon: "🎯",
+                Icon: RivalIcon,
                 highlight: "Ventaja táctica garantizada"
               },
               {
                 title: "Comunidad de jugadores",
                 description: "Comparte análisis y aprende de jugadores de tu nivel",
-                icon: "👥",
+                Icon: CommunityIcon,
                 highlight: "No estás solo en esto"
               }
             ].map((feature, index) => (
@@ -231,7 +436,9 @@ export default function HomePage() {
                 key={index}
                 className="bg-player-bg-secondary border border-player-border rounded-2xl p-6 hover:border-player-accent/50 transition-all group"
               >
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform">{feature.icon}</div>
+                <div className="mb-4 group-hover:scale-110 transition-transform">
+                  <feature.Icon className="w-12 h-12 text-player-accent" />
+                </div>
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-player-text-secondary mb-4">{feature.description}</p>
                 <div className="text-sm text-player-accent font-medium">
@@ -307,51 +514,91 @@ export default function HomePage() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Un precio <span className="text-player-accent">ridículamente bajo</span> para lo que obtienes
+              Elige tu plan. <span className="text-player-accent">Empieza gratis.</span>
             </h2>
             <p className="text-xl text-player-text-secondary max-w-3xl mx-auto">
-              Menos de lo que gastas en pelotas al mes. Más efectivo que 10 clases particulares.
+              Comienza con el plan gratuito o desbloquea todo el potencial con Premium.
             </p>
           </div>
 
-          <div className="max-w-md mx-auto">
-            <div className="bg-gradient-to-b from-player-bg-secondary to-player-bg-primary border-2 border-player-accent rounded-3xl p-8 relative">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Plan Gratuito */}
+            <div className="relative bg-player-bg-secondary/50 backdrop-blur-md border border-player-border rounded-3xl p-8 hover:border-player-accent/30 transition-all">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold mb-4">Plan Gratuito</h3>
+                <div className="mb-4">
+                  <span className="text-5xl font-bold">$0</span>
+                  <span className="text-xl text-player-text-secondary">/mes</span>
+                </div>
+                <p className="text-player-text-secondary">Para siempre gratis</p>
+              </div>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  { text: "Buscar clubes cerca de ti", included: true },
+                  { text: "Reservar canchas sin comisión", included: true },
+                  { text: "Unirse a ligas y torneos", included: true },
+                  { text: "Buscar clases disponibles", included: true },
+                  { text: "Análisis con IA", included: false },
+                  { text: "Plan de entrenamiento", included: false },
+                  { text: "Métricas avanzadas", included: false }
+                ].map((feature, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    {feature.included ? (
+                      <CheckIcon className="w-5 h-5 text-player-accent flex-shrink-0" />
+                    ) : (
+                      <div className="w-5 h-5 rounded-full border border-player-border flex-shrink-0" />
+                    )}
+                    <span className={feature.included ? "" : "text-player-text-secondary opacity-50"}>
+                      {feature.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <PlayerButton variant="secondary" size="lg" className="w-full text-lg">
+                Empezar gratis
+              </PlayerButton>
+            </div>
+
+            {/* Plan Premium */}
+            <div className="relative bg-gradient-to-b from-player-bg-secondary to-player-bg-primary border-2 border-player-accent rounded-3xl p-8 transform hover:scale-105 transition-all">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <div className="bg-player-accent text-black text-sm font-bold px-4 py-2 rounded-full">
-                  MEJOR VALOR
+                  RECOMENDADO
                 </div>
               </div>
               
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Plan Mensual</h3>
+                <h3 className="text-2xl font-bold mb-4">Plan Premium</h3>
                 <div className="mb-4">
-                  <span className="text-5xl font-bold">$199</span>
-                  <span className="text-xl text-player-text-secondary">/mes</span>
+                  <span className="text-5xl font-bold text-player-accent">$199</span>
+                  <span className="text-xl text-player-text-secondary">MXN/mes</span>
                 </div>
                 <p className="text-player-text-secondary">Cancela cuando quieras</p>
               </div>
 
               <ul className="space-y-3 mb-8">
                 {[
+                  "Todo lo del plan gratuito",
                   "Análisis ilimitados con IA",
                   "Plan de entrenamiento personalizado",
                   "Métricas de rendimiento detalladas",
                   "Análisis de rivales",
                   "Seguimiento de progreso",
-                  "Acceso a la comunidad",
-                  "Soporte prioritario"
+                  "Acceso a la comunidad Pro",
+                  "Soporte prioritario 24/7"
                 ].map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <div className="w-5 h-5 bg-player-accent rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-black text-sm">✓</span>
-                    </div>
+                    <CheckIcon className="w-5 h-5 text-player-accent flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <PlayerButton size="lg" className="w-full text-lg mb-4">
-                Prueba 14 días gratis
+              <PlayerButton size="lg" className="w-full text-lg mb-4 group overflow-hidden relative">
+                <span className="absolute inset-0 bg-gradient-to-r from-player-accent/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <span className="relative">Prueba 14 días gratis</span>
               </PlayerButton>
               
               <p className="text-sm text-player-text-secondary text-center">
@@ -362,7 +609,10 @@ export default function HomePage() {
 
           <div className="text-center mt-12">
             <div className="bg-player-bg-secondary border border-player-border rounded-2xl p-6 max-w-2xl mx-auto">
-              <h4 className="text-xl font-bold mb-3 text-player-accent">🔒 Garantía de 30 días</h4>
+              <h4 className="text-xl font-bold mb-3 text-player-accent flex items-center justify-center gap-2">
+                <ShieldIcon className="w-6 h-6" />
+                Garantía de 30 días
+              </h4>
               <p className="text-player-text-secondary">
                 Si no mejoras tu ranking en 30 días, te devolvemos todo tu dinero. Sin preguntas.
               </p>
@@ -427,38 +677,332 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-player-bg-secondary to-player-bg-primary">
+      {/* Pricing Preview Section */}
+      <section className="py-20 bg-player-bg-secondary">
         <div className="container text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Deja de entrenar <span className="text-player-accent">a ciegas</span>
+            Un precio. <span className="text-player-accent">Todo incluido.</span>
           </h2>
-          <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
-            15,000+ jugadores ya están mejorando con datos reales. 
-            Tu turno es ahora.
+          <p className="text-xl text-player-text-secondary mb-12 max-w-2xl mx-auto">
+            Sin sorpresas. Sin planes confusos. Solo resultados garantizados.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <PlayerButton size="lg" className="text-lg">
-              Empieza tu prueba gratis de 14 días
+          <div className="max-w-md mx-auto bg-gradient-to-br from-player-bg-primary to-player-bg-secondary border-2 border-player-accent rounded-3xl p-8 relative">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span className="bg-player-accent text-black px-6 py-2 rounded-full font-bold text-sm">
+                MEJOR VALOR
+              </span>
+            </div>
+            
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold mb-4">Plan Premium</h3>
+              <div className="flex items-baseline justify-center gap-2 mb-2">
+                <span className="text-5xl font-bold text-player-accent">$199</span>
+                <span className="text-xl text-player-text-secondary">MXN/mes</span>
+              </div>
+              <p className="text-player-text-secondary text-sm">
+                Menos de lo que gastas en pelotas al mes
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-3 mb-8 text-sm">
+              {[
+                "Análisis ilimitados",
+                "Padel IQ personalizado", 
+                "Plan de entrenamiento",
+                "Tracking de progreso",
+                "Análisis biomecánico",
+                "Soporte prioritario"
+              ].map((feature, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <span className="text-player-accent">✓</span>
+                  <span className="text-white">{feature}</span>
+                </div>
+              ))}
+            </div>
+            
+            <PlayerButton size="lg" className="w-full text-lg mb-4">
+              Empezar prueba de 14 días
             </PlayerButton>
-            <PlayerButton variant="secondary" size="lg" className="text-lg">
-              Ver demo de 2 minutos
+            <p className="text-player-text-secondary text-sm">
+              Sin tarjeta de crédito • Cancela cuando quieras
+            </p>
+          </div>
+          
+          <div className="mt-8">
+            <a href="/precio">
+              <PlayerButton variant="ghost">
+                Ver detalles completos del precio →
+              </PlayerButton>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Beta Testers Social Proof */}
+      <section className="py-20 bg-player-bg-primary">
+        <div className="container">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-player-accent text-black px-4 py-2 rounded-full text-sm font-bold mb-6">
+              BETA TESTERS REALES
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Lo que dicen los <span className="text-player-accent">primeros usuarios</span>
+            </h2>
+            <p className="text-xl text-player-text-secondary max-w-3xl mx-auto">
+              73 jugadores seleccionados están probando el futuro del pádel. Sus resultados hablan por sí solos.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Miguel R.",
+                location: "Beta tester #12",
+                quote: "En 3 semanas mejoré mi revés un 40%. Los videos con IA son adictivos. Nunca había visto algo así.",
+                improvement: "+40% precisión revés",
+                timeframe: "3 semanas",
+                avatar: "🏆"
+              },
+              {
+                name: "Ana P.",
+                location: "Beta tester #28",
+                quote: "Por fin entiendo qué estaba haciendo mal. Es como tener un coach 24/7 que nunca se cansa de ayudarte.",
+                improvement: "Errores técnicos -60%",
+                timeframe: "2 semanas",
+                avatar: "🎾"
+              },
+              {
+                name: "Carlos M.",
+                location: "Beta tester #5",
+                quote: "Subí de categoría después de 2 meses. Esto es el futuro del pádel. Me siento privilegiado de ser beta tester.",
+                improvement: "Subió 1 categoría",
+                timeframe: "2 meses",
+                avatar: "🚀"
+              }
+            ].map((tester, index) => (
+              <div 
+                key={index}
+                className="bg-player-bg-secondary border-2 border-player-accent/30 rounded-2xl p-6 hover:border-player-accent transition-all relative"
+              >
+                <div className="absolute -top-3 -right-3 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                  BETA
+                </div>
+                
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-player-accent to-player-accent/70 rounded-full flex items-center justify-center text-2xl">
+                    {tester.avatar}
+                  </div>
+                  <div>
+                    <p className="text-white font-bold">{tester.name}</p>
+                    <p className="text-player-accent text-sm font-medium">{tester.location}</p>
+                  </div>
+                </div>
+                
+                <p className="text-white mb-6 leading-relaxed">
+                  "{tester.quote}"
+                </p>
+                
+                <div className="border-t border-player-border pt-4">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-player-accent font-bold">{tester.improvement}</span>
+                    <span className="text-player-text-secondary">{tester.timeframe}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Beta stats */}
+          <div className="flex justify-center items-center gap-12 mt-16">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-player-accent mb-1">73</div>
+              <div className="text-player-text-secondary text-sm">Beta testers activos</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-player-accent mb-1">89%</div>
+              <div className="text-player-text-secondary text-sm">Mejoran en 2 semanas</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-player-accent mb-1">27</div>
+              <div className="text-player-text-secondary text-sm">Lugares disponibles</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section con urgencia BETA */}
+      <section className="py-20 bg-gradient-to-b from-player-bg-secondary to-player-bg-primary relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 text-9xl">🚀</div>
+          <div className="absolute bottom-10 right-10 text-9xl">⚡</div>
+        </div>
+        
+        <div className="container text-center relative z-10">
+          <div className="inline-block bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
+            ⚡ ÚLTIMAS HORAS - BETA LIMITADO
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Gana la ventaja injusta que <span className="text-player-accent">todos querrán tener</span>
+          </h2>
+          <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
+            Solo quedan 27 lugares para el acceso beta exclusivo. 
+            <strong className="text-white">Una vez llenos, lista de espera hasta 2025</strong>.
+          </p>
+
+          {/* Urgency counter */}
+          <div className="bg-player-bg-secondary border-2 border-red-500 rounded-2xl p-6 mb-8 max-w-lg mx-auto">
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-left">
+                <h3 className="text-white font-bold text-lg">🎯 Acceso Beta Exclusivo</h3>
+                <p className="text-red-400 text-sm font-medium">Se cierra cuando llegue a 100</p>
+              </div>
+              <div className="text-right">
+                <p className="text-5xl font-bold text-red-500">27</p>
+                <p className="text-player-text-secondary text-sm">lugares restantes</p>
+              </div>
+            </div>
+            
+            <div className="bg-player-bg-primary rounded-full h-4 overflow-hidden mb-2">
+              <div className="bg-gradient-to-r from-red-500 to-player-accent h-full rounded-full transition-all duration-1000" style={{width: '73%'}}></div>
+            </div>
+            <div className="flex justify-between text-xs text-player-text-secondary">
+              <span>73 confirmados</span>
+              <span>27 disponibles</span>
+            </div>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <PlayerButton size="lg" className="text-lg px-8 py-4 relative animate-pulse">
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                BETA
+              </span>
+              🚀 Solicitar acceso beta AHORA
+            </PlayerButton>
+            <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
+              ▶️ Ver demo del beta
             </PlayerButton>
           </div>
 
-          <div className="flex items-center justify-center gap-8 text-sm text-player-text-secondary">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-player-text-secondary mb-8">
             <div className="flex items-center gap-2">
               <span className="text-player-accent">✓</span>
-              <span>Sin tarjeta de crédito</span>
+              <span>Acceso inmediato</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-player-accent">✓</span>
-              <span>Cancela cuando quieras</span>
+              <span>Gratis durante beta</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-player-accent">✓</span>
-              <span>Garantía 30 días</span>
+              <span>Feedback directo con creadores</span>
+            </div>
+          </div>
+
+          <div className="bg-player-bg-secondary/50 border border-player-accent/30 rounded-xl p-4 max-w-md mx-auto">
+            <p className="text-white text-sm font-bold mb-1">
+              🎉 Miguel acaba de unirse al beta
+            </p>
+            <p className="text-player-text-secondary text-xs">
+              Hace 2 minutos • Quedan 26 lugares
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contacto" className="py-20 bg-player-bg-secondary">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                ¿Tienes preguntas? <span className="text-player-accent">Hablemos.</span>
+              </h2>
+              <p className="text-xl text-player-text-secondary">
+                Estamos aquí para ayudarte a mejorar tu juego.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Contact Info */}
+              <div className="space-y-6">
+                <div className="bg-player-bg-primary/50 backdrop-blur-md border border-player-accent/30 rounded-xl p-6">
+                  <div className="flex items-start gap-4">
+                    <EmailIcon className="w-6 h-6 text-player-accent mt-1" />
+                    <div>
+                      <h3 className="font-bold text-white mb-2">Email</h3>
+                      <a href="mailto:hola@padelyzer.com" className="text-player-text-secondary hover:text-player-accent transition-colors">
+                        hola@padelyzer.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-player-bg-primary/50 backdrop-blur-md border border-player-accent/30 rounded-xl p-6">
+                  <div className="flex items-start gap-4">
+                    <PhoneIcon className="w-6 h-6 text-player-accent mt-1" />
+                    <div>
+                      <h3 className="font-bold text-white mb-2">Teléfono</h3>
+                      <a href="tel:+525512345678" className="text-player-text-secondary hover:text-player-accent transition-colors">
+                        +52 55 1234 5678
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <div className="bg-player-bg-primary/50 backdrop-blur-md border border-player-accent/30 rounded-xl p-6">
+                <form className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
+                      Nombre
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full px-4 py-2 bg-player-bg-primary border border-player-border rounded-lg focus:border-player-accent focus:outline-none transition-colors"
+                      placeholder="Tu nombre"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-4 py-2 bg-player-bg-primary border border-player-border rounded-lg focus:border-player-accent focus:outline-none transition-colors"
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
+                      Mensaje
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      className="w-full px-4 py-2 bg-player-bg-primary border border-player-border rounded-lg focus:border-player-accent focus:outline-none transition-colors resize-none"
+                      placeholder="Cuéntanos cómo podemos ayudarte..."
+                    />
+                  </div>
+
+                  <PlayerButton type="submit" className="w-full">
+                    Enviar mensaje
+                  </PlayerButton>
+                </form>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-player-text-secondary">
+                Respuesta garantizada en menos de 24 horas
+              </p>
             </div>
           </div>
         </div>
@@ -483,6 +1027,20 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Beta Notification */}
+      {showNotification && (
+        <div className="fixed bottom-4 right-4 bg-player-accent text-black p-4 rounded-lg shadow-2xl max-w-sm animate-bounce z-50">
+          <button 
+            onClick={() => setShowNotification(false)}
+            className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 text-xs flex items-center justify-center hover:bg-red-600"
+          >
+            ×
+          </button>
+          <p className="font-bold mb-1">¡Ana acaba de unirse al beta!</p>
+          <p className="text-sm opacity-80">Hace 1 minuto • Quedan 26 lugares</p>
+        </div>
+      )}
     </>
   );
 }

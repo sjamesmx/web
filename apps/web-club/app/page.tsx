@@ -1,11 +1,33 @@
-import { ClubButton } from '@padelyzer/ui';
-import { Logo } from '@padelyzer/ui';
+import { ClubButton } from '../components/ui/ClubButton';
+import { Logo } from '../components/ui/Logo';
+import MobileMenu from '../components/MobileMenu';
+import { 
+  CalendarIcon, 
+  DocumentIcon, 
+  ChartBarIcon, 
+  SmartphoneIcon, 
+  DollarIcon, 
+  LockIcon, 
+  MailIcon, 
+  HeadphonesIcon, 
+  UsersIcon, 
+  BuildingIcon, 
+  StarIcon, 
+  CheckIcon, 
+  TrendingUpIcon,
+  ShieldIcon,
+  CreditCardIcon,
+  GlobeIcon,
+  ClockIcon,
+  TargetIcon,
+  RocketIcon
+} from '../components/icons';
 
 export default function HomePage() {
   return (
     <>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-club-border shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-club-border shadow-sm">
         <div className="container">
           <div className="flex items-center justify-between h-16">
             <Logo variant="club" />
@@ -17,18 +39,19 @@ export default function HomePage() {
               <a href="/precios" className="text-club-text-secondary hover:text-club-accent transition-colors">
                 Precios
               </a>
-              <a href="/casos-de-exito" className="text-club-text-secondary hover:text-club-accent transition-colors">
-                Casos de Éxito
+              <a href="/prelanzamiento" className="text-club-text-secondary hover:text-club-accent transition-colors">
+                Prelanzamiento
               </a>
             </div>
 
             <div className="flex items-center gap-4">
-              <ClubButton variant="ghost" size="sm">
+              <ClubButton variant="ghost" size="sm" className="hidden md:block">
                 Iniciar Sesión
               </ClubButton>
-              <ClubButton size="sm">
+              <ClubButton size="sm" className="hidden md:block">
                 Agenda Demo
               </ClubButton>
+              <MobileMenu />
             </div>
           </div>
         </div>
@@ -40,8 +63,8 @@ export default function HomePage() {
           <div className="max-w-5xl">
             <div className="flex items-center gap-2 text-sm mb-6">
               <span className="bg-club-accent text-white px-3 py-1 rounded-full font-medium">APP CLUBES</span>
-              <span className="bg-club-success text-white px-3 py-1 rounded-full font-medium">NUEVO</span>
-              <span className="text-club-text-secondary">Primeros 100 clubes: 2 meses gratis</span>
+              <span className="bg-club-success text-white px-3 py-1 rounded-full font-medium">ACTUALIZADO</span>
+              <span className="text-club-text-secondary">Primeros 50 clubes: 2 meses gratis</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-club-text-primary mb-6 leading-tight">
@@ -65,15 +88,15 @@ export default function HomePage() {
 
             <div className="flex flex-wrap gap-8 text-sm text-club-text-secondary">
               <div className="flex items-center gap-2">
-                <span className="text-club-success">✓</span>
+                <CheckIcon className="w-4 h-4 text-club-success" />
                 <span>400+ clubes activos</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-club-success">✓</span>
+                <CheckIcon className="w-4 h-4 text-club-success" />
                 <span>60,000+ jugadores</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-club-success">✓</span>
+                <CheckIcon className="w-4 h-4 text-club-success" />
                 <span>#1 en México</span>
               </div>
             </div>
@@ -97,26 +120,26 @@ export default function HomePage() {
                 title: "Canchas vacías en horarios premium",
                 description: "Tus mejores horarios no se llenan porque los jugadores no saben cuándo hay disponibilidad.",
                 pain: "Pérdida de $50,000+ al mes",
-                icon: "📅"
+                Icon: CalendarIcon
               },
               {
                 title: "Administración manual caótica",
                 description: "WhatsApp, Excel, papelitos... Un desastre que genera errores y clientes molestos.",
                 pain: "10+ horas semanales perdidas",
-                icon: "📝"
+                Icon: DocumentIcon
               },
               {
                 title: "No sabes qué está funcionando",
                 description: "Sin datos claros sobre ingresos, ocupación o satisfacción de clientes.",
                 pain: "Decisiones a ciegas = pérdidas",
-                icon: "📊"
+                Icon: ChartBarIcon
               }
             ].map((problem, index) => (
               <div 
                 key={index}
-                className="bg-white border-2 border-red-200 rounded-2xl p-8 hover:border-red-300 transition-all shadow-sm"
+                className="bg-white/90 backdrop-blur-sm border-2 border-red-200 rounded-2xl p-8 hover:border-red-300 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="text-4xl mb-4">{problem.icon}</div>
+                <problem.Icon className="w-12 h-12 mb-4 text-red-500" />
                 <h3 className="text-xl font-bold mb-3 text-red-600">{problem.title}</h3>
                 <p className="text-club-text-secondary mb-4">{problem.description}</p>
                 <div className="text-sm text-red-600 font-bold bg-red-50 px-3 py-2 rounded-lg">
@@ -142,7 +165,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="bg-white border border-club-border rounded-2xl p-8 shadow-sm">
+              <div className="bg-white/80 backdrop-blur-sm border border-club-border rounded-2xl p-8 shadow-lg">
                 <h3 className="text-2xl font-bold mb-4 text-club-accent">¿Cómo funciona?</h3>
                 <div className="space-y-4">
                   {[
@@ -200,49 +223,50 @@ export default function HomePage() {
               {
                 title: "Reservas Online 24/7",
                 description: "App y web donde jugadores reservan sin molestarte. Pagos automáticos incluidos.",
-                icon: "📱",
+                Icon: SmartphoneIcon,
                 highlight: "Ya no más WhatsApp"
               },
               {
                 title: "Precios Dinámicos",
                 description: "IA que ajusta precios según demanda, clima y horarios para maximizar ingresos.",
-                icon: "💰",
+                Icon: DollarIcon,
                 highlight: "Hasta +40% más ingresos"
               },
               {
                 title: "Control de Acceso",
                 description: "Códigos QR y control automático de entrada. Evita colados y conflictos.",
-                icon: "🔐",
+                Icon: LockIcon,
                 highlight: "Seguridad garantizada"
               },
               {
                 title: "Analytics Avanzados",
                 description: "Dashboard con métricas de ocupación, ingresos y tendencias en tiempo real.",
-                icon: "📊",
+                Icon: ChartBarIcon,
                 highlight: "Decisiones basadas en datos"
               },
               {
                 title: "Marketing Automático",
                 description: "Campañas de email y SMS automáticas para llenar horas valle.",
-                icon: "📧",
+                Icon: MailIcon,
                 highlight: "Marketing que funciona"
               },
               {
                 title: "Soporte 24/7",
                 description: "Equipo dedicado en español que resuelve cualquier problema al instante.",
-                icon: "🎧",
+                Icon: HeadphonesIcon,
                 highlight: "Nunca estarás solo"
               }
             ].map((feature, index) => (
               <div 
                 key={index}
-                className="bg-white border border-club-border rounded-2xl p-6 hover:border-club-accent/50 transition-all shadow-sm group hover:shadow-md"
+                className="bg-white/80 backdrop-blur-sm border border-club-border rounded-2xl p-6 hover:border-club-accent/50 transition-all duration-300 shadow-sm group hover:shadow-xl transform hover:-translate-y-2"
               >
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform">{feature.icon}</div>
+                <feature.Icon className="w-8 h-8 mb-4 text-club-accent group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-bold mb-3 text-club-text-primary">{feature.title}</h3>
                 <p className="text-club-text-secondary mb-4">{feature.description}</p>
-                <div className="text-sm text-club-accent font-medium">
-                  ✨ {feature.highlight}
+                <div className="text-sm text-club-accent font-medium flex items-center gap-2">
+                  <StarIcon className="w-4 h-4" />
+                  {feature.highlight}
                 </div>
               </div>
             ))}
@@ -250,65 +274,98 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Success Stories Section */}
+      {/* Pre-launch Section */}
       <section className="py-20 bg-club-bg-secondary">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary">
-              Casos de <span className="text-club-success">éxito reales</span>
+              <span className="text-club-accent">Prelanzamiento</span> exclusivo
             </h2>
             <p className="text-xl text-club-text-secondary max-w-3xl mx-auto">
-              Más de 400 clubes ya están generando más ingresos con menos trabajo
+              Únete a los primeros 50 clubes en probar la plataforma más avanzada para gestión de clubes de pádel
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                club: "Padel Club Satelite",
-                location: "Naucalpan, México",
-                quote: "En 3 meses pasamos de $180,000 a $240,000 pesos mensuales. El sistema se paga solo y nos da más tiempo libre.",
-                improvement: "+33% ingresos en 90 días",
-                owner: "Carlos Ruiz, Propietario",
-                rating: 5
-              },
-              {
-                club: "Champions Padel",
-                location: "Guadalajara, México", 
-                quote: "Lo mejor es que ya no tengo que estar pendiente del teléfono. Los jugadores reservan solos y el dinero llega automáticamente.",
-                improvement: "40 horas/mes ahorradas",
-                owner: "Ana López, Directora",
-                rating: 5
-              },
-              {
-                club: "Elite Padel Center",
-                location: "Monterrey, México",
-                quote: "Pensé que era muy caro, pero se pagó en el primer mes. Ahora manejo 3 clubes con el mismo esfuerzo que antes uno.",
-                improvement: "Expandió su negocio 3x",
-                owner: "Roberto Hernández, CEO",
-                rating: 5
-              }
-            ].map((story, index) => (
-              <div 
-                key={index}
-                className="bg-white border border-club-border rounded-2xl p-6 shadow-sm"
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(story.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">⭐</span>
-                  ))}
+            <div className="bg-white/90 backdrop-blur-sm border border-club-border rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-club-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <RocketIcon className="w-8 h-8 text-club-accent" />
+              </div>
+              <h3 className="text-xl font-bold text-club-text-primary mb-4">Acceso Prioritario</h3>
+              <p className="text-club-text-secondary mb-6">
+                Sé uno de los primeros 50 clubes en usar el sistema completo antes del lanzamiento oficial.
+              </p>
+              <div className="bg-club-accent/10 rounded-lg p-4">
+                <div className="text-2xl font-bold text-club-accent mb-1">2 meses</div>
+                <div className="text-sm text-club-text-secondary">gratis para beta testers</div>
+              </div>
+            </div>
+
+            <div className="bg-white/90 backdrop-blur-sm border border-club-border rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-club-success/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <UsersIcon className="w-8 h-8 text-club-success" />
+              </div>
+              <h3 className="text-xl font-bold text-club-text-primary mb-4">Feedback Directo</h3>
+              <p className="text-club-text-secondary mb-6">
+                Tu opinión ayudará a moldear el producto final. Acceso directo al equipo de desarrollo.
+              </p>
+              <div className="bg-club-success/10 rounded-lg p-4">
+                <div className="text-2xl font-bold text-club-success mb-1">1 on 1</div>
+                <div className="text-sm text-club-text-secondary">sesiones con fundadores</div>
+              </div>
+            </div>
+
+            <div className="bg-white/90 backdrop-blur-sm border border-club-border rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <ShieldIcon className="w-8 h-8 text-purple-500" />
+              </div>
+              <h3 className="text-xl font-bold text-club-text-primary mb-4">Precio Fundador</h3>
+              <p className="text-club-text-secondary mb-6">
+                Precio especial de lanzamiento que mantienes para siempre. Nunca pagarás el precio regular.
+              </p>
+              <div className="bg-purple-500/10 rounded-lg p-4">
+                <div className="text-2xl font-bold text-purple-500 mb-1">50% OFF</div>
+                <div className="text-sm text-club-text-secondary">precio de por vida</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="bg-gradient-to-r from-club-accent/10 to-club-success/10 border border-club-accent/30 rounded-2xl p-8 max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold text-club-text-primary mb-4">
+                ¿Por qué elegir el prelanzamiento?
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6 text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Setup personalizado y prioritario</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Capacitación 1-on-1 con fundadores</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Funcionalidades custom según tus necesidades</span>
+                  </div>
                 </div>
-                <p className="text-club-text-secondary mb-6 italic">"{story.quote}"</p>
-                <div className="border-t border-club-border pt-4">
-                  <h4 className="font-bold text-club-text-primary">{story.club}</h4>
-                  <p className="text-sm text-club-text-secondary">{story.location}</p>
-                  <p className="text-sm text-club-text-secondary mt-1">{story.owner}</p>
-                  <div className="text-sm text-club-success font-bold mt-2">
-                    🎯 {story.improvement}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Soporte premium sin costo adicional</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Acceso anticipado a nuevas funcionalidades</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckIcon className="w-5 h-5 text-club-success flex-shrink-0" />
+                    <span className="text-club-text-secondary">Garantía extendida de 6 meses</span>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -416,7 +473,7 @@ export default function HomePage() {
                       <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
                         plan.highlight ? 'bg-white text-club-accent' : 'bg-club-success text-white'
                       }`}>
-                        <span className="text-sm">✓</span>
+                        <CheckIcon className="w-3 h-3" />
                       </div>
                       <span className={plan.highlight ? 'text-white' : 'text-club-text-secondary'}>
                         {feature}
@@ -442,7 +499,10 @@ export default function HomePage() {
 
           <div className="text-center mt-12">
             <div className="bg-club-bg-secondary border border-club-border rounded-2xl p-6 max-w-2xl mx-auto">
-              <h4 className="text-xl font-bold mb-3 text-club-success">🎯 Garantía de ROI</h4>
+              <h4 className="text-xl font-bold mb-3 text-club-success flex items-center gap-2">
+                <TargetIcon className="w-5 h-5" />
+                Garantía de ROI
+              </h4>
               <p className="text-club-text-secondary">
                 Si no aumentas tus ingresos en un 25% en los primeros 90 días, te devolvemos todo tu dinero.
               </p>
@@ -492,7 +552,7 @@ export default function HomePage() {
             ].map((faq, index) => (
               <details 
                 key={index}
-                className="bg-white border border-club-border rounded-2xl p-6 group shadow-sm"
+                className="bg-white/90 backdrop-blur-sm border border-club-border rounded-2xl p-6 group shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <summary className="font-bold text-lg cursor-pointer list-none flex items-center justify-between text-club-text-primary">
                   <span>{faq.question}</span>
@@ -523,21 +583,21 @@ export default function HomePage() {
               Agendar demo gratuita de 20 min
             </ClubButton>
             <ClubButton variant="secondary" size="lg" className="text-lg">
-              Ver caso de éxito en video
+              Ver video demo de 5 min
             </ClubButton>
           </div>
 
           <div className="flex items-center justify-center gap-8 text-sm text-club-text-secondary">
             <div className="flex items-center gap-2">
-              <span className="text-club-success">✓</span>
+              <CheckIcon className="w-4 h-4 text-club-success" />
               <span>Setup en 24 horas</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-club-success">✓</span>
+              <CheckIcon className="w-4 h-4 text-club-success" />
               <span>Garantía de ROI</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-club-success">✓</span>
+              <CheckIcon className="w-4 h-4 text-club-success" />
               <span>Soporte 24/7</span>
             </div>
           </div>
