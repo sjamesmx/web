@@ -628,9 +628,11 @@ export default function HomePage() {
           </div>
           
           <div className="mt-8">
-            <PlayerButton variant="ghost" href="/precio">
-              Ver detalles completos del precio →
-            </PlayerButton>
+            <a href="/precio">
+              <PlayerButton variant="ghost">
+                Ver detalles completos del precio →
+              </PlayerButton>
+            </a>
           </div>
         </div>
       </section>
