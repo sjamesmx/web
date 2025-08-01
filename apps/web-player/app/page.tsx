@@ -3,6 +3,24 @@
 import { PlayerButton } from '@padelyzer/ui';
 import { Logo } from '@padelyzer/ui';
 import { useState, useEffect } from 'react';
+import Player3D from '../components/Player3D';
+import MobileMenu from '../components/MobileMenu';
+import { 
+  AnalyticsIcon, 
+  AIBrainIcon, 
+  TargetIcon, 
+  VideoIcon, 
+  ChartIcon, 
+  TrainingIcon, 
+  ProgressIcon, 
+  RivalIcon, 
+  CommunityIcon,
+  RocketIcon,
+  CheckIcon,
+  StarIcon,
+  EmailIcon,
+  PhoneIcon
+} from '../components/icons';
 
 export default function HomePage() {
   const [showNotification, setShowNotification] = useState(false);
@@ -20,6 +38,10 @@ export default function HomePage() {
             <Logo variant="player" />
             
             <div className="hidden md:flex items-center gap-8">
+              <a href="#contacto" className="text-player-text-secondary hover:text-player-accent transition-colors flex items-center gap-2">
+                <EmailIcon className="w-4 h-4" />
+                Contacto
+              </a>
               <a href="/caracteristicas" className="text-player-text-secondary hover:text-player-accent transition-colors">
                 Características
               </a>
@@ -32,18 +54,13 @@ export default function HomePage() {
               <a href="/torneos" className="text-player-text-secondary hover:text-player-accent transition-colors">
                 Torneos
               </a>
-              <a href="/blog" className="text-player-text-secondary hover:text-player-accent transition-colors">
-                Blog
-              </a>
             </div>
 
             <div className="flex items-center gap-4">
-              <PlayerButton variant="ghost" size="sm">
-                Iniciar Sesión
-              </PlayerButton>
-              <PlayerButton size="sm">
+              <PlayerButton size="sm" className="hidden md:block">
                 Descargar App
               </PlayerButton>
+              <MobileMenu />
             </div>
           </div>
         </div>
@@ -64,100 +81,101 @@ export default function HomePage() {
               {/* Content */}
               <div>
                 <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
-                  🚀 BETA EXCLUSIVO - ACCESO LIMITADO
+                  <RocketIcon className="w-4 h-4 inline mr-2" />
+                  BETA EXCLUSIVO - ACCESO LIMITADO
                 </div>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
-                  Sé de los primeros en tener
-                  <span className="text-player-accent block"> superpoderes</span> en la cancha
+                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+                  Tu mejor versión en el pádel
+                  <span className="text-[#B8FF00]"> está a un clic</span>
                 </h1>
-                
-                <p className="text-xl md:text-2xl text-player-text-secondary mb-8 max-w-2xl leading-relaxed">
-                  Acceso exclusivo a la primera IA que analiza tu pádel en tiempo real.
-                  <strong className="text-white"> Solo 1000 lugares disponibles para todo el mundo</strong>.
+                <p className="text-xl text-[#94A3B8] mb-8">
+                  La tecnología que los pros usan, ahora en tu bolsillo.
+                  Únete al beta exclusivo antes que nadie.
                 </p>
 
                 {/* Beta urgency box */}
-                <div className="bg-player-bg-secondary border-2 border-player-accent rounded-xl p-6 mb-8 max-w-md">
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <h3 className="text-white font-bold text-lg">
-                        🚀 Acceso Beta Limitado
-                      </h3>
-                      <p className="text-player-text-secondary text-sm">
-                        Solo para los primeros 100 jugadores
-                      </p>
+                <div className="relative bg-player-bg-secondary/50 backdrop-blur-md border border-player-accent/30 rounded-2xl p-6 mb-8 max-w-md overflow-hidden group hover:border-player-accent/50 transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-player-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <h3 className="text-white font-bold text-lg flex items-center gap-2">
+                          <RocketIcon className="w-5 h-5 text-player-accent" />
+                          Acceso Beta Limitado
+                        </h3>
+                        <p className="text-player-text-secondary text-sm">
+                          Solo para los primeros 100 jugadores
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-4xl font-bold text-player-accent">27</p>
+                        <p className="text-player-text-secondary text-sm">lugares disponibles</p>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-4xl font-bold text-player-accent">27</p>
-                      <p className="text-player-text-secondary text-sm">lugares disponibles</p>
+                    
+                    <div className="bg-player-bg-primary/50 rounded-full h-3 overflow-hidden">
+                      <div className="bg-gradient-to-r from-red-500 to-player-accent h-full rounded-full transition-all duration-1000" style={{width: '73%'}}></div>
                     </div>
+                    <p className="text-player-text-secondary text-xs mt-2">73% completado</p>
                   </div>
-                  
-                  <div className="bg-player-bg-primary rounded-full h-3 overflow-hidden">
-                    <div className="bg-player-accent h-full rounded-full transition-all duration-1000" style={{width: '73%'}}></div>
-                  </div>
-                  <p className="text-player-text-secondary text-xs mt-2">73% completado</p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <PlayerButton size="lg" className="text-lg px-8 py-4 relative">
+                  <PlayerButton size="lg" className="text-lg px-8 py-4 relative group overflow-hidden">
+                    <span className="absolute inset-0 bg-gradient-to-r from-player-accent/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                     <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
                       BETA
                     </span>
-                    <span className="flex items-center gap-2">
-                      🚀 Solicitar acceso exclusivo
+                    <span className="relative flex items-center gap-2">
+                      <RocketIcon className="w-5 h-5" /> Solicitar acceso exclusivo
                     </span>
                   </PlayerButton>
                   <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
                     <span className="flex items-center gap-2">
-                      ▶️ Ver demo del beta
+                      <VideoIcon className="w-5 h-5" /> Ver demo del beta
                     </span>
                   </PlayerButton>
                 </div>
 
                 {/* Trust indicators BETA */}
                 <div className="flex flex-wrap gap-6 text-sm text-player-text-secondary">
-                  <span className="flex items-center gap-1">
-                    🚀 <span className="text-white">Beta exclusivo</span>
+                  <span className="flex items-center gap-2">
+                    <RocketIcon className="w-4 h-4" /> <span className="text-white">Beta exclusivo</span>
                   </span>
-                  <span className="flex items-center gap-1">
-                    🎾 <span className="text-white">73</span> beta testers activos
+                  <span className="flex items-center gap-2">
+                    <CommunityIcon className="w-4 h-4" /> <span className="text-white">73</span> beta testers activos
                   </span>
-                  <span className="flex items-center gap-1">
-                    ⚡ Quedan <span className="text-player-accent font-bold">27 lugares</span>
+                  <span className="flex items-center gap-2">
+                    <CheckIcon className="w-4 h-4 text-player-accent" /> Quedan <span className="text-player-accent font-bold">27 lugares</span>
                   </span>
                 </div>
               </div>
 
-              {/* Mockup/Visual */}
+              {/* 3D Player Visual */}
               <div className="relative lg:justify-self-end">
-                <div className="relative w-80 h-80 mx-auto">
-                  {/* Phone mockup placeholder */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-[3rem] shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-300">
-                    <div className="absolute inset-4 bg-player-bg-primary rounded-[2rem] border border-player-border">
-                      <div className="p-6 h-full flex flex-col">
-                        <div className="flex items-center gap-2 mb-4">
-                          <div className="w-3 h-3 bg-player-accent rounded-full"></div>
-                          <span className="text-white text-xs font-medium">Analizando...</span>
-                        </div>
-                        <div className="flex-1 flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="text-4xl mb-2">🎾</div>
-                            <div className="text-player-accent font-bold text-lg">85% Precisión</div>
-                            <div className="text-xs text-player-text-secondary">Mejora: Bandeja</div>
-                          </div>
-                        </div>
+                <div className="relative w-full h-[500px] mx-auto">
+                  <Player3D />
+                  
+                  {/* Floating stats with glassmorphism */}
+                  <div className="absolute top-10 left-10 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float">
+                    <div className="flex items-center gap-3">
+                      <ChartIcon className="w-5 h-5 text-player-accent" />
+                      <div>
+                        <p className="text-xs text-player-text-secondary">Precisión</p>
+                        <p className="text-lg font-bold text-white">+32%</p>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Floating stats */}
-                  <div className="absolute -top-6 -left-6 bg-player-accent text-black px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce">
-                    +32% precisión
-                  </div>
-                  <div className="absolute -bottom-6 -right-6 bg-white text-black px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce delay-300">
-                    -45% errores
+                  <div className="absolute bottom-10 right-10 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float-delayed">
+                    <div className="flex items-center gap-3">
+                      <TargetIcon className="w-5 h-5 text-player-accent" />
+                      <div>
+                        <p className="text-xs text-player-text-secondary">Errores</p>
+                        <p className="text-lg font-bold text-white">-45%</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -182,7 +200,7 @@ export default function HomePage() {
                 title: "Del estancamiento al progreso",
                 description: "Transforma esos años de experiencia en mejora real y medible. Cada sesión cuenta hacia tu evolución.",
                 benefit: "Progreso garantizado",
-                icon: "📈",
+                Icon: ProgressIcon,
                 color: "from-green-500/20 to-green-600/10",
                 borderColor: "border-green-500/30"
               },
@@ -190,7 +208,7 @@ export default function HomePage() {
                 title: "De la confusión a la claridad",
                 description: "Sabe exactamente qué entrenar y por qué. Cada ejercicio tiene un propósito específico.",
                 benefit: "Entrenamientos inteligentes",
-                icon: "🎯",
+                Icon: TargetIcon,
                 color: "from-blue-500/20 to-blue-600/10",
                 borderColor: "border-blue-500/30"
               },
@@ -198,20 +216,26 @@ export default function HomePage() {
                 title: "De casi ganar a dominar",
                 description: "Cierra esos partidos importantes. Tu técnica + tu mente + datos reales = victoria consistente.",
                 benefit: "Dominio total",
-                icon: "🏆",
+                Icon: AIBrainIcon,
                 color: "from-yellow-500/20 to-yellow-600/10",
                 borderColor: "border-yellow-500/30"
               }
             ].map((opportunity, index) => (
               <div 
                 key={index}
-                className={`bg-gradient-to-br ${opportunity.color} border ${opportunity.borderColor} rounded-2xl p-8 hover:border-player-accent/50 transition-all group hover:transform hover:scale-105 duration-300 backdrop-blur-sm`}
+                className={`relative bg-gradient-to-br ${opportunity.color} border ${opportunity.borderColor} rounded-2xl p-8 hover:border-player-accent/50 transition-all group hover:transform hover:scale-105 duration-300 backdrop-blur-md overflow-hidden`}
               >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">{opportunity.icon}</div>
-                <h3 className="text-xl font-bold mb-4 text-white">{opportunity.title}</h3>
-                <p className="text-player-text-secondary mb-6 leading-relaxed">{opportunity.description}</p>
-                <div className="text-sm text-player-accent font-bold bg-player-accent/10 px-4 py-2 rounded-lg border border-player-accent/20">
-                  ✨ {opportunity.benefit}
+                <div className="absolute inset-0 bg-gradient-to-br from-player-bg-primary/50 to-transparent" />
+                <div className="relative z-10">
+                  <div className="mb-6 group-hover:scale-110 transition-transform">
+                    <opportunity.Icon className="w-12 h-12 text-player-accent" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-white">{opportunity.title}</h3>
+                  <p className="text-player-text-secondary mb-6 leading-relaxed">{opportunity.description}</p>
+                  <div className="text-sm text-player-accent font-bold bg-player-accent/10 px-4 py-2 rounded-lg border border-player-accent/20 backdrop-blur-sm">
+                    <CheckIcon className="w-4 h-4 inline mr-2" />
+                    {opportunity.benefit}
+                  </div>
                 </div>
               </div>
             ))}
@@ -484,51 +508,91 @@ export default function HomePage() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Un precio <span className="text-player-accent">ridículamente bajo</span> para lo que obtienes
+              Elige tu plan. <span className="text-player-accent">Empieza gratis.</span>
             </h2>
             <p className="text-xl text-player-text-secondary max-w-3xl mx-auto">
-              Menos de lo que gastas en pelotas al mes. Más efectivo que 10 clases particulares.
+              Comienza con el plan gratuito o desbloquea todo el potencial con Premium.
             </p>
           </div>
 
-          <div className="max-w-md mx-auto">
-            <div className="bg-gradient-to-b from-player-bg-secondary to-player-bg-primary border-2 border-player-accent rounded-3xl p-8 relative">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Plan Gratuito */}
+            <div className="relative bg-player-bg-secondary/50 backdrop-blur-md border border-player-border rounded-3xl p-8 hover:border-player-accent/30 transition-all">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold mb-4">Plan Gratuito</h3>
+                <div className="mb-4">
+                  <span className="text-5xl font-bold">$0</span>
+                  <span className="text-xl text-player-text-secondary">/mes</span>
+                </div>
+                <p className="text-player-text-secondary">Para siempre gratis</p>
+              </div>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  { text: "Buscar clubes cerca de ti", included: true },
+                  { text: "Reservar canchas sin comisión", included: true },
+                  { text: "Unirse a ligas y torneos", included: true },
+                  { text: "Buscar clases disponibles", included: true },
+                  { text: "Análisis con IA", included: false },
+                  { text: "Plan de entrenamiento", included: false },
+                  { text: "Métricas avanzadas", included: false }
+                ].map((feature, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    {feature.included ? (
+                      <CheckIcon className="w-5 h-5 text-player-accent flex-shrink-0" />
+                    ) : (
+                      <div className="w-5 h-5 rounded-full border border-player-border flex-shrink-0" />
+                    )}
+                    <span className={feature.included ? "" : "text-player-text-secondary opacity-50"}>
+                      {feature.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <PlayerButton variant="secondary" size="lg" className="w-full text-lg">
+                Empezar gratis
+              </PlayerButton>
+            </div>
+
+            {/* Plan Premium */}
+            <div className="relative bg-gradient-to-b from-player-bg-secondary to-player-bg-primary border-2 border-player-accent rounded-3xl p-8 transform hover:scale-105 transition-all">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <div className="bg-player-accent text-black text-sm font-bold px-4 py-2 rounded-full">
-                  MEJOR VALOR
+                  RECOMENDADO
                 </div>
               </div>
               
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Plan Mensual</h3>
+                <h3 className="text-2xl font-bold mb-4">Plan Premium</h3>
                 <div className="mb-4">
-                  <span className="text-5xl font-bold">$199</span>
-                  <span className="text-xl text-player-text-secondary">/mes</span>
+                  <span className="text-5xl font-bold text-player-accent">$199</span>
+                  <span className="text-xl text-player-text-secondary">MXN/mes</span>
                 </div>
                 <p className="text-player-text-secondary">Cancela cuando quieras</p>
               </div>
 
               <ul className="space-y-3 mb-8">
                 {[
+                  "Todo lo del plan gratuito",
                   "Análisis ilimitados con IA",
                   "Plan de entrenamiento personalizado",
                   "Métricas de rendimiento detalladas",
                   "Análisis de rivales",
                   "Seguimiento de progreso",
-                  "Acceso a la comunidad",
-                  "Soporte prioritario"
+                  "Acceso a la comunidad Pro",
+                  "Soporte prioritario 24/7"
                 ].map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <div className="w-5 h-5 bg-player-accent rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-black text-sm">✓</span>
-                    </div>
+                    <CheckIcon className="w-5 h-5 text-player-accent flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <PlayerButton size="lg" className="w-full text-lg mb-4">
-                Prueba 14 días gratis
+              <PlayerButton size="lg" className="w-full text-lg mb-4 group overflow-hidden relative">
+                <span className="absolute inset-0 bg-gradient-to-r from-player-accent/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <span className="relative">Prueba 14 días gratis</span>
               </PlayerButton>
               
               <p className="text-sm text-player-text-secondary text-center">
@@ -839,6 +903,102 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section id="contacto" className="py-20 bg-player-bg-secondary">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                ¿Tienes preguntas? <span className="text-player-accent">Hablemos.</span>
+              </h2>
+              <p className="text-xl text-player-text-secondary">
+                Estamos aquí para ayudarte a mejorar tu juego.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Contact Info */}
+              <div className="space-y-6">
+                <div className="bg-player-bg-primary/50 backdrop-blur-md border border-player-accent/30 rounded-xl p-6">
+                  <div className="flex items-start gap-4">
+                    <EmailIcon className="w-6 h-6 text-player-accent mt-1" />
+                    <div>
+                      <h3 className="font-bold text-white mb-2">Email</h3>
+                      <a href="mailto:hola@padelyzer.com" className="text-player-text-secondary hover:text-player-accent transition-colors">
+                        hola@padelyzer.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-player-bg-primary/50 backdrop-blur-md border border-player-accent/30 rounded-xl p-6">
+                  <div className="flex items-start gap-4">
+                    <PhoneIcon className="w-6 h-6 text-player-accent mt-1" />
+                    <div>
+                      <h3 className="font-bold text-white mb-2">Teléfono</h3>
+                      <a href="tel:+525512345678" className="text-player-text-secondary hover:text-player-accent transition-colors">
+                        +52 55 1234 5678
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <div className="bg-player-bg-primary/50 backdrop-blur-md border border-player-accent/30 rounded-xl p-6">
+                <form className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
+                      Nombre
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full px-4 py-2 bg-player-bg-primary border border-player-border rounded-lg focus:border-player-accent focus:outline-none transition-colors"
+                      placeholder="Tu nombre"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-4 py-2 bg-player-bg-primary border border-player-border rounded-lg focus:border-player-accent focus:outline-none transition-colors"
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
+                      Mensaje
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      className="w-full px-4 py-2 bg-player-bg-primary border border-player-border rounded-lg focus:border-player-accent focus:outline-none transition-colors resize-none"
+                      placeholder="Cuéntanos cómo podemos ayudarte..."
+                    />
+                  </div>
+
+                  <PlayerButton type="submit" className="w-full">
+                    Enviar mensaje
+                  </PlayerButton>
+                </form>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-player-text-secondary">
+                Respuesta garantizada en menos de 24 horas
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-12 border-t border-player-border">
         <div className="container">
@@ -868,7 +1028,7 @@ export default function HomePage() {
           >
             ×
           </button>
-          <p className="font-bold mb-1">🎉 ¡Ana acaba de unirse al beta!</p>
+          <p className="font-bold mb-1">¡Ana acaba de unirse al beta!</p>
           <p className="text-sm opacity-80">Hace 1 minuto • Quedan 26 lugares</p>
         </div>
       )}

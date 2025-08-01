@@ -1,5 +1,8 @@
+'use client';
+
 import { PlayerButton } from '@padelyzer/ui';
 import { Logo } from '@padelyzer/ui';
+import MobileMenu from '../../components/MobileMenu';
 
 export default function CaracteristicasPage() {
   return (
@@ -23,18 +26,13 @@ export default function CaracteristicasPage() {
               <a href="/descargar" className="text-player-text-secondary hover:text-player-accent transition-colors">
                 Descargar
               </a>
-              <a href="/blog" className="text-player-text-secondary hover:text-player-accent transition-colors">
-                Blog
-              </a>
             </div>
 
             <div className="flex items-center gap-4">
-              <PlayerButton variant="ghost" size="sm">
-                Iniciar Sesión
-              </PlayerButton>
-              <PlayerButton size="sm">
+              <PlayerButton size="sm" className="hidden md:block">
                 Descargar App
               </PlayerButton>
+              <MobileMenu />
             </div>
           </div>
         </div>

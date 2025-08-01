@@ -1,5 +1,10 @@
+'use client';
+
 import { PlayerButton } from '@padelyzer/ui';
 import { Logo } from '@padelyzer/ui';
+import { AppStoreButton, GooglePlayButton } from '../../components/StoreButtons';
+import MobileMenu from '../../components/MobileMenu';
+import { AppleIcon, AndroidIcon, RocketIcon, TargetIcon, CheckIcon, VideoIcon, AnalyticsIcon, PlayIcon } from '../../components/icons';
 
 export default function DescargarPage() {
   return (
@@ -23,18 +28,13 @@ export default function DescargarPage() {
               <a href="/descargar" className="text-player-accent font-medium">
                 Descargar
               </a>
-              <a href="/blog" className="text-player-text-secondary hover:text-player-accent transition-colors">
-                Blog
-              </a>
             </div>
 
             <div className="flex items-center gap-4">
-              <PlayerButton variant="ghost" size="sm">
-                Iniciar Sesión
-              </PlayerButton>
-              <PlayerButton size="sm">
+              <PlayerButton size="sm" className="hidden md:block">
                 Descargar App
               </PlayerButton>
+              <MobileMenu />
             </div>
           </div>
         </div>
@@ -44,8 +44,9 @@ export default function DescargarPage() {
       <section className="pt-24 pb-16 bg-player-bg-primary">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-8 animate-pulse">
-              🚀 ACCESO BETA EXCLUSIVO - SOLO 27 LUGARES DISPONIBLES
+            <div className="inline-flex items-center gap-2 bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-8 animate-pulse">
+              <RocketIcon className="w-4 h-4" />
+              ACCESO BETA EXCLUSIVO - SOLO 27 LUGARES DISPONIBLES
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -60,7 +61,7 @@ export default function DescargarPage() {
             <div className="bg-player-bg-secondary border-2 border-player-accent rounded-xl p-6 mb-12 max-w-lg mx-auto">
               <div className="flex items-center justify-between mb-4">
                 <div className="text-left">
-                  <h3 className="text-white font-bold text-lg">🎯 Acceso Beta Limitado</h3>
+                  <h3 className="text-white font-bold text-lg flex items-center gap-2"><TargetIcon className="w-5 h-5 text-player-accent" /> Acceso Beta Limitado</h3>
                   <p className="text-player-text-secondary text-sm">Solo primeros 100 jugadores</p>
                 </div>
                 <div className="text-right">
@@ -78,35 +79,25 @@ export default function DescargarPage() {
               </div>
             </div>
 
-            {/* Beta Access buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              {/* Beta Access CTA */}
-              <PlayerButton size="lg" className="text-lg px-8 py-4 relative animate-pulse min-w-[300px]">
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
-                  BETA
-                </span>
-                🚀 Solicitar acceso beta AHORA
-              </PlayerButton>
-              
-              {/* Demo button */}
-              <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4 min-w-[250px]">
-                ▶️ Ver demo del beta
-              </PlayerButton>
+            {/* Store Download Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <AppStoreButton className="transform hover:scale-105 transition-transform" />
+              <GooglePlayButton className="transform hover:scale-105 transition-transform" />
             </div>
 
             {/* QR Codes */}
             <div className="flex flex-col sm:flex-row gap-8 justify-center mb-12">
               <div className="text-center">
-                <div className="w-32 h-32 bg-white rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                  <div className="text-4xl">📱</div>
+                <div className="w-32 h-32 bg-player-bg-secondary/50 backdrop-blur-md border border-player-accent/30 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                  <AppleIcon className="w-16 h-16 text-player-accent" />
                 </div>
                 <p className="text-player-text-secondary text-sm">
                   <span className="text-white font-medium">iOS</span> - Escanea con tu iPhone
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-32 h-32 bg-white rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                  <div className="text-4xl">🤖</div>
+                <div className="w-32 h-32 bg-player-bg-secondary/50 backdrop-blur-md border border-player-accent/30 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                  <AndroidIcon className="w-16 h-16 text-player-accent" />
                 </div>
                 <p className="text-player-text-secondary text-sm">
                   <span className="text-white font-medium">Android</span> - Escanea con tu cámara
@@ -149,7 +140,7 @@ export default function DescargarPage() {
             {/* iOS Requirements */}
             <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/20 rounded-3xl p-8">
               <div className="text-center mb-8">
-                <div className="text-6xl mb-4">🍎</div>
+                <AppleIcon className="w-16 h-16 mx-auto mb-4 text-blue-400" />
                 <h3 className="text-3xl font-bold text-white mb-2">iOS</h3>
                 <p className="text-player-text-secondary">iPhone y iPad</p>
               </div>
@@ -185,15 +176,15 @@ export default function DescargarPage() {
                   <h4 className="text-white font-bold mb-3">Recomendado:</h4>
                   <ul className="space-y-2 text-player-text-secondary">
                     <li className="flex items-start gap-2">
-                      <span className="text-green-400">✓</span>
+                      <CheckIcon className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span>iPhone 12 o superior</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-green-400">✓</span>
+                      <CheckIcon className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span>4 GB de RAM</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-green-400">✓</span>
+                      <CheckIcon className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span>Procesador A12 Bionic+</span>
                     </li>
                   </ul>
@@ -204,7 +195,7 @@ export default function DescargarPage() {
             {/* Android Requirements */}
             <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 border border-green-500/20 rounded-3xl p-8">
               <div className="text-center mb-8">
-                <div className="text-6xl mb-4">🤖</div>
+                <AndroidIcon className="w-16 h-16 mx-auto mb-4 text-green-400" />
                 <h3 className="text-3xl font-bold text-white mb-2">Android</h3>
                 <p className="text-player-text-secondary">Teléfonos y tablets</p>
               </div>
@@ -240,15 +231,15 @@ export default function DescargarPage() {
                   <h4 className="text-white font-bold mb-3">Recomendado:</h4>
                   <ul className="space-y-2 text-player-text-secondary">
                     <li className="flex items-start gap-2">
-                      <span className="text-green-400">✓</span>
+                      <CheckIcon className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span>Android 11 o superior</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-green-400">✓</span>
+                      <CheckIcon className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span>6 GB de RAM</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-green-400">✓</span>
+                      <CheckIcon className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span>Snapdragon 750G+ / Exynos 990+</span>
                     </li>
                   </ul>
@@ -285,7 +276,7 @@ export default function DescargarPage() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 bg-player-accent rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <span className="text-black text-3xl">▶️</span>
+                    <PlayIcon className="w-8 h-8 text-black" />
                   </div>
                   <p className="text-white font-bold text-xl">Tutorial: Primeros pasos</p>
                   <p className="text-player-text-secondary">3:24 minutos</p>
@@ -298,17 +289,17 @@ export default function DescargarPage() {
 
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               <div className="text-center p-6 bg-player-bg-secondary rounded-2xl border border-player-border">
-                <div className="text-3xl mb-3">📱</div>
+                <RocketIcon className="w-8 h-8 mx-auto mb-3 text-player-accent" />
                 <h3 className="font-bold text-white mb-2">1. Descarga</h3>
                 <p className="text-player-text-secondary text-sm">Instala la app desde tu tienda preferida</p>
               </div>
               <div className="text-center p-6 bg-player-bg-secondary rounded-2xl border border-player-border">
-                <div className="text-3xl mb-3">🎥</div>
+                <VideoIcon className="w-8 h-8 mx-auto mb-3 text-player-accent" />
                 <h3 className="font-bold text-white mb-2">2. Graba</h3>
                 <p className="text-player-text-secondary text-sm">Filma tu partido desde cualquier ángulo</p>
               </div>
               <div className="text-center p-6 bg-player-bg-secondary rounded-2xl border border-player-border">
-                <div className="text-3xl mb-3">📊</div>
+                <AnalyticsIcon className="w-8 h-8 mx-auto mb-3 text-player-accent" />
                 <h3 className="font-bold text-white mb-2">3. Analiza</h3>
                 <p className="text-player-text-secondary text-sm">Recibe tu reporte personalizado al instante</p>
               </div>
@@ -376,8 +367,9 @@ export default function DescargarPage() {
       {/* Final CTA - Beta Focus */}
       <section className="py-20 bg-gradient-to-b from-player-bg-primary to-player-bg-secondary">
         <div className="container text-center">
-          <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
-            ⚡ ÚLTIMAS HORAS - BETA LIMITADO
+          <div className="inline-flex items-center gap-2 bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
+            <RocketIcon className="w-4 h-4" />
+            ÚLTIMAS HORAS - BETA LIMITADO
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             ¿Listo para tener los <span className="text-player-accent">superpoderes</span> antes que nadie?
@@ -392,10 +384,16 @@ export default function DescargarPage() {
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
                 BETA
               </span>
-              🚀 Solicitar acceso beta AHORA
+              <span className="flex items-center gap-2">
+                <RocketIcon className="w-5 h-5" />
+                Solicitar acceso beta AHORA
+              </span>
             </PlayerButton>
             <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
-              ▶️ Ver demo del beta
+              <span className="flex items-center gap-2">
+                <PlayIcon className="w-5 h-5" />
+                Ver demo del beta
+              </span>
             </PlayerButton>
           </div>
 
