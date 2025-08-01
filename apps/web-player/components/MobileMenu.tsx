@@ -54,14 +54,11 @@ export default function MobileMenu() {
               {/* Menu items */}
               <nav className="space-y-6">
                 <a 
-                  href="#contacto" 
+                  href="/" 
                   onClick={() => setIsOpen(false)}
                   className="block text-lg text-player-text-secondary hover:text-player-accent transition-colors"
                 >
-                  <span className="flex items-center gap-3">
-                    <EmailIcon className="w-5 h-5" />
-                    Contacto
-                  </span>
+                  Inicio
                 </a>
                 <a 
                   href="/caracteristicas" 
@@ -83,13 +80,6 @@ export default function MobileMenu() {
                   className="block text-lg text-player-text-secondary hover:text-player-accent transition-colors"
                 >
                   Descargar
-                </a>
-                <a 
-                  href="/torneos" 
-                  onClick={() => setIsOpen(false)}
-                  className="block text-lg text-player-text-secondary hover:text-player-accent transition-colors"
-                >
-                  Torneos
                 </a>
 
                 {/* Contact info */}

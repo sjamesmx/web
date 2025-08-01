@@ -3,7 +3,7 @@
 import { PlayerButton } from '@padelyzer/ui';
 import { Logo } from '@padelyzer/ui';
 import { useState, useEffect } from 'react';
-import Player3D from '../components/Player3D';
+import PadelBalls3D from '../components/PadelBalls3D';
 import MobileMenu from '../components/MobileMenu';
 import { 
   AnalyticsIcon, 
@@ -19,7 +19,10 @@ import {
   CheckIcon,
   StarIcon,
   EmailIcon,
-  PhoneIcon
+  PhoneIcon,
+  ClipboardIcon,
+  TrendIcon,
+  ShieldIcon
 } from '../components/icons';
 
 export default function HomePage() {
@@ -38,10 +41,6 @@ export default function HomePage() {
             <Logo variant="player" />
             
             <div className="hidden md:flex items-center gap-8">
-              <a href="#contacto" className="text-player-text-secondary hover:text-player-accent transition-colors flex items-center gap-2">
-                <EmailIcon className="w-4 h-4" />
-                Contacto
-              </a>
               <a href="/caracteristicas" className="text-player-text-secondary hover:text-player-accent transition-colors">
                 Características
               </a>
@@ -152,10 +151,10 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* 3D Player Visual */}
+              {/* 3D Balls Background */}
               <div className="relative lg:justify-self-end">
                 <div className="relative w-full h-[500px] mx-auto">
-                  <Player3D />
+                  <PadelBalls3D />
                   
                   {/* Floating stats with glassmorphism */}
                   <div className="absolute top-10 left-10 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float">
@@ -266,7 +265,9 @@ export default function HomePage() {
               
               <div className="space-y-8">
                 <div className="flex gap-6 group">
-                  <div className="text-player-accent text-3xl group-hover:scale-110 transition-transform">📊</div>
+                  <div className="group-hover:scale-110 transition-transform">
+                    <AnalyticsIcon className="w-12 h-12 text-player-accent" />
+                  </div>
                   <div>
                     <h3 className="text-xl font-bold text-white mb-3">
                       Análisis Biomecánico en Tiempo Real
@@ -279,7 +280,9 @@ export default function HomePage() {
                 </div>
                 
                 <div className="flex gap-6 group">
-                  <div className="text-player-accent text-3xl group-hover:scale-110 transition-transform">🧠</div>
+                  <div className="group-hover:scale-110 transition-transform">
+                    <AIBrainIcon className="w-12 h-12 text-player-accent" />
+                  </div>
                   <div>
                     <h3 className="text-xl font-bold text-white mb-3">
                       Padel IQ Personalizado
@@ -292,7 +295,9 @@ export default function HomePage() {
                 </div>
                 
                 <div className="flex gap-6 group">
-                  <div className="text-player-accent text-3xl group-hover:scale-110 transition-transform">🎯</div>
+                  <div className="group-hover:scale-110 transition-transform">
+                    <TargetIcon className="w-12 h-12 text-player-accent" />
+                  </div>
                   <div>
                     <h3 className="text-xl font-bold text-white mb-3">
                       Plan de Mejora Específico
@@ -331,8 +336,10 @@ export default function HomePage() {
                     {/* App content */}
                     <div className="p-6">
                       <div className="text-center mb-6">
-                        <div className="text-6xl mb-4">🎾</div>
-                        <div className="text-player-accent font-bold text-2xl mb-1">Padel IQ: 847</div>
+                        <div className="mb-4">
+                          <ChartIcon className="w-16 h-16 mx-auto text-player-accent" />
+                        </div>
+                        <div className="text-player-accent font-bold text-2xl mb-1">Padel IQ: 84.7</div>
                         <div className="text-sm text-player-text-secondary">Nivel: Avanzado</div>
                       </div>
                       
@@ -362,11 +369,13 @@ export default function HomePage() {
                 </div>
                 
                 {/* Floating elements */}
-                <div className="absolute -top-8 -left-8 bg-player-accent text-black px-4 py-2 rounded-xl font-bold text-sm shadow-lg animate-pulse">
-                  🎯 Análisis IA
+                <div className="absolute -top-8 -left-8 bg-player-accent text-black px-4 py-2 rounded-xl font-bold text-sm shadow-lg animate-pulse flex items-center gap-2">
+                  <TargetIcon className="w-4 h-4" />
+                  Análisis IA
                 </div>
-                <div className="absolute -bottom-6 -right-8 bg-green-500 text-white px-4 py-2 rounded-xl font-bold text-sm shadow-lg animate-pulse delay-500">
-                  ✓ Mejora detectada
+                <div className="absolute -bottom-6 -right-8 bg-green-500 text-white px-4 py-2 rounded-xl font-bold text-sm shadow-lg animate-pulse delay-500 flex items-center gap-2">
+                  <CheckIcon className="w-4 h-4" />
+                  Mejora detectada
                 </div>
                 <div className="absolute top-1/2 -left-12 bg-blue-500 text-white px-3 py-1 rounded-lg text-xs font-medium shadow-lg animate-bounce delay-1000">
                   32 puntos
@@ -394,37 +403,37 @@ export default function HomePage() {
               {
                 title: "Análisis de video con IA",
                 description: "Sube tu video y recibe análisis detallado en menos de 5 minutos",
-                icon: "🎥",
+                Icon: VideoIcon,
                 highlight: "Más preciso que un entrenador humano"
               },
               {
                 title: "Métricas de rendimiento",
                 description: "Velocidad de pelota, precisión de golpes, eficiencia de movimiento",
-                icon: "📈",
+                Icon: TrendIcon,
                 highlight: "Datos que nunca habías visto"
               },
               {
                 title: "Plan de entrenamiento",
                 description: "Rutinas personalizadas basadas en tus debilidades específicas",
-                icon: "📋",
+                Icon: ClipboardIcon,
                 highlight: "Entrena inteligente, no más"
               },
               {
                 title: "Seguimiento de progreso",
                 description: "Ve tu mejora mes a mes con gráficos y estadísticas detalladas",
-                icon: "📊",
+                Icon: ChartIcon,
                 highlight: "Motivación basada en datos"
               },
               {
                 title: "Análisis de rivales",
                 description: "Identifica patrones y debilidades de tus oponentes habituales",
-                icon: "🎯",
+                Icon: RivalIcon,
                 highlight: "Ventaja táctica garantizada"
               },
               {
                 title: "Comunidad de jugadores",
                 description: "Comparte análisis y aprende de jugadores de tu nivel",
-                icon: "👥",
+                Icon: CommunityIcon,
                 highlight: "No estás solo en esto"
               }
             ].map((feature, index) => (
@@ -432,7 +441,9 @@ export default function HomePage() {
                 key={index}
                 className="bg-player-bg-secondary border border-player-border rounded-2xl p-6 hover:border-player-accent/50 transition-all group"
               >
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform">{feature.icon}</div>
+                <div className="mb-4 group-hover:scale-110 transition-transform">
+                  <feature.Icon className="w-12 h-12 text-player-accent" />
+                </div>
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-player-text-secondary mb-4">{feature.description}</p>
                 <div className="text-sm text-player-accent font-medium">
@@ -603,7 +614,10 @@ export default function HomePage() {
 
           <div className="text-center mt-12">
             <div className="bg-player-bg-secondary border border-player-border rounded-2xl p-6 max-w-2xl mx-auto">
-              <h4 className="text-xl font-bold mb-3 text-player-accent">🔒 Garantía de 30 días</h4>
+              <h4 className="text-xl font-bold mb-3 text-player-accent flex items-center justify-center gap-2">
+                <ShieldIcon className="w-6 h-6" />
+                Garantía de 30 días
+              </h4>
               <p className="text-player-text-secondary">
                 Si no mejoras tu ranking en 30 días, te devolvemos todo tu dinero. Sin preguntas.
               </p>

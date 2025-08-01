@@ -154,3 +154,25 @@ export const PhoneIcon = ({ className = "w-6 h-6" }: { className?: string }) => 
     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
+
+export const ClipboardIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
+    <path d="M9 3h6v2a1 1 0 01-1 1h-4a1 1 0 01-1-1V3z" stroke="currentColor" strokeWidth="2"/>
+    <path d="M9 11h6M9 15h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+export const TrendIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22 12l-8-8v6c-8 0-12 4-12 10 2-4 6-6 12-6v6l8-8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M3 20l4-4M7 16l3-3M11 13l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+  </svg>
+);
+
+export const ShieldIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2l8 4v6c0 4-3.2 7.6-8 10-4.8-2.4-8-6-8-10V6l8-4z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);

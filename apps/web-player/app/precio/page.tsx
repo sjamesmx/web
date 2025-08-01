@@ -3,6 +3,16 @@
 import { PlayerButton } from '@padelyzer/ui';
 import { Logo } from '@padelyzer/ui';
 import MobileMenu from '../../components/MobileMenu';
+import { 
+  RocketIcon, 
+  TargetIcon, 
+  CheckIcon, 
+  TrendIcon,
+  VideoIcon,
+  ShieldIcon,
+  SpeedIcon,
+  HandshakeIcon
+} from '../../components/icons';
 
 export default function PrecioPage() {
   return (
@@ -43,7 +53,8 @@ export default function PrecioPage() {
         <div className="container py-20">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-8 animate-pulse">
-              🚀 BETA EXCLUSIVO - ACCESO GRATIS PARA PRIMEROS 100
+              <RocketIcon className="w-4 h-4 inline-block mr-2" />
+              BETA EXCLUSIVO - ACCESO GRATIS PARA PRIMEROS 100
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -58,7 +69,10 @@ export default function PrecioPage() {
             <div className="bg-player-bg-secondary border-2 border-player-accent rounded-xl p-6 mb-12 max-w-lg mx-auto">
               <div className="flex items-center justify-between mb-4">
                 <div className="text-left">
-                  <h3 className="text-white font-bold text-lg">🎯 Acceso Beta Gratuito</h3>
+                  <h3 className="text-white font-bold text-lg flex items-center gap-2">
+                    <TargetIcon className="w-5 h-5" />
+                    Acceso Beta Gratuito
+                  </h3>
                   <p className="text-player-text-secondary text-sm">Solo primeros 100 jugadores</p>
                 </div>
                 <div className="text-right">
@@ -76,83 +90,127 @@ export default function PrecioPage() {
               </div>
             </div>
 
-            {/* Main Pricing Card */}
-            <div className="max-w-lg mx-auto bg-gradient-to-br from-player-bg-secondary to-player-bg-primary border-2 border-player-accent rounded-3xl p-8 md:p-12 relative shadow-2xl">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-player-accent text-black px-6 py-2 rounded-full font-bold text-sm">
-                  MEJOR VALOR DE MÉXICO
-                </span>
-              </div>
-              
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-white mb-4">Plan Premium</h2>
-                <div className="flex items-baseline justify-center gap-2 mb-4">
-                  <span className="text-7xl font-bold text-player-accent">$199</span>
-                  <div className="text-left">
-                    <div className="text-xl text-player-text-secondary">MXN</div>
-                    <div className="text-lg text-player-text-secondary">/mes</div>
+            {/* Pricing Cards - Free and Premium */}
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {/* Free Plan */}
+              <div className="bg-gradient-to-br from-player-bg-secondary to-player-bg-primary border border-player-border rounded-3xl p-8 relative">
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl font-bold text-white mb-4">Plan Gratuito</h2>
+                  <div className="flex items-baseline justify-center gap-2 mb-4">
+                    <span className="text-5xl font-bold text-white">$0</span>
+                    <div className="text-left">
+                      <div className="text-lg text-player-text-secondary">MXN</div>
+                      <div className="text-sm text-player-text-secondary">/mes</div>
+                    </div>
                   </div>
+                  <p className="text-player-text-secondary text-sm">
+                    Comienza a mejorar sin costo
+                  </p>
                 </div>
-                <p className="text-player-text-secondary">
-                  Menos de lo que gastas en pelotas al mes
+
+                {/* Free Plan Features */}
+                <div className="space-y-3 mb-8">
+                  {[
+                    "Navega clubes cerca de ti",
+                    "Reserva canchas sin comisión",
+                    "Únete a ligas y torneos",
+                    "Busca clases disponibles",
+                    "Perfil de jugador básico",
+                    "Acceso a la comunidad"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckIcon className="w-5 h-5 text-player-accent flex-shrink-0" />
+                      <span className="text-player-text-secondary text-sm">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <PlayerButton size="lg" className="w-full text-sm mb-4" variant="secondary">
+                  Empezar gratis
+                </PlayerButton>
+              </div>
+
+              {/* Premium Plan */}
+              <div className="bg-gradient-to-br from-player-bg-secondary to-player-bg-primary border-2 border-player-accent rounded-3xl p-8 md:p-12 relative shadow-2xl transform scale-105">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-player-accent text-black px-6 py-2 rounded-full font-bold text-sm">
+                    MEJOR VALOR DE MÉXICO
+                  </span>
+                </div>
+                
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-white mb-4">Plan Premium</h2>
+                  <div className="flex items-baseline justify-center gap-2 mb-4">
+                    <span className="text-7xl font-bold text-player-accent">$199</span>
+                    <div className="text-left">
+                      <div className="text-xl text-player-text-secondary">MXN</div>
+                      <div className="text-lg text-player-text-secondary">/mes</div>
+                    </div>
+                  </div>
+                  <p className="text-player-text-secondary">
+                    Menos de lo que gastas en pelotas al mes
+                  </p>
+                </div>
+
+                {/* Features List */}
+                <div className="space-y-4 mb-8">
+                  {[
+                    { feature: "Análisis ilimitados con IA", highlight: true },
+                    { feature: "Padel IQ Score personalizado", highlight: true },
+                    { feature: "32 puntos biomecánicos analizados", highlight: false },
+                    { feature: "Planes de entrenamiento personalizados", highlight: false },
+                    { feature: "Tracking de progreso detallado", highlight: false },
+                    { feature: "Análisis de rivales", highlight: false },
+                    { feature: "Coach virtual 24/7", highlight: false },
+                    { feature: "Acceso a torneos y rankings", highlight: false },
+                    { feature: "Comunidad de jugadores", highlight: false },
+                    { feature: "Estadísticas avanzadas", highlight: false },
+                    { feature: "Soporte prioritario", highlight: false },
+                    { feature: "Actualizaciones automáticas", highlight: false }
+                  ].map((item, index) => (
+                    <div key={index} className={`flex items-center gap-3 ${item.highlight ? 'bg-player-accent/10 p-3 rounded-lg' : ''}`}>
+                      <div className="w-5 h-5 bg-player-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckIcon className="w-3 h-3 text-black" />
+                      </div>
+                      <span className={`${item.highlight ? 'text-white font-medium' : 'text-player-text-secondary'}`}>
+                        {item.feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Beta */}
+                <PlayerButton size="lg" className="w-full text-lg mb-4 bg-player-accent hover:bg-player-accent/90 text-black font-bold relative animate-pulse">
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                    BETA
+                  </span>
+                  <RocketIcon className="w-5 h-5 inline-block mr-2" />
+                  Solicitar acceso beta GRATUITO
+                </PlayerButton>
+                <p className="text-center text-player-text-secondary text-sm">
+                  Acceso inmediato • Gratis durante beta • Feedback directo con creadores
                 </p>
               </div>
-
-              {/* Features List */}
-              <div className="space-y-4 mb-8">
-                {[
-                  { feature: "Análisis ilimitados con IA", highlight: true },
-                  { feature: "Padel IQ Score personalizado", highlight: true },
-                  { feature: "32 puntos biomecánicos analizados", highlight: false },
-                  { feature: "Planes de entrenamiento personalizados", highlight: false },
-                  { feature: "Tracking de progreso detallado", highlight: false },
-                  { feature: "Análisis de rivales", highlight: false },
-                  { feature: "Coach virtual 24/7", highlight: false },
-                  { feature: "Acceso a torneos y rankings", highlight: false },
-                  { feature: "Comunidad de jugadores", highlight: false },
-                  { feature: "Estadísticas avanzadas", highlight: false },
-                  { feature: "Soporte prioritario", highlight: false },
-                  { feature: "Actualizaciones automáticas", highlight: false }
-                ].map((item, index) => (
-                  <div key={index} className={`flex items-center gap-3 ${item.highlight ? 'bg-player-accent/10 p-3 rounded-lg' : ''}`}>
-                    <div className="w-5 h-5 bg-player-accent rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-black text-sm font-bold">✓</span>
-                    </div>
-                    <span className={`${item.highlight ? 'text-white font-medium' : 'text-player-text-secondary'}`}>
-                      {item.feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA Beta */}
-              <PlayerButton size="lg" className="w-full text-lg mb-4 bg-player-accent hover:bg-player-accent/90 text-black font-bold relative animate-pulse">
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
-                  BETA
-                </span>
-                🚀 Solicitar acceso beta GRATUITO
-              </PlayerButton>
-              <p className="text-center text-player-text-secondary text-sm">
-                Acceso inmediato • Gratis durante beta • Feedback directo con creadores
-              </p>
             </div>
 
             {/* Trust indicators */}
             <div className="flex flex-wrap justify-center gap-8 mt-12 text-sm text-player-text-secondary">
               <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
+                <CheckIcon className="w-4 h-4 text-green-400" />
                 <span>14 días gratis</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
+                <CheckIcon className="w-4 h-4 text-green-400" />
                 <span>Sin tarjeta de crédito</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
+                <CheckIcon className="w-4 h-4 text-green-400" />
                 <span>Cancela cuando quieras</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
+                <CheckIcon className="w-4 h-4 text-green-400" />
                 <span>Garantía 30 días</span>
               </div>
             </div>
@@ -178,25 +236,32 @@ export default function PrecioPage() {
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
                 TRADICIONAL
               </div>
-              <div className="text-4xl mb-4">👨‍🏫</div>
+              <div className="mb-4">
+                <svg className="w-16 h-16 mx-auto text-red-400" viewBox="0 0 24 24" fill="none">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" strokeWidth="2"/>
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-white mb-4">Entrenador Personal</h3>
               <div className="text-3xl font-bold text-red-400 mb-4">$800-1500</div>
               <div className="text-sm text-player-text-secondary mb-6">por sesión</div>
               <ul className="space-y-3 text-sm text-player-text-secondary text-left">
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">×</span>
+                  <span className="text-red-400">•</span>
                   <span>Solo cuando está disponible</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">×</span>
+                  <span className="text-red-400">•</span>
                   <span>Feedback subjetivo</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">×</span>
+                  <span className="text-red-400">•</span>
                   <span>Sin análisis de datos</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">×</span>
+                  <span className="text-red-400">•</span>
                   <span>Caro a largo plazo</span>
                 </li>
               </ul>
@@ -207,25 +272,31 @@ export default function PrecioPage() {
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-player-accent text-black px-3 py-1 rounded-full text-sm font-bold">
                 PADELYZER
               </div>
-              <div className="text-4xl mb-4">🤖</div>
+              <div className="mb-4">
+                <svg className="w-16 h-16 mx-auto text-player-accent" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-white mb-4">IA + Coach Virtual</h3>
               <div className="text-3xl font-bold text-player-accent mb-4">$199</div>
               <div className="text-sm text-player-text-secondary mb-6">por mes</div>
               <ul className="space-y-3 text-sm text-left">
                 <li className="flex items-start gap-2">
-                  <span className="text-player-accent">✓</span>
+                  <CheckIcon className="w-4 h-4 text-player-accent flex-shrink-0" />
                   <span className="text-white">Disponible 24/7</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-player-accent">✓</span>
+                  <CheckIcon className="w-4 h-4 text-player-accent flex-shrink-0" />
                   <span className="text-white">Análisis objetivo con IA</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-player-accent">✓</span>
+                  <CheckIcon className="w-4 h-4 text-player-accent flex-shrink-0" />
                   <span className="text-white">32 puntos de datos</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-player-accent">✓</span>
+                  <CheckIcon className="w-4 h-4 text-player-accent flex-shrink-0" />
                   <span className="text-white">ROI demostrable</span>
                 </li>
               </ul>
@@ -236,25 +307,33 @@ export default function PrecioPage() {
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">
                 ACADEMIA
               </div>
-              <div className="text-4xl mb-4">🏫</div>
+              <div className="mb-4">
+                <svg className="w-16 h-16 mx-auto text-orange-400" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 21h18" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M4 21V7l8-4v18" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M20 21V11l-8-4" stroke="currentColor" strokeWidth="2"/>
+                  <rect x="9" y="9" width="4" height="4" stroke="currentColor" strokeWidth="2"/>
+                  <rect x="14" y="14" width="4" height="4" stroke="currentColor" strokeWidth="2"/>
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-white mb-4">Academia de Pádel</h3>
               <div className="text-3xl font-bold text-orange-400 mb-4">$2000+</div>
               <div className="text-sm text-player-text-secondary mb-6">por mes</div>
               <ul className="space-y-3 text-sm text-player-text-secondary text-left">
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-400">×</span>
+                  <span className="text-orange-400">•</span>
                   <span>Horarios fijos</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-400">×</span>
+                  <span className="text-orange-400">•</span>
                   <span>Grupos grandes</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-400">×</span>
+                  <span className="text-orange-400">•</span>
                   <span>Atención limitada</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-400">×</span>
+                  <span className="text-orange-400">•</span>
                   <span>Sin seguimiento individual</span>
                 </li>
               </ul>
@@ -332,7 +411,7 @@ export default function PrecioPage() {
       <section className="py-20 bg-player-bg-secondary">
         <div className="container text-center">
           <div className="max-w-4xl mx-auto">
-            <div className="text-6xl mb-8">🛡️</div>
+            <ShieldIcon className="w-16 h-16 mb-8 text-player-accent mx-auto" />
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-player-accent">Garantía total</span> de 30 días
             </h2>
@@ -343,24 +422,29 @@ export default function PrecioPage() {
             
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
-                <div className="text-3xl mb-3">💵</div>
+                <svg className="w-12 h-12 mb-3 mx-auto text-player-accent" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M3 10h18" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M7 15h4" stroke="currentColor" strokeWidth="2"/>
+                </svg>
                 <h3 className="font-bold text-white mb-2">100% Reembolso</h3>
                 <p className="text-player-text-secondary text-sm">Dinero de vuelta completo</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl mb-3">⚡</div>
+                <TrendIcon className="w-12 h-12 mb-3 mx-auto text-player-accent" />
                 <h3 className="font-bold text-white mb-2">Proceso Rápido</h3>
                 <p className="text-player-text-secondary text-sm">Reembolso en 24-48 horas</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl mb-3">🤝</div>
+                <HandshakeIcon className="w-12 h-12 mb-3 mx-auto text-player-accent" />
                 <h3 className="font-bold text-white mb-2">Sin Preguntas</h3>
                 <p className="text-player-text-secondary text-sm">No pedimos explicaciones</p>
               </div>
             </div>
 
             <PlayerButton size="lg" className="text-lg px-8 py-4">
-              🚀 Empezar con garantía total
+              <RocketIcon className="w-5 h-5 inline-block mr-2" />
+              Empezar con garantía total
             </PlayerButton>
           </div>
         </div>
@@ -370,7 +454,8 @@ export default function PrecioPage() {
       <section className="py-20 bg-gradient-to-b from-player-bg-primary to-player-bg-secondary">
         <div className="container text-center">
           <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
-            ⚡ ÚLTIMAS HORAS - BETA LIMITADO
+            <TrendIcon className="w-4 h-4 inline-block mr-2" />
+            ÚLTIMAS HORAS - BETA LIMITADO
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             ¿Listo para tener los <span className="text-player-accent">superpoderes</span> antes que nadie?
@@ -385,10 +470,12 @@ export default function PrecioPage() {
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
                 BETA
               </span>
-              🚀 Solicitar acceso beta AHORA
+              <RocketIcon className="w-5 h-5 inline-block mr-2" />
+              Solicitar acceso beta AHORA
             </PlayerButton>
             <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
-              ▶️ Ver demo del beta
+              <VideoIcon className="w-5 h-5 inline-block mr-2" />
+              Ver demo del beta
             </PlayerButton>
           </div>
 
