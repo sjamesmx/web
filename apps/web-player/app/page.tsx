@@ -80,131 +80,94 @@ export default function HomePage() {
         <div className="relative z-10 container pt-24 pb-12">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-              {/* Content */}
-              <div>
-                <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-6 animate-pulse">
+              {/* Content - Simplified */}
+              <div className="max-w-2xl">
+                <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-8 animate-pulse">
                   <RocketIcon className="w-4 h-4 inline mr-2" />
                   BETA EXCLUSIVO - ACCESO LIMITADO
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+                <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
                   Tu mejor versión en el pádel
                   <span className="text-[#B8FF00]"> está a un clic</span>
                 </h1>
-                <p className="text-xl text-[#94A3B8] mb-8">
+                
+                <p className="text-xl text-[#94A3B8] mb-12 leading-relaxed">
                   La tecnología que los pros usan, ahora en tu bolsillo.
                   Únete al beta exclusivo antes que nadie.
                 </p>
 
-                {/* Beta urgency box */}
-                <div className="relative bg-player-bg-secondary/50 backdrop-blur-md border border-player-accent/30 rounded-2xl p-6 mb-8 max-w-md overflow-hidden group hover:border-player-accent/50 transition-all duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-br from-player-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <h3 className="text-white font-bold text-lg flex items-center gap-2">
-                          <RocketIcon className="w-5 h-5 text-player-accent" />
-                          Acceso Beta Limitado
-                        </h3>
-                        <p className="text-player-text-secondary text-sm">
-                          Solo para los primeros 1000 jugadores
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-4xl font-bold text-player-accent">927</p>
-                        <p className="text-player-text-secondary text-sm">lugares disponibles</p>
-                      </div>
+                {/* Simplified Beta indicator */}
+                <div className="bg-player-bg-secondary/30 backdrop-blur-md border border-player-accent/20 rounded-2xl p-6 mb-12 max-w-md">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="text-white font-bold text-base flex items-center gap-2">
+                        <TargetIcon className="w-5 h-5 text-player-accent" />
+                        Acceso Beta Limitado
+                      </h3>
+                      <p className="text-player-text-secondary text-sm">
+                        Solo para los primeros 1000 jugadores
+                      </p>
                     </div>
-                    
-                    <div className="bg-player-bg-primary/50 rounded-full h-3 overflow-hidden">
-                      <div className="bg-gradient-to-r from-red-500 to-player-accent h-full rounded-full transition-all duration-1000" style={{width: '73%'}}></div>
+                    <div className="text-right">
+                      <p className="text-3xl font-bold text-player-accent">927</p>
+                      <p className="text-player-text-secondary text-xs">disponibles</p>
                     </div>
-                    <p className="text-player-text-secondary text-xs mt-2">73% completado</p>
+                  </div>
+                  
+                  {/* Corrected progress bar: 73 of 1000 = 7.3% */}
+                  <div className="bg-player-bg-primary/50 rounded-full h-2 overflow-hidden mb-2">
+                    <div className="bg-gradient-to-r from-player-accent to-green-400 h-full rounded-full transition-all duration-1000" style={{width: '7.3%'}}></div>
+                  </div>
+                  <div className="flex justify-between text-xs text-player-text-secondary">
+                    <span>73 confirmados</span>
+                    <span>927 disponibles</span>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <PlayerButton size="lg" className="text-lg px-8 py-4 relative group overflow-hidden">
-                    <span className="absolute inset-0 bg-gradient-to-r from-player-accent/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
-                      BETA
-                    </span>
-                    <span className="relative flex items-center gap-2">
-                      <RocketIcon className="w-5 h-5" /> Solicitar acceso exclusivo
-                    </span>
-                  </PlayerButton>
-                  <PlayerButton variant="secondary" size="lg" className="text-lg px-8 py-4">
-                    <span className="flex items-center gap-2">
-                      <VideoIcon className="w-5 h-5" /> Ver demo del beta
-                    </span>
-                  </PlayerButton>
-                </div>
-
-                {/* Trust indicators BETA */}
-                <div className="flex flex-wrap gap-6 text-sm text-player-text-secondary">
+                {/* Minimal trust indicators */}
+                <div className="flex flex-wrap gap-8 text-sm text-player-text-secondary">
                   <span className="flex items-center gap-2">
-                    <RocketIcon className="w-4 h-4" /> <span className="text-white">Beta exclusivo</span>
+                    <CommunityIcon className="w-4 h-4 text-player-accent" /> 
+                    <span className="text-white">73</span> beta testers activos
                   </span>
                   <span className="flex items-center gap-2">
-                    <CommunityIcon className="w-4 h-4" /> <span className="text-white">73</span> beta testers activos
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <CheckIcon className="w-4 h-4 text-player-accent" /> Quedan <span className="text-player-accent font-bold">27 lugares</span>
+                    <TrendIcon className="w-4 h-4 text-player-accent" /> 
+                    <span className="text-white">89%</span> mejoran en 2 semanas
                   </span>
                 </div>
               </div>
 
-              {/* Floating Stats Section */}
+              {/* Visual Focus - Simplified */}
               <div className="relative lg:justify-self-end">
                 <div className="relative w-full h-[500px] mx-auto flex items-center justify-center">
                   
-                  {/* Central visual focus */}
-                  <div className="w-80 h-80 rounded-full border-2 border-player-accent/20 flex items-center justify-center">
-                    <div className="w-60 h-60 rounded-full border border-player-accent/30 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-6xl font-bold text-player-accent mb-2">AI</div>
-                        <div className="text-white text-lg">Powered</div>
-                      </div>
+                  {/* Central AI focus - more minimal */}
+                  <div className="w-72 h-72 rounded-full border border-player-accent/20 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-7xl font-bold text-player-accent mb-3">AI</div>
+                      <div className="text-white text-xl font-light">Powered</div>
+                      <div className="text-player-text-secondary text-sm mt-2">Análisis en tiempo real</div>
                     </div>
                   </div>
                   
-                  {/* Floating stats with glassmorphism */}
-                  <div className="absolute top-10 left-10 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float">
+                  {/* Minimal floating stats - only 2 key ones */}
+                  <div className="absolute top-16 left-16 bg-player-bg-primary/60 backdrop-blur-md border border-player-accent/20 px-4 py-3 rounded-xl shadow-lg animate-float">
                     <div className="flex items-center gap-3">
-                      <ChartIcon className="w-5 h-5 text-player-accent" />
+                      <ChartIcon className="w-4 h-4 text-player-accent" />
                       <div>
                         <p className="text-xs text-player-text-secondary">Precisión</p>
-                        <p className="text-lg font-bold text-white">+32%</p>
+                        <p className="text-base font-bold text-white">+32%</p>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="absolute bottom-10 right-10 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float-delayed">
+                  <div className="absolute bottom-16 right-16 bg-player-bg-primary/60 backdrop-blur-md border border-player-accent/20 px-4 py-3 rounded-xl shadow-lg animate-float-delayed">
                     <div className="flex items-center gap-3">
-                      <TargetIcon className="w-5 h-5 text-player-accent" />
-                      <div>
-                        <p className="text-xs text-player-text-secondary">Errores</p>
-                        <p className="text-lg font-bold text-white">-45%</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-32 right-16 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float">
-                    <div className="flex items-center gap-3">
-                      <AIBrainIcon className="w-5 h-5 text-player-accent" />
+                      <AIBrainIcon className="w-4 h-4 text-player-accent" />
                       <div>
                         <p className="text-xs text-player-text-secondary">IQ Score</p>
-                        <p className="text-lg font-bold text-white">84.7</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-32 left-16 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float-delayed">
-                    <div className="flex items-center gap-3">
-                      <RocketIcon className="w-5 h-5 text-player-accent" />
-                      <div>
-                        <p className="text-xs text-player-text-secondary">Progreso</p>
-                        <p className="text-lg font-bold text-white">+67%</p>
+                        <p className="text-base font-bold text-white">84.7</p>
                       </div>
                     </div>
                   </div>
