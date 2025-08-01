@@ -1,4 +1,7 @@
 {
+  "buildCommand": "cd ../.. && turbo run build --filter=@padelyzer/web-player",
+  "installCommand": "cd ../.. && npm install",
+  "outputDirectory": ".next",
   "rewrites": [
     {
       "source": "/inicio",
