@@ -22,14 +22,14 @@ export default function PadelBalls3D() {
 
     // Ball class
     class Ball {
-      x: number;
-      y: number;
-      z: number;
-      vx: number;
-      vy: number;
-      vz: number;
+      x: number = 0;
+      y: number = 0;
+      z: number = 0;
+      vx: number = 0;
+      vy: number = 0;
+      vz: number = 0;
       radius: number;
-      color: string;
+      color: string = '#B8FF00';
 
       constructor() {
         this.radius = 15 + Math.random() * 10;
