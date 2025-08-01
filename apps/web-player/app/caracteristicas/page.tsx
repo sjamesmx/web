@@ -89,10 +89,10 @@ export default function CaracteristicasPage() {
                     <TargetIcon className="w-4 h-4" />
                     Acceso Beta Limitado
                   </p>
-                  <p className="text-player-text-secondary text-xs">Solo primeros 100 jugadores</p>
+                  <p className="text-player-text-secondary text-xs">Solo primeros 1000 jugadores</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-3xl font-bold text-player-accent">27</p>
+                  <p className="text-3xl font-bold text-player-accent">927</p>
                   <p className="text-player-text-secondary text-xs">lugares restantes</p>
                 </div>
               </div>
@@ -413,7 +413,7 @@ export default function CaracteristicasPage() {
             ¿Listo para tener los <span className="text-player-accent">superpoderes</span> antes que nadie?
           </h2>
           <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
-            Todas estas características ya están funcionando para 73 beta testers. <strong className="text-white">Solo quedan 27 lugares</strong> para el acceso exclusivo.
+            Todas estas características ya están funcionando para 73 beta testers. <strong className="text-white">Solo quedan 927 lugares</strong> para el acceso exclusivo.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

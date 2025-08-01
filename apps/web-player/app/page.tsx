@@ -3,7 +3,7 @@
 import { PlayerButton } from '@padelyzer/ui';
 import { Logo } from '@padelyzer/ui';
 import { useState, useEffect } from 'react';
-import PadelBalls3D from '../components/PadelBalls3D';
+import PadelBallsGrid3D from '../components/PadelBallsGrid3D';
 import MobileMenu from '../components/MobileMenu';
 import { 
   AnalyticsIcon, 
@@ -70,6 +70,9 @@ export default function HomePage() {
         {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-player-bg-primary via-player-bg-primary to-player-bg-secondary"></div>
         
+        {/* 3D Padel Balls Background Animation */}
+        <PadelBallsGrid3D />
+        
         {/* Floating elements */}
         <div className="absolute top-20 right-10 w-20 h-20 bg-player-accent/10 rounded-full animate-pulse"></div>
         <div className="absolute bottom-32 left-10 w-32 h-32 bg-player-accent/5 rounded-full animate-pulse delay-300"></div>
@@ -104,11 +107,11 @@ export default function HomePage() {
                           Acceso Beta Limitado
                         </h3>
                         <p className="text-player-text-secondary text-sm">
-                          Solo para los primeros 100 jugadores
+                          Solo para los primeros 1000 jugadores
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-4xl font-bold text-player-accent">27</p>
+                        <p className="text-4xl font-bold text-player-accent">927</p>
                         <p className="text-player-text-secondary text-sm">lugares disponibles</p>
                       </div>
                     </div>
@@ -151,10 +154,19 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* 3D Balls Background */}
+              {/* Floating Stats Section */}
               <div className="relative lg:justify-self-end">
-                <div className="relative w-full h-[500px] mx-auto">
-                  <PadelBalls3D />
+                <div className="relative w-full h-[500px] mx-auto flex items-center justify-center">
+                  
+                  {/* Central visual focus */}
+                  <div className="w-80 h-80 rounded-full border-2 border-player-accent/20 flex items-center justify-center">
+                    <div className="w-60 h-60 rounded-full border border-player-accent/30 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-6xl font-bold text-player-accent mb-2">AI</div>
+                        <div className="text-white text-lg">Powered</div>
+                      </div>
+                    </div>
+                  </div>
                   
                   {/* Floating stats with glassmorphism */}
                   <div className="absolute top-10 left-10 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float">
@@ -173,6 +185,26 @@ export default function HomePage() {
                       <div>
                         <p className="text-xs text-player-text-secondary">Errores</p>
                         <p className="text-lg font-bold text-white">-45%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute top-32 right-16 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float">
+                    <div className="flex items-center gap-3">
+                      <AIBrainIcon className="w-5 h-5 text-player-accent" />
+                      <div>
+                        <p className="text-xs text-player-text-secondary">IQ Score</p>
+                        <p className="text-lg font-bold text-white">84.7</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-32 left-16 bg-player-bg-primary/80 backdrop-blur-md border border-player-accent/30 px-4 py-3 rounded-xl shadow-lg animate-float-delayed">
+                    <div className="flex items-center gap-3">
+                      <RocketIcon className="w-5 h-5 text-player-accent" />
+                      <div>
+                        <p className="text-xs text-player-text-secondary">Progreso</p>
+                        <p className="text-lg font-bold text-white">+67%</p>
                       </div>
                     </div>
                   </div>

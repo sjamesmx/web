@@ -62,10 +62,10 @@ export default function DescargarPage() {
               <div className="flex items-center justify-between mb-4">
                 <div className="text-left">
                   <h3 className="text-white font-bold text-lg flex items-center gap-2"><TargetIcon className="w-5 h-5 text-player-accent" /> Acceso Beta Limitado</h3>
-                  <p className="text-player-text-secondary text-sm">Solo primeros 100 jugadores</p>
+                  <p className="text-player-text-secondary text-sm">Solo primeros 1000 jugadores</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-5xl font-bold text-player-accent">27</p>
+                  <p className="text-4xl font-bold text-player-accent">927</p>
                   <p className="text-player-text-secondary text-sm">lugares restantes</p>
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default function DescargarPage() {
               </div>
               <div className="flex justify-between text-xs text-player-text-secondary">
                 <span>73 confirmados</span>
-                <span>27 disponibles</span>
+                <span>927 disponibles</span>
               </div>
             </div>
 

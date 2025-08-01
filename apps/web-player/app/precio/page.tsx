@@ -54,15 +54,15 @@ export default function PrecioPage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-8 animate-pulse">
               <RocketIcon className="w-4 h-4 inline-block mr-2" />
-              BETA EXCLUSIVO - ACCESO GRATIS PARA PRIMEROS 100
+              BETA EXCLUSIVO - ACCESO GRATIS PARA PRIMEROS 1000
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Acceso <span className="text-player-accent">gratuito</span> durante el beta.
             </h1>
             <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
-              Los primeros 100 jugadores obtienen acceso completo <strong className="text-white">sin costo</strong> mientras estamos en beta. 
-              Solo quedan <span className="text-player-accent font-bold">27 lugares</span>.
+              Los primeros 1000 jugadores obtienen acceso completo <strong className="text-white">sin costo</strong> mientras estamos en beta. 
+              Solo quedan <span className="text-player-accent font-bold">927 lugares</span>.
             </p>
             
             {/* Beta urgency box */}
@@ -73,10 +73,10 @@ export default function PrecioPage() {
                     <TargetIcon className="w-5 h-5" />
                     Acceso Beta Gratuito
                   </h3>
-                  <p className="text-player-text-secondary text-sm">Solo primeros 100 jugadores</p>
+                  <p className="text-player-text-secondary text-sm">Solo primeros 1000 jugadores</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-5xl font-bold text-player-accent">27</p>
+                  <p className="text-4xl font-bold text-player-accent">927</p>
                   <p className="text-player-text-secondary text-sm">lugares restantes</p>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export default function PrecioPage() {
               </div>
               <div className="flex justify-between text-xs text-player-text-secondary">
                 <span>73 confirmados</span>
-                <span>27 disponibles</span>
+                <span>927 disponibles</span>
               </div>
             </div>
 
@@ -134,7 +134,7 @@ export default function PrecioPage() {
 
               {/* Premium Plan */}
               <div className="bg-gradient-to-br from-player-bg-secondary to-player-bg-primary border-2 border-player-accent rounded-3xl p-8 md:p-12 relative shadow-2xl transform scale-105">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
                   <span className="bg-player-accent text-black px-6 py-2 rounded-full font-bold text-sm">
                     MEJOR VALOR DE MÉXICO
                   </span>
@@ -461,7 +461,7 @@ export default function PrecioPage() {
             ¿Listo para tener los <span className="text-player-accent">superpoderes</span> antes que nadie?
           </h2>
           <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
-            Solo 27 lugares restantes para acceso beta <strong className="text-white">completamente gratuito</strong>. 
+            Solo 927 lugares restantes para acceso beta <strong className="text-white">completamente gratuito</strong>. 
             Una vez llenos, lista de espera hasta 2025.
           </p>
           
@@ -480,7 +480,7 @@ export default function PrecioPage() {
           </div>
 
           <p className="text-player-text-secondary text-sm">
-            73 beta testers activos • <span className="text-player-accent">89% mejoran en 2 semanas</span> • 27 lugares disponibles
+            73 beta testers activos • <span className="text-player-accent">89% mejoran en 2 semanas</span> • 927 lugares disponibles
           </p>
         </div>
       </section>
