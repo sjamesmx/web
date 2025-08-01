@@ -71,10 +71,10 @@ export default function RouterPage() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Players Card */}
           <div
-            className={`group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-green-500/50 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} 
+            className={`group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-[#C6FF00]/50 hover:shadow-2xl hover:shadow-[#C6FF00]/20 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} 
             style={{transitionDelay: '200ms'}}>
             {/* Icon */}
-            <div className="w-20 h-20 bg-gradient-to-br from-lime-500 to-lime-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
+            <div className="w-20 h-20 bg-gradient-to-br from-[#C6FF00] to-[#B8E600] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
               <Image 
                 src="/Padelyzer-Isotipo-Blanco.png" 
                 alt="Padelyzer" 
@@ -84,7 +84,7 @@ export default function RouterPage() {
               />
             </div>
 
-            <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">
+            <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-[#C6FF00] transition-colors">
               Soy Jugador
             </h2>
             
@@ -94,24 +94,24 @@ export default function RouterPage() {
 
             <ul className="space-y-3 mb-8">
               <li className="flex items-center gap-3 text-gray-300">
-                <div className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <div className="w-5 h-5 bg-[#C6FF00]/20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-[#C6FF00]" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <span>Reserva canchas al instante</span>
               </li>
               <li className="flex items-center gap-3 text-gray-300">
-                <div className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <div className="w-5 h-5 bg-[#C6FF00]/20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-[#C6FF00]" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <span>Conecta con otros jugadores</span>
               </li>
               <li className="flex items-center gap-3 text-gray-300">
-                <div className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <div className="w-5 h-5 bg-[#C6FF00]/20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-[#C6FF00]" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </div>
@@ -124,7 +124,7 @@ export default function RouterPage() {
             <div className="flex items-center justify-between mt-6">
               <button
                 onClick={() => handleSelection('player')}
-                className="bg-lime-500 hover:bg-lime-600 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-lime-500/50"
+                className="bg-[#C6FF00] hover:bg-[#B8E600] text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#C6FF00]/50"
               >
                 Ir a la app
               </button>
@@ -204,7 +204,7 @@ export default function RouterPage() {
         <div className={`text-center mt-12 text-gray-400 transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} style={{transitionDelay: '600ms'}}>
           <p>
             ¿Necesitas ayuda? Contáctanos en{' '}
-            <a href="mailto:info@padelyzer.com" className="text-white hover:text-green-400 transition-colors">
+            <a href="mailto:info@padelyzer.com" className="text-white hover:text-[#C6FF00] transition-colors">
               info@padelyzer.com
             </a>
           </p>
