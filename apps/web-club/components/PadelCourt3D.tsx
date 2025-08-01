@@ -2,12 +2,12 @@
 
 export default function PadelCourt3D() {
   return (
-    <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="relative w-[600px] h-[400px] transform-gpu perspective-1000">
+    <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden opacity-30">
+      <div className="relative w-[800px] h-[600px] transform-gpu" style={{ perspective: '1500px' }}>
         {/* 3D Padel Court Container */}
-        <div className="absolute inset-0 transform-style-preserve-3d animate-rotate-slow">
+        <div className="absolute inset-0 transform-style-preserve-3d animate-rotate-slow" style={{ transform: 'translateZ(-200px)' }}>
           {/* Court Floor */}
-          <div className="absolute w-full h-full bg-gradient-to-br from-blue-600/20 to-blue-800/20 backdrop-blur-sm transform rotateX-60 border-2 border-blue-400/30">
+          <div className="absolute w-full h-full bg-gradient-to-br from-blue-600/10 to-blue-800/10 backdrop-blur-sm border-2 border-blue-400/20" style={{ transform: 'rotateX(70deg) translateZ(-100px)' }}>
             {/* Court Lines */}
             <div className="absolute inset-0">
               {/* Service lines */}
@@ -24,22 +24,22 @@ export default function PadelCourt3D() {
           </div>
           
           {/* Back Glass Wall */}
-          <div className="absolute w-full h-[200px] bg-gradient-to-t from-blue-400/10 to-transparent backdrop-blur-md transform rotateX-90 translateZ-100 border border-blue-300/20">
+          <div className="absolute w-full h-[150px] bg-gradient-to-t from-blue-400/5 to-transparent backdrop-blur-sm border border-blue-300/10" style={{ transform: 'rotateX(90deg) translateZ(-75px)' }}>
             <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent"></div>
           </div>
           
           {/* Front Glass Wall */}
-          <div className="absolute w-full h-[200px] bottom-0 bg-gradient-to-b from-blue-400/10 to-transparent backdrop-blur-md transform rotateX-90 translateZ-100 translateY-200 border border-blue-300/20">
+          <div className="absolute w-full h-[150px] bottom-0 bg-gradient-to-b from-blue-400/5 to-transparent backdrop-blur-sm border border-blue-300/10" style={{ transform: 'rotateX(90deg) translateZ(75px) translateY(150px)' }}>
             <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent"></div>
           </div>
           
           {/* Left Glass Wall */}
-          <div className="absolute left-0 h-full w-[200px] bg-gradient-to-r from-blue-400/10 to-transparent backdrop-blur-md transform rotateY-90 translateZ-100 border border-blue-300/20">
+          <div className="absolute left-0 h-full w-[150px] bg-gradient-to-r from-blue-400/5 to-transparent backdrop-blur-sm border border-blue-300/10" style={{ transform: 'rotateY(90deg) translateZ(-75px)' }}>
             <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent"></div>
           </div>
           
           {/* Right Glass Wall */}
-          <div className="absolute right-0 h-full w-[200px] bg-gradient-to-l from-blue-400/10 to-transparent backdrop-blur-md transform rotateY-90 translateZ-100 translateX-200 border border-blue-300/20">
+          <div className="absolute right-0 h-full w-[150px] bg-gradient-to-l from-blue-400/5 to-transparent backdrop-blur-sm border border-blue-300/10" style={{ transform: 'rotateY(90deg) translateZ(75px) translateX(150px)' }}>
             <div className="absolute inset-0 bg-gradient-to-l from-white/5 to-transparent"></div>
           </div>
           

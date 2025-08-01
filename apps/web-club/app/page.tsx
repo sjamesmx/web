@@ -509,11 +509,12 @@ export default function HomePage() {
 
                 <ClubButton 
                   size="lg" 
-                  className={`w-full text-lg ${
+                  className={`w-full text-lg font-semibold ${
                     plan.highlight 
-                      ? 'bg-white text-club-accent hover:bg-gray-100' 
+                      ? 'bg-white hover:bg-gray-100' 
                       : ''
                   }`}
+                  style={plan.highlight ? { color: '#3B82F6' } : {}}
                   variant={plan.highlight ? 'secondary' : 'primary'}
                 >
                   {plan.cta}

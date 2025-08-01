@@ -36,15 +36,23 @@ export default function PreciosPage() {
               <a href="/precios" className="text-club-accent font-medium">
                 Precios
               </a>
+              <a href="/vs-playtomic" className="text-club-text-secondary hover:text-club-accent transition-colors">
+                vs Playtomic
+              </a>
+              <a href="/recursos" className="text-club-text-secondary hover:text-club-accent transition-colors">
+                Recursos
+              </a>
             </div>
 
             <div className="flex items-center gap-4">
               <ClubButton variant="ghost" size="sm" className="hidden md:block">
                 Iniciar Sesión
               </ClubButton>
-              <ClubButton size="sm" className="hidden md:block">
-                Agenda Demo
-              </ClubButton>
+              <a href="/demo">
+                <ClubButton size="sm" className="hidden md:block">
+                  Agenda Demo
+                </ClubButton>
+              </a>
               <MobileMenu />
             </div>
           </div>
@@ -401,7 +409,7 @@ export default function PreciosPage() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg">
+            <table className="w-full bg-club-glass-medium backdrop-blur-sm rounded-2xl shadow-glass">
               <thead>
                 <tr className="border-b border-club-border">
                   <th className="text-left p-6 font-bold text-club-text-primary">Características</th>
@@ -520,7 +528,7 @@ export default function PreciosPage() {
             ].map((faq, index) => (
               <details 
                 key={index}
-                className="bg-white/90 backdrop-blur-sm border border-club-border rounded-2xl p-6 group shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-club-glass-medium backdrop-blur-sm border border-club-border rounded-2xl p-6 group shadow-glass hover:shadow-glow transition-all duration-300"
               >
                 <summary className="font-bold text-lg cursor-pointer list-none flex items-center justify-between text-club-text-primary">
                   <span>{faq.question}</span>

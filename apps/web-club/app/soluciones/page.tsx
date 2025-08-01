@@ -36,15 +36,23 @@ export default function SolucionesPage() {
               <a href="/precios" className="text-club-text-secondary hover:text-club-accent transition-colors">
                 Precios
               </a>
+              <a href="/vs-playtomic" className="text-club-text-secondary hover:text-club-accent transition-colors">
+                vs Playtomic
+              </a>
+              <a href="/recursos" className="text-club-text-secondary hover:text-club-accent transition-colors">
+                Recursos
+              </a>
             </div>
 
             <div className="flex items-center gap-4">
               <ClubButton variant="ghost" size="sm" className="hidden md:block">
                 Iniciar Sesión
               </ClubButton>
-              <ClubButton size="sm" className="hidden md:block">
-                Agenda Demo
-              </ClubButton>
+              <a href="/demo">
+                <ClubButton size="sm" className="hidden md:block">
+                  Agenda Demo
+                </ClubButton>
+              </a>
               <MobileMenu />
             </div>
           </div>
@@ -192,19 +200,19 @@ export default function SolucionesPage() {
               </p>
               
               <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-club-border">
+                <div className="bg-club-glass-medium backdrop-blur-sm rounded-xl p-6 border border-club-border">
                   <h4 className="font-bold text-club-text-primary mb-2">Ocupación en Vivo</h4>
                   <p className="text-club-text-secondary text-sm">Ve qué canchas están ocupadas, reservadas o disponibles en tiempo real</p>
                 </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-club-border">
+                <div className="bg-club-glass-medium backdrop-blur-sm rounded-xl p-6 border border-club-border">
                   <h4 className="font-bold text-club-text-primary mb-2">Ingresos del Día</h4>
                   <p className="text-club-text-secondary text-sm">Monitorea ingresos por hora, comparativas y proyecciones automáticas</p>
                 </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-club-border">
+                <div className="bg-club-glass-medium backdrop-blur-sm rounded-xl p-6 border border-club-border">
                   <h4 className="font-bold text-club-text-primary mb-2">Alertas Inteligentes</h4>
                   <p className="text-club-text-secondary text-sm">Notificaciones automáticas de cancelaciones, pagos pendientes y más</p>
                 </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-club-border">
+                <div className="bg-club-glass-medium backdrop-blur-sm rounded-xl p-6 border border-club-border">
                   <h4 className="font-bold text-club-text-primary mb-2">KPIs Automáticos</h4>
                   <p className="text-club-text-secondary text-sm">Métricas clave calculadas automáticamente: ocupación, ingresos por cancha, etc.</p>
                 </div>
@@ -380,7 +388,7 @@ export default function SolucionesPage() {
               
               <div className="space-y-4 mb-6">
                 <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
-                  <div className="w-8 h-8 bg-purple-500/80 backdrop-blur-sm text-white rounded-full flex items-center justify-center text-sm font-bold shadow-glow">500+</div>
+                  <div className="w-12 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-glow">500+</div>
                   <span className="text-club-text-primary font-medium">Participantes por liga</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
@@ -412,7 +420,7 @@ export default function SolucionesPage() {
               
               <div className="space-y-4 mb-6">
                 <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
-                  <div className="w-8 h-8 bg-orange-500/80 backdrop-blur-sm text-white rounded-full flex items-center justify-center text-sm font-bold shadow-glow">500+</div>
+                  <div className="w-12 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-glow">500+</div>
                   <span className="text-club-text-primary font-medium">Participantes por torneo</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 bg-club-glass-light backdrop-blur-sm rounded-lg border border-club-border">
