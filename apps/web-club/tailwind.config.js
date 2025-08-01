@@ -74,8 +74,11 @@ module.exports = {
           '50%': { transform: 'translateY(-10px)' },
         },
         rotateSlow: {
-          '0%': { transform: 'rotateY(0deg)' },
-          '100%': { transform: 'rotateY(360deg)' },
+          '0%': { transform: 'rotateY(0deg) rotateX(15deg)' },
+          '25%': { transform: 'rotateY(90deg) rotateX(15deg)' },
+          '50%': { transform: 'rotateY(180deg) rotateX(15deg)' },
+          '75%': { transform: 'rotateY(270deg) rotateX(15deg)' },
+          '100%': { transform: 'rotateY(360deg) rotateX(15deg)' },
         },
         pulseGlow: {
           '0%, 100%': { 

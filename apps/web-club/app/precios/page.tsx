@@ -544,35 +544,39 @@ export default function PreciosPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-b from-club-bg-secondary to-white">
-        <div className="container text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary">
-            ¿Listo para <span className="text-club-success">multiplicar tus ingresos</span>?
+      <section className="py-20 bg-gradient-to-b from-club-bg-secondary to-club-bg-primary relative">
+        <div className="container text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-club-text-primary animate-slide-up">
+            ¿Listo para <span className="text-transparent bg-clip-text bg-gradient-to-r from-club-success to-emerald-400 animate-pulse-glow">multiplicar tus ingresos</span>?
           </h2>
-          <p className="text-xl text-club-text-secondary mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-club-text-secondary mb-8 max-w-2xl mx-auto animate-slide-up">
             Únete a los clubes más exitosos de México. Garantía de ROI del 25% en 90 días.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <ClubButton size="lg" className="text-lg">
-              Agendar demo personalizada
-            </ClubButton>
-            <ClubButton variant="secondary" size="lg" className="text-lg">
-              Descargar calculadora ROI
-            </ClubButton>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-slide-up">
+            <a href="/demo">
+              <ClubButton size="lg" className="text-lg shadow-glow hover:shadow-glow-lg animate-pulse-glow">
+                Agendar demo personalizada
+              </ClubButton>
+            </a>
+            <a href="/recursos">
+              <ClubButton variant="secondary" size="lg" className="text-lg bg-club-glass-medium border-club-border-glow hover:shadow-glow">
+                Descargar calculadora ROI
+              </ClubButton>
+            </a>
           </div>
 
-          <div className="flex items-center justify-center gap-8 text-sm text-club-text-secondary">
+          <div className="flex items-center justify-center gap-8 text-sm text-club-text-secondary animate-slide-up">
             <div className="flex items-center gap-2">
-              <CheckIcon className="w-4 h-4 text-club-success" />
+              <CheckIcon className="w-4 h-4 text-club-success animate-pulse-glow" />
               <span>Setup en 24 horas</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckIcon className="w-4 h-4 text-club-success" />
+              <CheckIcon className="w-4 h-4 text-club-success animate-pulse-glow" />
               <span>Garantía de ROI</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckIcon className="w-4 h-4 text-club-success" />
+              <CheckIcon className="w-4 h-4 text-club-success animate-pulse-glow" />
               <span>Soporte 24/7</span>
             </div>
           </div>
