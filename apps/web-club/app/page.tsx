@@ -63,8 +63,8 @@ export default function HomePage() {
           <div className="max-w-5xl">
             <div className="flex items-center gap-2 text-sm mb-6">
               <span className="bg-club-accent text-white px-3 py-1 rounded-full font-medium">APP CLUBES</span>
-              <span className="bg-club-success text-white px-3 py-1 rounded-full font-medium">NUEVO</span>
-              <span className="text-club-text-secondary">Primeros 100 clubes: 2 meses gratis</span>
+              <span className="bg-club-success text-white px-3 py-1 rounded-full font-medium">ACTUALIZADO</span>
+              <span className="text-club-text-secondary">Primeros 50 clubes: 2 meses gratis</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-club-text-primary mb-6 leading-tight">
