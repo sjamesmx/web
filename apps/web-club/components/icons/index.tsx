@@ -165,3 +165,34 @@ export const RocketIcon = ({ className = "w-6 h-6" }: { className?: string }) =>
     <path d="M9 18l3-3 3-3 6-6-3-3-6 6-3 3-3 3v3h3z" stroke="currentColor" strokeWidth="2"/>
   </svg>
 );
+
+export const PlayIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="5,3 19,12 5,21 5,3" stroke="currentColor" strokeWidth="2" fill="currentColor"/>
+  </svg>
+);
+
+export const BookIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" strokeWidth="2"/>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+);
+
+export const FileTextIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="2"/>
+    <polyline points="14,2 14,8 20,8" stroke="currentColor" strokeWidth="2"/>
+    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" strokeWidth="2"/>
+    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" strokeWidth="2"/>
+    <polyline points="10,9 8,9 8,11" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+);
+
+export const DownloadIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" strokeWidth="2"/>
+    <polyline points="7,10 12,15 17,10" stroke="currentColor" strokeWidth="2"/>
+    <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+);
