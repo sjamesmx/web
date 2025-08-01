@@ -1,0 +1,5 @@
+{
+  "buildCommand": "turbo run build --filter=@padelyzer/web-player",
+  "outputDirectory": "apps/web-player/.next",
+  "ignoreCommand": "exit 1"
+}
