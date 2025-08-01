@@ -1,151 +1,196 @@
 'use client';
 
-import { useEffect } from 'react';
-import Cookies from 'js-cookie';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function RouterPage() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
-    // Check if user already has a preference
-    const userType = Cookies.get('padelyzer-user-type');
-    
-    if (userType === 'player') {
-      window.location.href = '/';
-    } else if (userType === 'club') {
-      window.location.href = '/pro';
-    }
+    setIsLoaded(true);
   }, []);
 
   const handleSelection = (type: 'player' | 'club') => {
-    // Save preference for 30 days
-    Cookies.set('padelyzer-user-type', type, { expires: 30 });
-    
     // Redirect based on selection
     if (type === 'player') {
-      window.location.href = '/';
+      window.location.href = 'https://padelyzer.com';
     } else {
-      window.location.href = '/pro';
+      window.location.href = 'https://clubes.padelyzer.com';
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center px-4">
-      <div className="max-w-6xl w-full">
-        <div className="text-center mb-16">
-          <div className="inline-block bg-gray-900 text-white text-sm font-bold px-4 py-2 rounded-full mb-6">
-            PADELYZER ROUTER
-          </div>
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="/Padelyzer-Logo-Negro.png"
-              alt="Padelyzer"
-              width={240}
-              height={60}
-              className="h-14 w-auto object-contain"
-              priority
-            />
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-black mb-6">
-            ¿Eres <span className="text-blue-600">jugador</span> o tienes un <span className="text-green-600">club</span>?
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-4 overflow-hidden relative">
+      {/* Background Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: `
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 50px,
+            rgba(255,255,255,0.03) 50px,
+            rgba(255,255,255,0.03) 51px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 50px,
+            rgba(255,255,255,0.03) 50px,
+            rgba(255,255,255,0.03) 51px
+          )
+        `
+      }}></div>
+
+      <div className={`relative z-10 max-w-6xl mx-auto transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* Logo */}
+        <div className="text-center mb-12">
+          <Image 
+            src="/Padelyzer-Logo-Blanco.png" 
+            alt="Padelyzer" 
+            width={200}
+            height={50}
+            className="h-16 w-auto mx-auto mb-6"
+            priority
+          />
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Bienvenido a <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Padelyzer</span>
           </h1>
-          <p className="text-gray-600 text-xl max-w-2xl mx-auto">
-            Tenemos la solución perfecta para cada perfil. Selecciona el tuyo para continuar.
+          <p className="text-xl text-gray-300">
+            La plataforma definitiva para el pádel en México
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Player Card */}
+        {/* Cards Container */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Players Card */}
           <button
             onClick={() => handleSelection('player')}
-            className="group relative bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-3xl p-10 hover:border-blue-300 hover:shadow-xl transition-all duration-300 text-left transform hover:scale-105"
-          >
-            <div className="absolute top-6 right-6">
-              <div className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                B2C
-              </div>
-            </div>
-            <div className="text-7xl mb-6">🎾</div>
-            <h2 className="text-3xl font-bold text-black mb-4">
-              Soy jugador
-            </h2>
-            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-              Quiero mejorar mi técnica y estrategia con análisis de IA personalizado
-            </p>
-            <div className="space-y-2 mb-6">
-              <div className="flex items-center gap-2 text-blue-700 text-sm">
-                <span className="text-blue-500">✓</span>
-                <span>Análisis de video con IA</span>
-              </div>
-              <div className="flex items-center gap-2 text-blue-700 text-sm">
-                <span className="text-blue-500">✓</span>
-                <span>Plan de entrenamiento personalizado</span>
-              </div>
-              <div className="flex items-center gap-2 text-blue-700 text-sm">
-                <span className="text-blue-500">✓</span>
-                <span>Desde $199 MXN/mes</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 text-blue-600 font-semibold">
-              <span>Ir a app de jugadores</span>
-              <svg 
-                className="w-5 h-5 transform group-hover:translate-x-2 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            className={`group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-green-500/50 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full text-left ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} 
+            style={{transitionDelay: '200ms'}}>
+            {/* Icon */}
+            <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
+              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
+            </div>
+
+            <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">
+              Soy Jugador
+            </h2>
+            
+            <p className="text-gray-300 mb-6 text-lg">
+              Encuentra canchas, organiza partidos, únete a torneos y mejora tu juego con nuestra app.
+            </p>
+
+            <ul className="space-y-3 mb-8">
+              <li className="flex items-center gap-3 text-gray-300">
+                <div className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span>Reserva canchas al instante</span>
+              </li>
+              <li className="flex items-center gap-3 text-gray-300">
+                <div className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span>Conecta con otros jugadores</span>
+              </li>
+              <li className="flex items-center gap-3 text-gray-300">
+                <div className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span>Participa en torneos y ligas</span>
+              </li>
+            </ul>
+
+            <div className="flex items-center justify-between">
+              <span className="text-green-400 font-semibold text-lg group-hover:underline">
+                Ir a la app →
+              </span>
+              <div className="text-sm text-gray-400">
+                +50,000 jugadores activos
+              </div>
             </div>
           </button>
 
-          {/* Club Card */}
+          {/* Clubs Card */}
           <button
             onClick={() => handleSelection('club')}
-            className="group relative bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200 rounded-3xl p-10 hover:border-green-300 hover:shadow-xl transition-all duration-300 text-left transform hover:scale-105"
-          >
-            <div className="absolute top-6 right-6">
-              <div className="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                B2B
-              </div>
-            </div>
-            <div className="text-7xl mb-6">🏢</div>
-            <h2 className="text-3xl font-bold text-black mb-4">
-              Tengo un club
-            </h2>
-            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-              Quiero digitalizar mi negocio y aumentar mis ingresos automáticamente
-            </p>
-            <div className="space-y-2 mb-6">
-              <div className="flex items-center gap-2 text-green-700 text-sm">
-                <span className="text-green-500">✓</span>
-                <span>Sistema de gestión completo</span>
-              </div>
-              <div className="flex items-center gap-2 text-green-700 text-sm">
-                <span className="text-green-500">✓</span>
-                <span>+30% más ingresos garantizado</span>
-              </div>
-              <div className="flex items-center gap-2 text-green-700 text-sm">
-                <span className="text-green-500">✓</span>
-                <span>Desde $5,999 MXN/mes</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 text-green-600 font-semibold">
-              <span>Ir a app de clubes</span>
-              <svg 
-                className="w-5 h-5 transform group-hover:translate-x-2 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            className={`group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full text-left ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} 
+            style={{transitionDelay: '400ms'}}>
+            {/* Icon */}
+            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
+              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
+            </div>
+
+            <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+              Tengo un Club
+            </h2>
+            
+            <p className="text-gray-300 mb-6 text-lg">
+              Software completo para gestionar tu club, aumentar ingresos y automatizar operaciones.
+            </p>
+
+            <ul className="space-y-3 mb-8">
+              <li className="flex items-center gap-3 text-gray-300">
+                <div className="w-5 h-5 bg-blue-500/20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span>Gestión completa del club</span>
+              </li>
+              <li className="flex items-center gap-3 text-gray-300">
+                <div className="w-5 h-5 bg-blue-500/20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span>Aumenta ingresos +30%</span>
+              </li>
+              <li className="flex items-center gap-3 text-gray-300">
+                <div className="w-5 h-5 bg-blue-500/20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span>Automatiza reservas 24/7</span>
+              </li>
+            </ul>
+
+            <div className="flex items-center justify-between">
+              <span className="text-blue-400 font-semibold text-lg group-hover:underline">
+                Ver soluciones →
+              </span>
+              <div className="text-sm text-gray-400">
+                Garantía ROI 25%
+              </div>
             </div>
           </button>
         </div>
 
-        <div className="text-center mt-16">
-          <p className="text-gray-500 text-sm">
-            Tu preferencia se guardará por 30 días • <span className="text-gray-700 font-medium">400+ clubes activos</span> • <span className="text-gray-700 font-medium">15,000+ jugadores</span>
+        {/* Footer */}
+        <div className={`text-center mt-12 text-gray-400 transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} style={{transitionDelay: '600ms'}}>
+          <p>
+            ¿Necesitas ayuda? Contáctanos en{' '}
+            <a href="mailto:info@padelyzer.com" className="text-white hover:text-green-400 transition-colors">
+              info@padelyzer.com
+            </a>
           </p>
         </div>
       </div>
